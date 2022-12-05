@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <style media="screen">
+    @import url('https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css');
+    
+    body {
+      margin: 0;
+      background: black;
+    }
+    
+    .everything {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(.6);
+      width: var(--width);
+      height: var(--height);
+      margin: 0;
+      padding: 0;
+      
+      
+      --width: 1920px;
+      --height: 1080px;
+      --font-size: 20px;
+      
+      --header-height: 125px;
+      --nav-height: 714px;
+      
+      font-family: 'NanumSquare Neo OTF', sans-serif;
+      font-size: var(--font-size);
+    }
+    
+    .everything div, a, img, header, nav, svg {
+      position: absolute;
+    }
+    
+    nav, header {
+      top: 0;
+      width: var(--width);
+      box-sizing: border-box;
+    }
+    
+    nav {
+      display: none;
+      height: var(--nav-height);
+      border-bottom: 1.5px solid rgba(0, 0, 0, .25);
+      background: white;
+      padding-top: var(--header-height);
+    }
+    
+    .border {
+      height: 100%;
+      border-left: 1px solid black;
+    }
+    
+    nav .border {
+      height: calc(var(--nav-height) - var(--header-height));
+      border-left: 1.5px solid rgba(0, 0, 0, .25);
+    }
+    
+    nav .column {
+      white-space: nowrap;
+      height: calc(var(--nav-height) - var(--header-height));
+      justify-content: flex-start;
+      transform: translateX(-50%);
+    }
+    
+    nav .column a {
+      margin-top: 1em;
+      text-align: center;
+    }
+    
+    header {
+      --bg: white;
+      --color: black;
+      
+      height: var(--header-height);
+      border-bottom: 1.5px solid var(--color);
+      color: var(--color);
+      background: var(--bg);
+      /* mix-blend-mode: difference; */
+      z-index: 1;
+      
+      transition: all 200ms;
+    }
+    
+    header.hovered, header:hover, header.slide1.hovered, header.slide1:hover {
+      --bg: white;
+      --color: black;
+    }
+    
+    header.slide1 {
+      --bg: rgba(0, 0, 0, 0);
+      --color: white;
+      transition: all 200ms;
+    }
+    
+    header img {
+      mix-blend-mode: difference;
+    }
+    
+    header:hover ~ nav, nav:hover {
+      display: block;
+    }
+    
+    .container {
+      width: var(--width);
+      height: var(--height);
+      overflow: auto;
+      scroll-snap-type: y mandatory;
+    }
+    
+    footer, section {
+      position: relative;
+      width: var(--width);
+      height: var(--height);
+      overflow: hidden;
+      scroll-snap-align: start;
+      background: white;
+      color: black;
+    }
+    
+    footer {
+      height: 255px;
+      border-top: 1.5px solid black;
+    }
+    
+    section h1, section h2 {
+      position: absolute;
+      right: 1512px;
+    }
+    
+    section h1 {
+      font-weight: 900;
+      font-size: 64px;
+      top: 173px;
+    }
+    
+    section h2 {
+      top: 233px;
+      font-size: 20px;
+      font-weight: 500;
+      color: rgba(0, 0, 0, .5);
+    }
+    
+    .flex {
+      display: flex;
+      justify-content: space-evenly;
+    }
+    
+    .flex.column {
+      flex-direction: column;
+    }
+    
+    .flex a {
+      position: relative;
+    }
+    
+    .center.x {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    
+    .center.y {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    
+    .center.x.y {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    
+    a {
+      white-space: nowrap;
+      cursor: pointer;
+    }
+    
+    h1 {
+      font-size: 64px;
+      margin: 0;
+    }
+    
+    button {
+      box-sizing: border-box;
+      border: 1px solid black;
+      border-radius: 16.5px;
+      width: 82px;
+      height: 33px;
+      margin-bottom: 14px;
+      background: white;
+      cursor: pointer;
+      display: block;
+      font-size: 18px;
+      color: black;
+    }
+    
+    button:hover {
+      background: black;
+      color: white;
+    }
+    
+    button:active {
+      color: gray;
+    }
+    
+    .pageholder, .boxholder {
+      display: flex;
+      padding-top: calc(var(--header-height) + 48px);
+      left: 451px;
+      padding-left: 58px;
+      width: calc(var(--width) - 509px);
+      height: calc(var(--height) - var(--header-height));
+      /* background: red; */
+      /* overflow: visible;
+      overflow-x: scroll; */
+      overflow: scroll;
+    }
+    
+    .cardspage {
+      position: relative !important;
+      min-width: 1356px;
+      height: 853px;
+      display: flex;
+      flex-wrap: wrap;
+      padding-right: 58px;
+      
+      gap: 45px 57px;
+    }
+    
+    .card {
+      position: relative !important;
+      width: 414px;
+      height: 405px;
+      
+      border: 1px solid black;
+      box-sizing: border-box;
+      border-top-right-radius: 50px;
+      border-bottom-left-radius: 50px;
+    }
+    
+    .scrollprompt {
+      position: absolute;
+      width: 334px;
+      height: var(--height);
+      top: 0;
+      left: 1587px;
+      background: linear-gradient(270deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0) 100%);
+      transition: all 300ms;
+    }
+    
+    .scrollprompt span {
+      position: absolute;
+      /* top: calc(50% + var(--header-height)); */
+      top: 602px;
+      transform: translate(0, -50%);
+      left: 241px;
+      font-size: 12px;
+      color: rgba(0, 0, 0, .3);
+    }
+    
+    .scrollprompt svg {
+      position: relative;
+    }
+    
+    .pageholder.scrolldone + .scrollprompt {
+      opacity: 0;
+    }
+    
+    .boxholder {
+      padding-top: calc(var(--header-height) - 1px);
+      padding-left: 0;
+      overflow: visible;
+      flex-wrap: wrap;
+      width: calc(var(--width) - 451px);
+      background: black;
+    }
+    
+    .box {
+      position: relative !important;
+      width: 489px;
+      height: 478px;
+      box-sizing: border-box;
+      border-right: 1px solid white;
+      border-top: 1px solid white;
+    }
+    
+    .box h1 {
+      color: white;
+      left: 26px;
+      top: 412px;
+      font-size: 26px;
+      line-height: 60px;
+      width: 100%;
+    }
+    
+    .box .cover {
+      top: 0;
+      left: 0;
+      background: black;
+      width: 100%;
+      height: 100%;
+      opacity: 1;
+      transition: all 200ms;
+    }
+    
+    .box:hover .cover {
+      opacity: 0;
+    }
+    
+    .boxholder .box:nth-child(3n+3) {
+      border-right: none;
+    }
+  </style>
+  <body>
+    
+    <div class="everything">
+      
+      
+      <div class="container">
+        
+        <section style="color: white;">
+          <img src="bg.png" alt="" class="center x" style="height: 100%;">
+          
+          <div style="left: 122px; width: 100%;">
+            <h1 style="position: absolute; top: 333px; left: 0;">열정으로<br>
+            하나된 우리</h1>
+            <div style="font-size: 24px; top: 488px;">꿈을 현실로 이루다</div>
+          </div>
+          
+          <div style="top: 750px; right: 148px; font-size: 20px;">
+            <div style="">01</div>
+            <svg width="3" height="166" style="top: 29px; left: 10px;">
+              <line x1="1.5" y1="0" x2="1.5" y2="166" stroke="white" stroke-width="1">
+            </svg>
+            
+            <svg width="3" height="166" style="top: 29px; left: 10px;">
+              <line x1="1.5" y1="0" x2="1.5" y2="16" stroke="white" stroke-width="3">
+            </svg>
+            <div style="top: 204px;">08</div>
+          </div>
+        </section>
+        
+        <section>
+          <h1>NEWS</h1>
+          <h2>디마뉴스</h2>
+          <div class="" style="top: 832px; left: 326px;">
+            <button type="button" name="button">2022</button>
+            <button type="button" name="button">2021</button>
+            <button type="button" name="button">2020</button>
+            <br>
+            <button type="button" name="button">MORE</button>
+          </div>
+          <div class="border" style="left: 451px;"></div>
+          
+          <div class="pageholder">
+            <!-- page 1 -->
+            <div class="cardspage">
+              <div class="card">
+                
+              </div>
+              <div class="card">
+                
+              </div>
+              <div class="card">
+                
+              </div>
+              <div class="card">
+                
+              </div>
+              <div class="card">
+                
+              </div>
+              <div class="card">
+                
+              </div>
+            </div>
+            
+            <!-- page 2 -->
+            <div class="cardspage">
+              <div class="card">
+                
+              </div>
+              <div class="card">
+                
+              </div>
+              <div class="card">
+                
+              </div>
+              <div class="card">
+                
+              </div>
+              <div class="card">
+                
+              </div>
+              <div class="card">
+                
+              </div>
+            </div>
+          </div>
+          <div class="scrollprompt">
+            <span>
+              SWIPE
+              &nbsp;
+              <svg width="20" height="18" style="position: relative; vertical-align: middle;">
+                <path d="M 1.5 1.5 L 10 9 L 1.5 16.5 M 10 1.5 L 18.5 9 L 10 16.5" stroke-width="3" stroke-linecap="round" stroke="rgba(0, 0, 0, .3)" fill="none">
+              </svg>
+            </span>
+          </div>
+        </section>
+        
+        <section>
+          
+        </section>
+        
+        <section>
+          <h1>학부소개</h1>
+          <h2>Introduction of the Departments</h2>
+          <div class="border" style="left: 451px;"></div>
+          <div class="boxholder">
+            <div class="box">
+              <div class="cover"></div>
+              <h1>방송극작과</h1>
+            </div>
+            <div class="box">
+              <div class="cover"></div>
+              <h1>디지털영상디자인과</h1>
+            </div>
+            <div class="box">
+              <div class="cover"></div>
+              <h1>실용음악계열</h1>
+            </div>
+            <div class="box">
+              <div class="cover"></div>
+              <h1>음향제작과</h1>
+            </div>
+            <div class="box">
+              <div class="cover"></div>
+              <h1>영상제작과</h1>
+            </div>
+            <div class="box">
+              <div class="cover"></div>
+              <h1>뉴미디어콘텐츠과</h1>
+            </div>
+          </div>
+        </section>
+        
+        <section>
+          <h1>공지사항</h1>
+          <h2>NOTICE</h2>
+          <div class="" style="top: 832px; left: 326px;">
+            <button type="button" name="button">2022</button>
+            <button type="button" name="button">2021</button>
+            <button type="button" name="button">2020</button>
+            <br>
+            <button type="button" name="button">MORE</button>
+          </div>
+          <div class="border" style="left: 451px;"></div>
+          
+          <div class="pageholder">
+            <!-- page 1 -->
+            <div class="cardspage">
+              <div class="card">
+                
+              </div>
+              <div class="card">
+                
+              </div>
+              <div class="card">
+                
+              </div>
+              <div class="card">
+                
+              </div>
+              <div class="card">
+                
+              </div>
+              <div class="card">
+                
+              </div>
+            </div>
+            
+            <!-- page 2 -->
+            <div class="cardspage">
+              <div class="card">
+                
+              </div>
+              <div class="card">
+                
+              </div>
+              <div class="card">
+                
+              </div>
+              <div class="card">
+                
+              </div>
+              <div class="card">
+                
+              </div>
+              <div class="card">
+                
+              </div>
+            </div>
+          </div>
+          <div class="scrollprompt">
+            <span>
+              SWIPE
+              &nbsp;
+              <svg width="20" height="18" style="position: relative; vertical-align: middle;">
+                <path d="M 1.5 1.5 L 10 9 L 1.5 16.5 M 10 1.5 L 18.5 9 L 10 16.5" stroke-width="3" stroke-linecap="round" stroke="rgba(0, 0, 0, .3)" fill="none">
+              </svg>
+            </span>
+          </div>
+        </section>
+        
+        <footer>
+          <div class="" style="background: rgba(0, 0, 0, 0.03); height: 61px; width: 100%;">
+            <div style="top: 20px; font-size: 18px;">
+              <a style="left: 1009px">대학자체평가</a>
+              <a style="left: 1150px">예결산공고</a>
+              <a style="left: 1274px">정보공개</a>
+              <a style="left: 1380px">개인정보처리방침</a>
+              <a style="left: 1554px">개인정보 제3자 제공</a>
+              <a style="left: 1750px">찾아오시는 길</a>
+            </div>
+          </div>
+          <img src="footer logo.png" alt="" style="top: 82px; left: 61px; width: 219px; height: 138px;">
+          
+          <div class="" style="font-size: 16px; width: 100%;">
+            <div class="" style="top: 147px; left: 325px;">
+              경기도 안성시 삼죽면 동아예대길 47(진촌리 632-18) 17516<br>
+              47, DongAhYedaegil, Samjuk-myun, Ansung-si, Gyeonggi-do, Republic of Korea 17516<br>
+              <br>
+              TEL : 031-670-6600
+              &nbsp;&nbsp;&nbsp;&nbsp;
+              입학문의 | 031-670-6612~3
+            </div>
+            <div class="" style="top: 207px; right: 59px;">
+              Copyright © 2022 DONG-AH INSTITUTE OF MEDIA AND ART ALL RIGHTS RESERVED.
+            </div>
+          </div>
+        </footer>
+        
+      </div>
+      
+      <header class="slide1">
+        <img src="logo.png" alt="" style="left: 56px; top: 39px; width: 281px; height: 46px;">
+        
+        <div style="top: 50px;">
+          <a style="left: 567px;">대학소개</a>
+          <a style="left: 749px;">학과안내</a>
+          <a style="left: 931px;">입시</a>
+          <a style="left: 1074px;">대학광장</a>
+          <a style="left: 1258px;">대학생활</a>
+          <a style="left: 1441px;">아카이브</a>
+        </div>
+        
+        <a style="left: 1775px; top: 55px; font-size: 13px;">
+          한국어
+        </a>
+        
+        <div class="" style="left: 1855px; top: 58px;">
+          ☰
+        </div>
+      </header>
+      
+      <nav onmouseover="header.classList.add('hovered')" onmouseout="header.classList.remove('hovered')">
+        <div class="border" style="left: 517px;"></div>
+        <div class="border" style="left: 689px;"></div>
+        <div class="border" style="left: 881px;"></div>
+        <div class="border" style="left: 1018px;"></div>
+        <div class="border" style="left: 1204px;"></div>
+        <div class="border" style="left: 1386px;"></div>
+        <div class="border" style="left: 1570px;"></div>
+        
+        <div class="flex column" style="left: 602px;">
+          <a>인삿말</a>
+          <a>교육이념</a>
+          <a>비전</a>
+          <a>조직도</a>
+          <a>연혁</a>
+          <a>규정집</a>
+          <a>상징</a>
+          <a>로고</a>
+        </div>
+        
+        <div class="flex column" style="left: 784px;">
+          <a>방송예술기술학부</a>
+          <a>콘텐츠학부</a>
+          <a>예술학부</a>
+          <a>실용음악학부</a>
+          <a>방송연예학부</a>
+        </div>
+        
+        <div class="flex column" style="left: 950px;">
+          <a>입시</a>
+        </div>
+        
+        <div class="flex column" style="left: 1110px;">
+          <a>공지 및 자료</a>
+          <a>소통</a>
+          <a>정보공개</a>
+        </div>
+        
+        <div class="flex column" style="left: 1295px;">
+          <a>학사행정</a>
+          <a>학생지원</a>
+          <a>캠퍼스</a>
+          <a>학생자치기구</a>
+        </div>
+        
+        <div class="flex column" style="left: 1478px;">
+          <a>대학홍보물</a>
+          <a>디마갤러리</a>
+          <a>디마전경앨범</a>
+          <a>조직도</a>
+          <a>연혁</a>
+          <a>규정집</a>
+          <a>상징</a>
+          <a>로고</a>
+        </div>
+      </nav>
+      
+    </div>
+    
+  </body>
+  
+  <script type="text/javascript">
+  const header = document.querySelector("header");
+  const container = document.querySelector(".container");
+  
+  container.addEventListener("scroll", function() {
+    if (container.scrollTop < 955) {
+      header.classList.add("slide1");
+    } else {
+      header.classList.remove("slide1");
+    }
+  }, { passive: true });
+  
+  const pageholders = document.getElementsByClassName("pageholder");
+  for (let i=0; i<pageholders.length; i++) {
+    const holder = pageholders[i];
+    holder.addEventListener("scroll", function(h) {
+      // done scrolling
+      if (h.target.scrollWidth - h.target.scrollLeft - h.target.clientWidth <= 50) {
+        h.target.classList.add("scrolldone");
+      } else {
+        h.target.classList.remove("scrolldone");
+      }
+    }, { passive: true });
+  }
+  
+  // storeScroll();
+  </script>
+</html>
