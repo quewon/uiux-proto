@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <style media="screen">
+    @import url('https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css');
+    
+    body {
+      margin: 0;
+      background: black;
+    }
+    
+    .everything {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(.6);
+      width: var(--width);
+      height: var(--height);
+      margin: 0;
+      padding: 0;
+      
+      --width: 1920px;
+      --height: 1080px;
+      --font-size: 20px;
+      
+      --header-height: 125px;
+      --nav-height: 714px;
+      
+      font-family: 'NanumSquare Neo OTF', sans-serif;
+      font-size: var(--font-size);
+      
+      background: white;
+    }
+    
+    .everything div, a, img, header, nav, svg {
+      position: absolute;
+    }
+    
+    .page {
+      border: 1px solid black;
+      color: black;
+      width: 281px;
+      height: 189px;
+    }
+    
+    .page img {
+      width: 281px;
+      height: 158px;
+    }
+    
+    .page div {
+      height: 31px;
+      font-size: 12px;
+      font-weight: 700;
+      top: 158px;
+      width: 100%;
+      border: 1px solid black;
+      padding: 7px;
+      box-sizing: border-box;
+    }
+    
+    .buttons {
+      display: flex; 
+      flex-direction: column; 
+      justify-content: space-between;
+      width: 281px; 
+      height: 261px; 
+      bottom: 67px; 
+      left: 69px; 
+      border-radius: 10px; 
+      border-bottom-left-radius: 20px;
+      border-bottom-right-radius: 20px;
+      background: black;
+    }
+    
+    .buttons.closed button {
+      visibility: hidden;
+      pointer-events: none;
+    }
+    .buttons.closed .family {
+      visibility: visible;
+      pointer-events: auto;
+    }
+    .buttons.closed {
+      background: none;
+    }
+    
+    button {
+      background: black;
+      color: white;
+      font-size: 12px;
+      border-radius: 60px;
+      width: 281px;
+      height: 42px;
+      padding: 10px;
+      cursor: pointer;
+      box-sizing: border-box;
+      border: none;
+      text-align: left;
+      padding-left: 15px;
+      padding-right: 15px;
+    }
+    
+    button:hover {
+      border-radius: 0;
+      background: #CF2791;
+    }
+    
+    button:first-child:hover {
+      border-radius: inherit;
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+    
+    .family:hover {
+      border-radius: inherit;
+      background: black;
+      opacity: .8;
+    }
+    .buttons.closed .family:hover {
+      border-radius: 60px;
+    }
+  </style>
+    
+  <body>
+    
+    <div class="everything">
+      
+      <img src="../landing bg.png" alt="" style="width: 1500px">
+      <div style="left: 1500px; width: 420px; height: 100%;">
+        <div class="">
+          <img src="../logo.png" alt="" style="width: 281px; left: 69px; top: 38px; mix-blend-mode: difference;">
+          <div class="page" style="left: 69px; top: 188px;">
+            <img src="../main.png" alt="">
+            <div class="">
+              대학홈페이지
+              <svg width="7" height="11" style="position: relative; vertical-align: middle; float: right;">
+                <path d="M 1.5 1.5 L 5.5 5.5 L 1.5 9.5" stroke-width="2" stroke-linecap="round" stroke="black" fill="none">
+              </svg>
+            </div>
+          </div>
+          <div class="page" style="left: 69px; top: 434px;">
+            <img src="../ipsi.png" alt="">
+            <div class="">
+              입시홈페이지
+              <svg width="7" height="11" style="position: relative; vertical-align: middle; float: right;">
+                <path d="M 1.5 1.5 L 5.5 5.5 L 1.5 9.5" stroke-width="2" stroke-linecap="round" stroke="black" fill="none">
+              </svg>
+            </div>
+          </div>
+        </div>
+        
+        <div class="buttons closed">
+          <button type="button" name="button">학과소개</button>
+          <button type="button" name="button">DIMA e-class</button>
+          <button type="button" name="button">인트라넷</button>
+          <button type="button" name="button">DIMA C</button>
+          <button type="button" name="button">전자출결시스템</button>
+          <button class="family" type="button" name="button" onclick="toggleclass(buttons, 'closed')">
+            Family Site
+            <svg width="14" height="9" style="right: 15px; margin-top: 3px;">
+              <path d="M 1.5 7.5 L 7 1.5 L 12.5 7.5" stroke-width="2" stroke-linecap="round" stroke="white" fill="none">
+            </svg>
+          </button>
+        </div>
+      </div>
+      
+    </div>
+    
+  </body>
+  
+  <script type="text/javascript">
+    const buttons = document.getElementsByClassName("buttons")[0];
+    
+    function toggleclass(el, classname) {
+      if (el.classList.contains(classname)) {
+        el.classList.remove(classname);
+      } else {
+        el.classList.add(classname);
+      }
+    }
+  </script>
+</html>
