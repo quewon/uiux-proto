@@ -255,6 +255,7 @@
       left: 1587px;
       background: linear-gradient(270deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0) 100%);
       transition: all 300ms;
+      pointer-events: none;
     }
     
     .scrollprompt span {
@@ -281,7 +282,7 @@
       overflow: visible;
       flex-wrap: wrap;
       width: calc(var(--width) - 451px);
-      background: black;
+      /* background: black; */
     }
     
     .box {
@@ -291,6 +292,7 @@
       box-sizing: border-box;
       border-right: 1px solid white;
       border-top: 1px solid white;
+      background: black;
     }
     
     .box h1 {
@@ -318,6 +320,15 @@
     
     .boxholder .box:nth-child(3n+3) {
       border-right: none;
+    }
+    
+    .box img {
+      opacity: .5;
+    }
+    
+    .cover img {
+      right: 0;
+      opacity: 1;
     }
   </style>
   <body>
@@ -427,27 +438,46 @@
           <div class="border" style="left: 451px;"></div>
           <div class="boxholder">
             <div class="box">
-              <div class="cover"></div>
+              <div class="cover">
+                <img src="../majors/screenwriting.png" alt="">
+              </div>
               <h1>방송극작과</h1>
             </div>
+            
             <div class="box">
-              <div class="cover"></div>
+              <div class="cover">
+                <img src="../majors/d0d.png" alt="">
+              </div>
               <h1>디지털영상디자인과</h1>
             </div>
+            
             <div class="box">
-              <div class="cover"></div>
+              <img src="../majors/bg/music.png" alt="">
+              <div class="cover">
+                <img src="../majors/music.png" alt="">
+              </div>
               <h1>실용음악계열</h1>
             </div>
+            
             <div class="box">
-              <div class="cover"></div>
+              <img src="../majors/bg/sound.png" alt="">
+              <div class="cover">
+                <img src="../majors/sound.png" alt="">
+              </div>
               <h1>음향제작과</h1>
             </div>
+            
             <div class="box">
-              <div class="cover"></div>
+              <div class="cover">
+                <img src="../majors/video.png" alt="">
+              </div>
               <h1>영상제작과</h1>
             </div>
+            
             <div class="box">
-              <div class="cover"></div>
+              <div class="cover">
+                <img src="../majors/newmedia.png" alt="">
+              </div>
               <h1>뉴미디어콘텐츠과</h1>
             </div>
           </div>
