@@ -22,6 +22,7 @@
       margin: 0;
       padding: 0;
       
+      --dima-red: #CF2791;
       
       --width: 1920px;
       --height: 1080px;
@@ -184,6 +185,25 @@
       cursor: pointer;
     }
     
+    a:active {
+      color: var(--dima-red);
+    }
+    
+    *::selection {
+      background: var(--dima-red);
+      color: white;
+    }
+    
+    img {
+      -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
+    }
+    
     h1 {
       font-size: 64px;
       margin: 0;
@@ -209,7 +229,9 @@
     }
     
     button:active {
-      color: gray;
+      background: var(--dima-red);
+      color: white;
+      border-color: var(--dima-red);
     }
     
     .pageholder, .boxholder {
@@ -256,6 +278,14 @@
       background: linear-gradient(270deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0) 100%);
       transition: all 300ms;
       pointer-events: none;
+      
+      -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
     }
     
     .scrollprompt span {
@@ -330,6 +360,95 @@
       right: 0;
       opacity: 1;
     }
+    
+    .carousel .poster {
+      width: 334px;
+      height: 529px;
+      color: black;
+      top: 250px;
+      opacity: 0;
+      z-index: 0;
+      left: 793px;
+      
+      transition: all 500ms;
+    }
+    
+    .carousel .poster img {
+      transition: inherit;
+    }
+    
+    .poster img {
+      width: 334px;
+      height: 461px;
+    }
+    
+    .poster h1 {
+      top: 469px;
+      left: 0;
+      width: 100%;
+      text-align: center;
+      font-weight: 900;
+      font-size: 20px;
+      margin: 0;
+      
+      transition: inherit;
+    }
+    
+    .poster h2 {
+      top: 489px;
+      left: 0;
+      width: 100%;
+      text-align: center;
+      font-weight: 400;
+      font-size: 16px;
+      margin: 0;
+      
+      transition: inherit;
+    }
+    
+    .carousel .poster.front {
+      top: 188px;
+      left: 721px;
+      width: 477px;
+      height: 818px;
+      opacity: 1;
+      z-index: 1;
+    }
+    
+    .carousel .poster.front img {
+      width: 477px;
+      height: 659px;
+    }
+    
+    .carousel .poster.front h1 {
+      top: 740px;
+      font-size: 32px;
+    }
+    
+    .carousel .poster.front h2 {
+      top: 778px;
+      font-size: 28px;
+    }
+    
+    .carousel .poster.right {
+      left: 1378px;
+      opacity: .5;
+      z-index: 1;
+    }
+    
+    .carousel .poster.left {
+      left: 208px;
+      opacity: .5;
+      z-index: 1;
+    }
+    
+    .imgbutton {
+      cursor: pointer;
+    }
+    
+    .imgbutton:active {
+      opacity: .75;
+    }
   </style>
   <body>
     
@@ -339,7 +458,7 @@
       <div class="container">
         
         <section style="color: white;">
-          <img src="../bg.png" alt="" class="center x" style="height: 100%;">
+          <img src="../img/bg.png" alt="" class="center x" style="height: 100%;">
           
           <div style="left: 122px; width: 100%;">
             <h1 style="position: absolute; top: 333px; left: 0;">열정으로<br>
@@ -429,7 +548,54 @@
         </section>
         
         <section>
+          <svg viewBox="0 0 787 168" style="position: absolute; top: 730px; left: 574px; width: 787px; height: 168px;">
+            <ellipse cx="393.5" cy="84" rx="392.5" ry="83" stroke-width="2" stroke="black" fill="none" />
+          </svg>
           
+          <div class="carousel">
+            <div class="poster front">
+              <img src="../img/posters/1.png" alt="">
+              <h1>전시 'NEW WAVE'</h1>
+              <h2>과동아리 V-CON</h2>
+            </div>
+            
+            <div class="poster right">
+              <img src="../img/posters/2.png" alt="">
+              <h1>전시 'NEWMEDIA UNIVERSE'</h1>
+              <h2>뉴미디어콘텐츠과</h2>
+            </div>
+            
+            <div class="poster">
+              <img src="../img/posters/3.png" alt="">
+              <h1>공연 'RECORDING STUDIO IN MEVOICE'</h1>
+              <h2>중앙동아리 미보이스</h2>
+            </div>
+            
+            <div class="poster">
+              <img src="../img/posters/4.png" alt="">
+              <h1>공연 'REMIND'</h1>
+              <h2>흑인음악동아리</h2>
+            </div>
+            
+            <div class="poster">
+              <img src="../img/posters/5.png" alt="">
+              <h1>연극 'THE CHAIR'</h1>
+              <h2>뮤지컬전공</h2>
+            </div>
+            
+            <div class="poster left">
+              <img src="../img/posters/6.png" alt="">
+              <h1>연극 '갈매기'</h1>
+              <h2>공연예술계열 연극전공</h2>
+            </div>
+          </div>
+          
+          <div style="top: 510px;">
+            
+            <img class="imgbutton" src="../img/arrow.png" style="left: 53px; transform: scaleX(-1)" onclick="carousel(-1)">
+            <img class="imgbutton" src="../img/arrow.png" style="left: 1824px;" onclick="carousel(1)">
+            
+          </div>
         </section>
         
         <section>
@@ -438,45 +604,49 @@
           <div class="border" style="left: 451px;"></div>
           <div class="boxholder">
             <div class="box">
+              <img src="../img/majors/bg/fill1.png" alt="">
               <div class="cover">
-                <img src="../majors/screenwriting.png" alt="">
+                <img src="../img/majors/screenwriting.png" alt="">
               </div>
               <h1>방송극작과</h1>
             </div>
             
             <div class="box">
+              <img src="../img/majors/bg/fill2.png" alt="">
               <div class="cover">
-                <img src="../majors/d0d.png" alt="">
+                <img src="../img/majors/d0d.png" alt="">
               </div>
               <h1>디지털영상디자인과</h1>
             </div>
             
             <div class="box">
-              <img src="../majors/bg/music.png" alt="">
+              <img src="../img/majors/bg/music.png" alt="">
               <div class="cover">
-                <img src="../majors/music.png" alt="">
+                <img src="../img/majors/music.png" alt="">
               </div>
               <h1>실용음악계열</h1>
             </div>
             
             <div class="box">
-              <img src="../majors/bg/sound.png" alt="">
+              <img src="../img/majors/bg/sound.png" alt="">
               <div class="cover">
-                <img src="../majors/sound.png" alt="">
+                <img src="../img/majors/sound.png" alt="">
               </div>
               <h1>음향제작과</h1>
             </div>
             
             <div class="box">
+              <img src="../img/majors/bg/fill1.png" alt="">
               <div class="cover">
-                <img src="../majors/video.png" alt="">
+                <img src="../img/majors/video.png" alt="">
               </div>
               <h1>영상제작과</h1>
             </div>
             
             <div class="box">
+              <img src="../img/majors/bg/fill2.png" alt="">
               <div class="cover">
-                <img src="../majors/newmedia.png" alt="">
+                <img src="../img/majors/newmedia.png" alt="">
               </div>
               <h1>뉴미디어콘텐츠과</h1>
             </div>
@@ -562,7 +732,7 @@
               <a style="left: 1750px">찾아오시는 길</a>
             </div>
           </div>
-          <img src="../footer logo.png" alt="" style="top: 82px; left: 61px; width: 219px; height: 138px;">
+          <img src="../img/footer logo.png" alt="" style="top: 82px; left: 61px; width: 219px; height: 138px;">
           
           <div class="" style="font-size: 16px; width: 100%;">
             <div class="" style="top: 147px; left: 325px;">
@@ -582,7 +752,7 @@
       </div>
       
       <header class="slide1">
-        <img src="../logo.png" alt="" style="left: 56px; top: 39px; width: 281px; height: 46px;">
+        <img src="../img/logo.png" alt="" style="left: 56px; top: 39px; width: 281px; height: 46px;">
         
         <div style="top: 50px;">
           <a style="left: 567px;">대학소개</a>
@@ -688,6 +858,32 @@
     }, { passive: true });
   }
   
-  // storeScroll();
+  const _carousel = document.getElementsByClassName("carousel")[0];
+  var index = 0;
+  function carousel(direction) {
+    const posters = _carousel.getElementsByClassName("poster");
+    
+    let front = posters[index];
+    let right = posters[index+1] || posters[index+1 - posters.length];
+    let left = posters[index-1] || posters[index-1 + posters.length];
+    front.classList.remove("front");
+    left.classList.remove("left");
+    right.classList.remove("right");
+    
+    index += direction;
+    
+    if (index < 0) index = posters.length - 1;
+    if (index >= posters.length) index = 0;
+    
+    front = posters[index];
+    right = posters[index+1] || posters[index+1 - posters.length];
+    left = posters[index-1] || posters[index-1 + posters.length];
+    
+    front.classList.add("front");
+    left.classList.add("left");
+    right.classList.add("right");
+  }
+  
+  
   </script>
 </html>
