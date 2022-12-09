@@ -51,6 +51,7 @@
       border-bottom: 1.5px solid rgba(0, 0, 0, .25);
       background: white;
       padding-top: var(--header-height);
+      z-index: 9;
     }
     
     .border {
@@ -84,7 +85,7 @@
       color: var(--color);
       background: var(--bg);
       /* mix-blend-mode: difference; */
-      z-index: 1;
+      z-index: 10;
       
       transition: all 200ms;
     }
@@ -223,7 +224,11 @@
       color: black;
     }
     
-    button:hover {
+    button.selected {
+      cursor: auto;
+    }
+    
+    button:hover, button.selected {
       background: black;
       color: white;
     }
@@ -232,6 +237,11 @@
       background: var(--dima-red);
       color: white;
       border-color: var(--dima-red);
+    }
+    
+    button.selected:active {
+      background: black;
+      border-color: black;
     }
     
     .pageholder, .boxholder {
@@ -262,11 +272,129 @@
       position: relative !important;
       width: 414px;
       height: 405px;
+      overflow: hidden;
       
       border: 1px solid black;
       box-sizing: border-box;
       border-top-right-radius: 50px;
       border-bottom-left-radius: 50px;
+    }
+    
+    .card img {
+      width: 414px;
+      height: 245px;
+      border-bottom: 1px solid black;
+      box-sizing: border-box;
+    }
+    
+    .card h1 {
+      font-size: 21px;
+      font-weight: 800;
+      width: 390px;
+      top: 259px;
+      left: 15px;
+    }
+    
+    .card p {
+      position: absolute;
+      width: 390px;
+      height: 44px;
+      top: 296px;
+      left: 15px;
+      margin: 0;
+      padding: 0;
+      font-size: 15px;
+      font-weight: 350;
+      line-height: 22px;
+    }
+    
+    .card .views, .card .likes, .card .date {
+      font-weight: 800;
+      font-size: 10px;
+      color: rgba(0,0,0,.3);
+      top: 362px;
+    }
+    
+    .card .date {
+      left: 19px;
+      color: rgba(0,0,0,.5);
+    }
+    
+    .card .views {
+      left: 290px;
+      top: 365px;
+    }
+    
+    .views img, .likes img {
+      position: relative;
+      border: none;
+      margin-right: 2px;
+      vertical-align: middle;
+    }
+    
+    .views img {
+      width: 20px;
+      height: 21px;
+    }
+    
+    .card .likes {
+      left: 352px;
+      top: 369px;
+    }
+    
+    .likes img {
+      width: 15px;
+      height: 13px;
+    }
+    
+    .notice.card img {
+      border: none;
+      width: 37px;
+      height: 37px;
+      left: 342px;
+      top: 38px;
+    }
+    
+    .notice.card h1 {
+      font-size: 32px;
+      font-weight: 900;
+      line-height: 42px;
+      top: 29px;
+      left: 27px;
+      width: 270px;
+      word-break: keep-all;
+    }
+    
+    .notice.card .tag {
+      bottom: 30px;
+      right: 30px;
+    }
+    
+    .notice.card .tag::after {
+      /* width: 57px;
+      height: 27px; */
+      font-weight: 700;
+      font-size: 20px;
+      line-height: 22px;
+      color: white;
+      padding: 2px;
+      padding-left: 5px;
+      padding-right: 5px;
+    }
+    
+    .notice.card .announcement::after {
+      content: "공지";
+      background: #C30202;
+    }
+    
+    .notice.card .org::after {
+      content: "교무";
+      background: #02C30A;
+    }
+    
+    .notice.card .info::after {
+      content: "정보";
+      background: #040281;
     }
     
     .scrollprompt {
@@ -373,35 +501,40 @@
       transition: all 500ms;
     }
     
-    .carousel .poster img {
-      transition: inherit;
-    }
-    
     .poster img {
+      transition: inherit;
       width: 334px;
       height: 461px;
     }
     
     .poster h1 {
+      display: inline-block;
+      
       top: 469px;
-      left: 0;
-      width: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: fit-content;
       text-align: center;
       font-weight: 900;
       font-size: 20px;
       margin: 0;
+      white-space: nowrap;
       
       transition: inherit;
     }
     
     .poster h2 {
+      display: inline-block;
+      
       top: 489px;
-      left: 0;
-      width: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: fit-content;
       text-align: center;
       font-weight: 400;
       font-size: 16px;
       margin: 0;
+      white-space: nowrap;
       
       transition: inherit;
     }
@@ -434,12 +567,14 @@
       left: 1378px;
       opacity: .5;
       z-index: 1;
+      cursor: pointer;
     }
     
     .carousel .poster.left {
       left: 208px;
       opacity: .5;
       z-index: 1;
+      cursor: pointer;
     }
     
     .imgbutton {
@@ -483,7 +618,7 @@
           <h1>NEWS</h1>
           <h2>디마뉴스</h2>
           <div class="" style="top: 832px; left: 326px;">
-            <button type="button" name="button">2022</button>
+            <button type="button" name="button" class="selected">2022</button>
             <button type="button" name="button">2021</button>
             <button type="button" name="button">2020</button>
             <br>
@@ -495,44 +630,104 @@
             <!-- page 1 -->
             <div class="cardspage">
               <div class="card">
-                
+                <img src="../img/news/1.png" alt="">
+                <h1>동아방송예술대학교, PMC 프로덕션 예술...</h1>
+                <p>동아방송예술대학(총장 최용혁)가 국내 최초 비언어극 '난타'의 기획자인 송승환 PMC프로덕션 예술감독을 초청해 특강을 개최...</p>
+                <div class="date">12월 03일</div>
+                <div class="views"><img src="../img/news/views.png" alt="">1104</div>
+                <div class="likes"><img src="../img/news/heart.png" alt="">1104</div>
               </div>
               <div class="card">
-                
+                <img src="../img/news/2.png" alt="">
+                <h1>동아방송예술대학교, PMC 프로덕션 예술...</h1>
+                <p>동아방송예술대학(총장 최용혁)가 국내 최초 비언어극 '난타'의 기획자인 송승환 PMC프로덕션 예술감독을 초청해 특강을 개최...</p>
+                <div class="date">12월 03일</div>
+                <div class="views"><img src="../img/news/views.png" alt="">1104</div>
+                <div class="likes"><img src="../img/news/heart.png" alt="">1104</div>
               </div>
               <div class="card">
-                
+                <img src="../img/news/3.png" alt="">
+                <h1>동아방송예술대학교, PMC 프로덕션 예술...</h1>
+                <p>동아방송예술대학(총장 최용혁)가 국내 최초 비언어극 '난타'의 기획자인 송승환 PMC프로덕션 예술감독을 초청해 특강을 개최...</p>
+                <div class="date">12월 03일</div>
+                <div class="views"><img src="../img/news/views.png" alt="">1104</div>
+                <div class="likes"><img src="../img/news/heart.png" alt="">1104</div>
               </div>
               <div class="card">
-                
+                <img src="../img/news/4.png" alt="">
+                <h1>동아방송예술대학교, PMC 프로덕션 예술...</h1>
+                <p>동아방송예술대학(총장 최용혁)가 국내 최초 비언어극 '난타'의 기획자인 송승환 PMC프로덕션 예술감독을 초청해 특강을 개최...</p>
+                <div class="date">12월 03일</div>
+                <div class="views"><img src="../img/news/views.png" alt="">1104</div>
+                <div class="likes"><img src="../img/news/heart.png" alt="">1104</div>
               </div>
               <div class="card">
-                
+                <img src="../img/news/5.png" alt="">
+                <h1>동아방송예술대학교, PMC 프로덕션 예술...</h1>
+                <p>동아방송예술대학(총장 최용혁)가 국내 최초 비언어극 '난타'의 기획자인 송승환 PMC프로덕션 예술감독을 초청해 특강을 개최...</p>
+                <div class="date">12월 03일</div>
+                <div class="views"><img src="../img/news/views.png" alt="">1104</div>
+                <div class="likes"><img src="../img/news/heart.png" alt="">1104</div>
               </div>
               <div class="card">
-                
+                <img src="../img/news/6.png" alt="">
+                <h1>동아방송예술대학교, PMC 프로덕션 예술...</h1>
+                <p>동아방송예술대학(총장 최용혁)가 국내 최초 비언어극 '난타'의 기획자인 송승환 PMC프로덕션 예술감독을 초청해 특강을 개최...</p>
+                <div class="date">12월 03일</div>
+                <div class="views"><img src="../img/news/views.png" alt="">1104</div>
+                <div class="likes"><img src="../img/news/heart.png" alt="">1104</div>
               </div>
             </div>
             
             <!-- page 2 -->
             <div class="cardspage">
               <div class="card">
-                
+                <img src="../img/news/1.png" alt="">
+                <h1>동아방송예술대학교, PMC 프로덕션 예술...</h1>
+                <p>동아방송예술대학(총장 최용혁)가 국내 최초 비언어극 '난타'의 기획자인 송승환 PMC프로덕션 예술감독을 초청해 특강을 개최...</p>
+                <div class="date">12월 03일</div>
+                <div class="views"><img src="../img/news/views.png" alt="">1104</div>
+                <div class="likes"><img src="../img/news/heart.png" alt="">1104</div>
               </div>
               <div class="card">
-                
+                <img src="../img/news/2.png" alt="">
+                <h1>동아방송예술대학교, PMC 프로덕션 예술...</h1>
+                <p>동아방송예술대학(총장 최용혁)가 국내 최초 비언어극 '난타'의 기획자인 송승환 PMC프로덕션 예술감독을 초청해 특강을 개최...</p>
+                <div class="date">12월 03일</div>
+                <div class="views"><img src="../img/news/views.png" alt="">1104</div>
+                <div class="likes"><img src="../img/news/heart.png" alt="">1104</div>
               </div>
               <div class="card">
-                
+                <img src="../img/news/3.png" alt="">
+                <h1>동아방송예술대학교, PMC 프로덕션 예술...</h1>
+                <p>동아방송예술대학(총장 최용혁)가 국내 최초 비언어극 '난타'의 기획자인 송승환 PMC프로덕션 예술감독을 초청해 특강을 개최...</p>
+                <div class="date">12월 03일</div>
+                <div class="views"><img src="../img/news/views.png" alt="">1104</div>
+                <div class="likes"><img src="../img/news/heart.png" alt="">1104</div>
               </div>
               <div class="card">
-                
+                <img src="../img/news/4.png" alt="">
+                <h1>동아방송예술대학교, PMC 프로덕션 예술...</h1>
+                <p>동아방송예술대학(총장 최용혁)가 국내 최초 비언어극 '난타'의 기획자인 송승환 PMC프로덕션 예술감독을 초청해 특강을 개최...</p>
+                <div class="date">12월 03일</div>
+                <div class="views"><img src="../img/news/views.png" alt="">1104</div>
+                <div class="likes"><img src="../img/news/heart.png" alt="">1104</div>
               </div>
               <div class="card">
-                
+                <img src="../img/news/5.png" alt="">
+                <h1>동아방송예술대학교, PMC 프로덕션 예술...</h1>
+                <p>동아방송예술대학(총장 최용혁)가 국내 최초 비언어극 '난타'의 기획자인 송승환 PMC프로덕션 예술감독을 초청해 특강을 개최...</p>
+                <div class="date">12월 03일</div>
+                <div class="views"><img src="../img/news/views.png" alt="">1104</div>
+                <div class="likes"><img src="../img/news/heart.png" alt="">1104</div>
               </div>
               <div class="card">
-                
+                <img src="../img/news/6.png" alt="">
+                <h1>동아방송예술대학교, PMC 프로덕션 예술...</h1>
+                <p>동아방송예술대학(총장 최용혁)가 국내 최초 비언어극 '난타'의 기획자인 송승환 PMC프로덕션 예술감독을 초청해 특강을 개최...</p>
+                <div class="date">12월 03일</div>
+                <div class="views"><img src="../img/news/views.png" alt="">1104</div>
+                <div class="likes"><img src="../img/news/heart.png" alt="">1104</div>
               </div>
             </div>
           </div>
@@ -591,10 +786,8 @@
           </div>
           
           <div style="top: 510px;">
-            
             <img class="imgbutton" src="../img/arrow.png" style="left: 53px; transform: scaleX(-1)" onclick="carousel(-1)">
             <img class="imgbutton" src="../img/arrow.png" style="left: 1824px;" onclick="carousel(1)">
-            
           </div>
         </section>
         
@@ -656,57 +849,71 @@
         <section>
           <h1>공지사항</h1>
           <h2>NOTICE</h2>
-          <div class="" style="top: 832px; left: 326px;">
-            <button type="button" name="button">2022</button>
+          <!-- <div class="" style="top: 832px; left: 326px;">
+            <button type="button" name="button" class="selected">2022</button>
             <button type="button" name="button">2021</button>
             <button type="button" name="button">2020</button>
             <br>
             <button type="button" name="button">MORE</button>
-          </div>
+          </div> -->
           <div class="border" style="left: 451px;"></div>
           
           <div class="pageholder">
             <!-- page 1 -->
             <div class="cardspage">
-              <div class="card">
-                
+              <div class="notice card">
+                <img src="../img/pin.png" alt="">
+                <h1>22학년도 2학기 대면·비대면 수업 운영 안내</h1>
+                <div class="tag announcement"></div>
               </div>
-              <div class="card">
-                
+              <div class="notice card">
+                <h1>22학년도 통계 계절학기 학점교류 교과목 수강신청 안내</h1>
+                <div class="tag org"></div>
               </div>
-              <div class="card">
-                
+              <div class="notice card">
+                <h1>2023학년 1학기 국가장학금 1차 신청 안내</h1>
+                <div class="tag info"></div>
               </div>
-              <div class="card">
-                
+              <div class="notice card">
+                <h1>학과조교 모집 안내 (실용음악계열)</h1>
+                <div class="tag info"></div>
               </div>
-              <div class="card">
-                
+              <div class="notice card">
+                <h1>졸업학점 조정 검토 설문조사 (11.25일까지 연장)</h1>
+                <div class="tag org"></div>
               </div>
-              <div class="card">
-                
+              <div class="notice card">
+                <h1>2023학년 1학기 국가장학금 1차 신청 안내</h1>
+                <div class="tag info"></div>
               </div>
             </div>
             
             <!-- page 2 -->
             <div class="cardspage">
-              <div class="card">
-                
+              <div class="notice card">
+                <img src="../img/pin.png" alt="">
+                <h1>22학년도 2학기 대면·비대면 수업 운영 안내</h1>
+                <div class="tag announcement"></div>
               </div>
-              <div class="card">
-                
+              <div class="notice card">
+                <h1>22학년도 통계 계절학기 학점교류 교과목 수강신청 안내</h1>
+                <div class="tag org"></div>
               </div>
-              <div class="card">
-                
+              <div class="notice card">
+                <h1>2023학년 1학기 국가장학금 1차 신청 안내</h1>
+                <div class="tag info"></div>
               </div>
-              <div class="card">
-                
+              <div class="notice card">
+                <h1>학과조교 모집 안내 (실용음악계열)</h1>
+                <div class="tag info"></div>
               </div>
-              <div class="card">
-                
+              <div class="notice card">
+                <h1>졸업학점 조정 검토 설문조사 (11.25일까지 연장)</h1>
+                <div class="tag org"></div>
               </div>
-              <div class="card">
-                
+              <div class="notice card">
+                <h1>2023학년 1학기 국가장학금 1차 신청 안내</h1>
+                <div class="tag info"></div>
               </div>
             </div>
           </div>
@@ -882,8 +1089,13 @@
     front.classList.add("front");
     left.classList.add("left");
     right.classList.add("right");
+    
+    front.onclick = null;
+    left.onclick = function() { carousel(-1) };
+    right.onclick = function() { carousel(1) };
   }
   
+  carousel(0);
   
   </script>
 </html>
