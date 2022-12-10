@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <style media="screen">
+    @import url('https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css');
+    
+    html {
+      cursor: none;
+    }
+    
+    html * {
+      cursor: none;
+    }
+    
+    img, div {  
+       user-drag: none;  
+       user-select: none;
+       -moz-user-select: none;
+       -webkit-user-drag: none;
+       -webkit-user-select: none;
+       -ms-user-select: none;
+    }
+    
+    body {
+      margin: 0;
+      background: black;
+    }
+    
+    .everything {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(.6);
+      width: var(--width);
+      height: var(--height);
+      margin: 0;
+      padding: 0;
+      
+      --width: 360px;
+      --height: 800px;
+      --font-size: 20px;
+      
+      --header-height: 125px;
+      --nav-height: 714px;
+      
+      font-family: 'NanumSquare Neo OTF', sans-serif;
+      font-size: var(--font-size);
+      
+      overflow-x: hidden;
+      overflow-y: scroll;
+      
+      background: white;
+    }
+    
+    .everything div, a, img, header, nav, svg {
+      position: absolute;
+    }
+    
+    .page {
+      border: 1px solid white;
+      color: black;
+      width: 281px;
+      height: 189px;
+    }
+    
+    .page img {
+      width: 281px;
+      height: 158px;
+    }
+    
+    .page div {
+      height: 31px;
+      font-size: 12px;
+      font-weight: 500;
+      top: 158px;
+      width: 100%;
+      border: 1px solid white;
+      padding: 7px;
+      box-sizing: border-box;
+      background: white;
+    }
+    
+    .buttons {
+      display: flex; 
+      flex-direction: column; 
+      justify-content: space-between;
+      
+      width: 281px;
+      height: 261px;
+      top: 688px;
+      left: 39px;
+      
+      border-radius: 10px; 
+      border-top-left-radius: 20px;
+      border-top-right-radius: 20px;
+      background: white;
+    }
+    
+    .buttons.closed button {
+      visibility: hidden;
+      pointer-events: none;
+    }
+    .buttons.closed .family {
+      visibility: visible;
+      pointer-events: auto;
+    }
+    .buttons.closed {
+      background: none;
+    }
+    
+    button {
+      background: white;
+      color: black;
+      font-size: 12px;
+      border-radius: 60px;
+      width: 100%;
+      height: 42px;
+      padding: 10px;
+      box-sizing: border-box;
+      border: none;
+      text-align: left;
+      padding-left: 15px;
+      padding-right: 15px;
+    }
+    
+    button:active {
+      border-radius: 0;
+      background: #CF2791;
+      color: white;
+    }
+    
+    button:last-child:active {
+      border-radius: inherit;
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
+    }
+    
+    .family:active {
+      border-radius: inherit;
+      color: black;
+      background: white;
+    }
+    .buttons.closed .family:active {
+      border-radius: 60px;
+    }
+  </style>
+    
+  <body>
+    
+    <div class="everything">
+      
+      <img src="../img/landing bg.png" alt="" style="height: 1080px; left: 60%; transform: translateX(-50%)">
+      
+      <div class="" style="border-bottom: 1px solid white; top: 130px; width: 100%;"></div>
+      
+      <img src="../img/logo.png" alt="" style="width: 281px; left: 39px; top: 37px;">
+      <div class="" style="left: 39px; width: 100%;">
+        <div class="page" style="top: 187px;" onclick="window.location.href = './main.html';">
+          <img src="../img/main.png" alt="">
+          <div class="">
+            대학홈페이지
+            <svg width="7" height="11" style="position: relative; vertical-align: middle; float: right;">
+              <path d="M 1.5 1.5 L 5.5 5.5 L 1.5 9.5" stroke-width="2" stroke-linecap="round" stroke="black" fill="none">
+            </svg>
+          </div>
+        </div>
+        <div class="page" style="top: 433px;">
+          <img src="../img/ipsi.png" alt="">
+          <div class="">
+            입시홈페이지
+            <svg width="7" height="11" style="position: relative; vertical-align: middle; float: right;">
+              <path d="M 1.5 1.5 L 5.5 5.5 L 1.5 9.5" stroke-width="2" stroke-linecap="round" stroke="black" fill="none">
+            </svg>
+          </div>
+        </div>
+      </div>
+      
+      <div class="buttons closed">
+        <button class="family" type="button" name="button" onclick="toggleclass(buttons, 'closed')">
+          Family Site
+          <svg width="14" height="9" style="right: 15px; margin-top: 3px;">
+            <path d="M 1.5 1.5 L 7 7.5 L 12.5 1.5" stroke-width="2" stroke-linecap="round" stroke="black" fill="none">
+          </svg>
+        </button>
+        <button type="button" name="button">학과소개</button>
+        <button type="button" name="button">DIMA e-class</button>
+        <button type="button" name="button">인트라넷</button>
+        <button type="button" name="button">DIMA C</button>
+        <button type="button" name="button">전자출결시스템</button>
+      </div>
+      
+      <!-- <div class="" style="left: 68px; bottom: 46px; font-size: 14px; color: rgba(255,255,255,.5);">
+        2022년 중앙동아리 MIND | REMIND 공연 현장
+      </div> -->
+      
+    </div>
+    
+  </body>
+  
+  <script type="text/javascript" src="touch-scroll-emulation.js"></script>
+  <script type="text/javascript">
+    const buttons = document.getElementsByClassName("buttons")[0];
+    
+    function toggleclass(el, classname) {
+      if (el.classList.contains(classname)) {
+        el.classList.remove(classname);
+      } else {
+        el.classList.add(classname);
+      }
+    }
+  </script>
+</html>
