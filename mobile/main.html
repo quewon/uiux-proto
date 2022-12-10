@@ -7,6 +7,17 @@
   <style media="screen">
     @import url('https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css');
     
+    html { cursor: none; }
+    html * { cursor: none; }
+    img, div {  
+       user-drag: none;  
+       user-select: none;
+       -moz-user-select: none;
+       -webkit-user-drag: none;
+       -webkit-user-select: none;
+       -ms-user-select: none;
+    }
+    
     body {
       margin: 0;
       background: black;
@@ -1085,6 +1096,7 @@
     
   </body>
   
+  <script type="text/javascript" src="../touch-scroll-emulation.js"></script>
   <script type="text/javascript">
   const header = document.querySelector("header");
   const container = document.querySelector(".container");
