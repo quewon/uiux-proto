@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <title></title>
   </head>
+  <link rel="stylesheet" href="../reset.css">
   <style media="screen">
     @import url('https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css');
     
@@ -13,16 +14,8 @@
     }
     
     .everything {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%) scale(.6);
       width: var(--width);
       height: var(--height);
-      margin: 0;
-      padding: 0;
-      
-      --dima-red: #CF2791;
       
       --width: 1920px;
       --height: 1080px;
@@ -31,7 +24,6 @@
       --header-height: 125px;
       --nav-height: 714px;
       
-      font-family: 'NanumSquare Neo OTF', sans-serif;
       font-size: var(--font-size);
     }
     
@@ -112,8 +104,9 @@
     .container {
       width: var(--width);
       height: var(--height);
-      overflow: auto;
       scroll-snap-type: y mandatory;
+      overflow-y: scroll;
+      overflow-x: hidden;
     }
     
     footer, section {
@@ -599,7 +592,7 @@
           <img src="../img/bg.png" alt="" class="center x" style="height: 100%;">
           
           <div style="left: 122px; width: 100%;">
-            <h1 style="position: absolute; top: 333px; left: 0;">열정으로<br>
+            <h1 style="position: absolute; top: 333px; left: 0; line-height: 75px;">열정으로<br>
             하나된 우리</h1>
             <div style="font-size: 24px; top: 488px;">꿈을 현실로 이루다</div>
           </div>
@@ -1085,6 +1078,7 @@
     
   </body>
   
+  <script type="text/javascript" src="../trmix.min.js"></script>
   <script type="text/javascript">
   const header = document.querySelector("header");
   const container = document.querySelector(".container");
