@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <title></title>
   </head>
+  <link rel="stylesheet" href="../reset.css">
   <style media="screen">
     @import url('https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css');
     
@@ -13,26 +14,14 @@
     }
     
     .everything {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%) scale(.6);
       width: var(--width);
       height: var(--height);
-      margin: 0;
-      padding: 0;
       
       --width: 1920px;
       --height: 1080px;
-      --font-size: 20px;
       
-      --header-height: 125px;
-      --nav-height: 714px;
-      
-      font-family: 'NanumSquare Neo OTF', sans-serif;
-      font-size: var(--font-size);
-      
-      background: white;
+      font-size: var(--s20);
+      font-weight: var(--w500);
     }
     
     .everything div, a, img, header, nav, svg {
@@ -40,7 +29,6 @@
     }
     
     .page {
-      border: 1px solid black;
       color: black;
       width: 281px;
       height: 189px;
@@ -68,32 +56,20 @@
       flex-direction: column; 
       justify-content: space-between;
       width: 281px; 
-      height: 261px; 
+      height: 236px; 
       bottom: 67px; 
       left: 69px; 
       border-radius: 10px; 
-      border-bottom-left-radius: 20px;
-      border-bottom-right-radius: 20px;
+      padding-top: 10px;
+      padding-bottom: 10px;
       background: black;
-    }
-    
-    .buttons.closed button {
-      visibility: hidden;
-      pointer-events: none;
-    }
-    .buttons.closed .family {
-      visibility: visible;
-      pointer-events: auto;
-    }
-    .buttons.closed {
-      background: none;
+      box-sizing: border-box;
     }
     
     button {
       background: black;
       color: white;
       font-size: 12px;
-      border-radius: 60px;
       width: 281px;
       height: 42px;
       padding: 10px;
@@ -106,23 +82,65 @@
     }
     
     button:hover {
-      border-radius: 0;
       background: #CF2791;
     }
     
-    button:first-child:hover {
-      border-radius: inherit;
-      border-bottom-left-radius: 0;
-      border-bottom-right-radius: 0;
+    .swipe {
+      top: 0;
+      right: 0;
+      width: 1260px;
+      height: 131px;
+      background: var(--dima-red);
+      color: white;
+      display: flex;
     }
     
-    .family:hover {
-      border-radius: inherit;
-      background: black;
-      opacity: .8;
+    section {
+      position: relative;
+      width: 420px;
+      height: 131px;
+      display: block;
+      padding: 0;
+      margin: 0;
     }
-    .buttons.closed .family:hover {
-      border-radius: 60px;
+    
+    .swipe section h1 {
+      position: absolute;
+      font-weight: var(--w900);
+      font-size: var(--s15);
+      left: 16px;
+      bottom: 16px;
+    }
+    
+    .swipe section.center h1 {
+      top: 40px;
+      left: 0;
+      text-align: center;
+      width: 100%;
+      font-size: var(--s30);
+    }
+    
+    .swipe section.center h2 {
+      position: absolute;
+      bottom: 34px;
+      text-align: center;
+      width: 100%;
+      font-weight: var(--w500);
+      font-size: var(--s15);
+    }
+    
+    .circle {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #D9D9D9;
+      margin-right: 4px;
+      cursor: pointer;
+    }
+    
+    .circle.filled {
+      background: black;
     }
   </style>
     
@@ -131,12 +149,10 @@
     <div class="everything">
       
       <img src="../img/landing bg.png" alt="" style="width: 1500px">
+      <img src="../img/logo.png" alt="" style="width: 281px; left: 46px; top: 38px;">
       
-      <div class="" style="border-bottom: 1px solid black; width: 100%; top: 131px;"></div>
-      
-      <div style="left: 1500px; width: 420px; height: 100%;">
+      <div style="left: 1500px; width: 420px; height: 100%; overflow: hidden;">
         <div class="">
-          <img src="../img/logo.png" alt="" style="width: 281px; left: 69px; top: 38px; mix-blend-mode: difference;">
           <div class="page" style="left: 69px; top: 188px;" onclick="window.location.href = './main.html';">
             <img src="../img/main.png" alt="">
             <div class="">
@@ -157,18 +173,36 @@
           </div>
         </div>
         
+        <div class="" style="font-weight: var(--w900); font-size: var(--s20); left: 69px; bottom: 316px;">
+          Quick Menu
+        </div>
         <div class="buttons">
           <button type="button" name="button">학과소개</button>
           <button type="button" name="button">DIMA e-class</button>
           <button type="button" name="button">인트라넷</button>
           <button type="button" name="button">DIMA C</button>
           <button type="button" name="button">전자출결시스템</button>
-          <button class="family" type="button" name="button" onclick="toggleclass(buttons, 'closed')">
-            Family Site
-            <svg width="14" height="9" style="right: 15px; margin-top: 3px;">
-              <path d="M 1.5 7.5 L 7 1.5 L 12.5 7.5" stroke-width="2" stroke-linecap="round" stroke="white" fill="none">
-            </svg>
-          </button>
+        </div>
+        
+        <div class="swipe">
+          <section>
+            <h1>동아방송예술대학교<br>코로나19 현행 매뉴얼 및 소식</h1>
+            <img src="../img/landing_banner/speechbubble.png" alt="" style="left: 262px; top: 31px">
+            <img src="../img/landing_banner/speechbubble.png" alt="" style="right: 33px; top: 52px; transform:scaleX(-1)">
+          </section>
+          <section>
+            <h1>동아방송예술대학교<br>전문학사과정 합격자 발표</h1>
+            <img src="../img/landing_banner/check.png" alt="" style="right: 27px; top: 25px;">
+          </section>
+          <section class="center">
+            <h1>동아방송예술대학교</h1>
+            <h2>입학을 진심으로 축하드립니다!</h2>
+            <img src="../img/landing_banner/confetti.png" alt="" style="left: 48px; top: 28px;">
+            <img src="../img/landing_banner/confetti.png" alt="" style="right: 51px; top: 28px; transform:scaleX(-1)">
+          </section>
+        </div>
+        <div class="swiper" style="top: 135px; right: 184px;">
+          <span class="circle filled"></span><span class="circle"></span><span class="circle"></span>
         </div>
       </div>
       
@@ -181,14 +215,6 @@
   </body>
   
   <script type="text/javascript">
-    const buttons = document.getElementsByClassName("buttons")[0];
-    
-    function toggleclass(el, classname) {
-      if (el.classList.contains(classname)) {
-        el.classList.remove(classname);
-      } else {
-        el.classList.add(classname);
-      }
-    }
+  
   </script>
 </html>

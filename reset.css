@@ -3,6 +3,10 @@
    License: none (public domain)
 */
 
+body {
+	overflow: hidden;
+}
+
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -51,10 +55,29 @@ table {
 	position: absolute;
 	top: 50%;
 	left: 50%;
-	transform: translate(-50%, -50%) scale(.6);
+	/* transform: translate(-50%, -50%) scale(.6); */
+	transform: translate(-50%, -50%) scale(.75);
 	/* overflow-y: scroll;
 	overflow-x: hidden; */
+	background: white;
 	overflow: hidden;
 	--dima-red: #CF2791;
 	font-family: 'NanumSquare Neo OTF', sans-serif;
+	
+	margin: 0;
+	padding: 0;
+	
+	--w300: 300;
+	--w500: 500;
+	--w900: 900;
+	
+	--s10: 10px;
+	--s12: 12px;
+	--s15: 15px;
+	--s18: 18px;
+	--s20: 20px;
+	--s25: 25px;
+	--s30: 30px;
+	--s32: 32px;
+	--s64: 64px;
 }

@@ -18,12 +18,14 @@ if (!('ontouchstart' in document.documentElement)) {
   
   everything.addEventListener("mousedown", function(e) {
     cursor.style.background = "white";
+    everything.classList.add("scrolling");
     
     drag = { py: everything.scrollTop + e.pageY, down: true };
   });
   everything.addEventListener("mouseup", function(e) {
     cursor.style.background = "black";
     drag.down = false;
+    everything.classList.remove("scrolling");
   });
   everything.addEventListener("mouseleave", function(e) {
     cursor.style.background = "black";
@@ -37,6 +39,10 @@ if (!('ontouchstart' in document.documentElement)) {
     cursor.style.top = e.pageY+"px";
     
     if (drag.down) {
+      // if (drag.py > e.pageY) {
+      //   everything.scrollTo(0, everything.scrollTop + 800);
+      //   drag.down = false;
+      // }
       everything.scroll(0, drag.py - e.pageY);
     }
   });

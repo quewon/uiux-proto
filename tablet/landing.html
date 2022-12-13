@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <title></title>
   </head>
+  <link rel="stylesheet" href="../reset.css">
   <style media="screen">
     @import url('https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css');
     
@@ -24,28 +25,10 @@
     }
     
     .everything {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%) scale(.6);
       width: var(--width);
       height: var(--height);
-      margin: 0;
-      padding: 0;
-      
       --width: 768px;
       --height: 1024px;
-      --font-size: 20px;
-      
-      --header-height: 125px;
-      --nav-height: 714px;
-      
-      font-family: 'NanumSquare Neo OTF', sans-serif;
-      font-size: var(--font-size);
-      
-      overflow: hidden;
-      
-      background: white;
     }
     
     .everything div, a, img, header, nav, svg {
@@ -70,7 +53,7 @@
       font-weight: 500;
       top: 158px;
       width: 100%;
-      border: 1px solid white;
+      /* border: 1px solid white; */
       padding: 7px;
       box-sizing: border-box;
       background: white;
@@ -80,35 +63,21 @@
       display: flex; 
       flex-direction: column; 
       justify-content: space-between;
-      
       width: 635px;
-      height: 270px;
-      top: 465px;
+      height: 248px;
+      top: 487px;
       left: 68px;
-      
       border-radius: 10px; 
-      border-top-left-radius: 20px;
-      border-top-right-radius: 20px;
+      padding-top: 10px;
+      padding-bottom: 10px;
       background: white;
-    }
-    
-    .buttons.closed button {
-      visibility: hidden;
-      pointer-events: none;
-    }
-    .buttons.closed .family {
-      visibility: visible;
-      pointer-events: auto;
-    }
-    .buttons.closed {
-      background: none;
+      box-sizing: border-box;
     }
     
     button {
       background: white;
       color: black;
       font-size: 12px;
-      border-radius: 60px;
       width: 100%;
       height: 42px;
       padding: 10px;
@@ -120,24 +89,8 @@
     }
     
     button:active {
-      border-radius: 0;
       background: #CF2791;
       color: white;
-    }
-    
-    button:last-child:active {
-      border-radius: inherit;
-      border-top-left-radius: 0;
-      border-top-right-radius: 0;
-    }
-    
-    .family:active {
-      border-radius: inherit;
-      color: black;
-      background: white;
-    }
-    .buttons.closed .family:active {
-      border-radius: 60px;
     }
   </style>
     
@@ -171,13 +124,10 @@
         </div>
       </div>
       
+      <div class="" style="font-weight: var(--w900); font-size: var(--s20); left: 77px; top: 454px; color: white;">
+        Quick Menu
+      </div>
       <div class="buttons">
-        <button class="family" type="button" name="button" onclick="toggleclass(buttons, 'closed')">
-          Family Site
-          <svg width="14" height="9" style="right: 15px; margin-top: 3px;">
-            <path d="M 1.5 1.5 L 7 7.5 L 12.5 1.5" stroke-width="2" stroke-linecap="round" stroke="black" fill="none">
-          </svg>
-        </button>
         <button type="button" name="button">학과소개</button>
         <button type="button" name="button">DIMA e-class</button>
         <button type="button" name="button">인트라넷</button>
@@ -194,15 +144,4 @@
   </body>
   
   <script type="text/javascript" src="../touch-scroll-emulation.js"></script>
-  <script type="text/javascript">
-    const buttons = document.getElementsByClassName("buttons")[0];
-    
-    function toggleclass(el, classname) {
-      if (el.classList.contains(classname)) {
-        el.classList.remove(classname);
-      } else {
-        el.classList.add(classname);
-      }
-    }
-  </script>
 </html>

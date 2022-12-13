@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <title></title>
   </head>
+  <link rel="stylesheet" href="../reset.css">
   <style media="screen">
     @import url('https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css');
     
@@ -24,26 +25,24 @@
     }
     
     .everything {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%) scale(.6);
       width: var(--width);
       height: var(--height);
-      margin: 0;
-      padding: 0;
       
-      --dima-red: #CF2791;
-      
-      --width: 1920px;
-      --height: 1080px;
+      --width: 360px;
+      --height: 800px;
       --font-size: 20px;
       
-      --header-height: 125px;
+      --header-height: 69px;
       --nav-height: 714px;
       
-      font-family: 'NanumSquare Neo OTF', sans-serif;
       font-size: var(--font-size);
+      overflow-x: hidden;
+      overflow-y: scroll;
+      scroll-snap-type: y mandatory;
+    }
+    
+    .everything.scrolling {
+      scroll-snap-type: unset;
     }
     
     .everything div, a, img, header, nav, svg {
@@ -92,39 +91,12 @@
       --color: black;
       
       height: var(--header-height);
-      border-bottom: 1.5px solid var(--color);
       color: var(--color);
-      background: var(--bg);
+      background: white;
       /* mix-blend-mode: difference; */
       z-index: 10;
       
       transition: all 200ms;
-    }
-    
-    header.hovered, header:hover, header.slide1.hovered, header.slide1:hover {
-      --bg: white;
-      --color: black;
-    }
-    
-    header.slide1 {
-      --bg: rgba(0, 0, 0, 0);
-      --color: white;
-      transition: all 200ms;
-    }
-    
-    header img {
-      mix-blend-mode: difference;
-    }
-    
-    header:hover ~ nav, nav:hover {
-      display: block;
-    }
-    
-    .container {
-      width: var(--width);
-      height: var(--height);
-      overflow: auto;
-      scroll-snap-type: y mandatory;
     }
     
     footer, section {
@@ -603,419 +575,416 @@
     
     <div class="everything">
       
-      
-      <div class="container">
         
-        <section style="color: white;">
-          <img src="../img/bg.png" alt="" class="center x" style="height: 100%;">
-          
-          <div style="left: 122px; width: 100%;">
-            <h1 style="position: absolute; top: 333px; left: 0;">열정으로<br>
-            하나된 우리</h1>
-            <div style="font-size: 24px; top: 488px;">꿈을 현실로 이루다</div>
-          </div>
-          
-          <div style="top: 750px; right: 148px; font-size: 20px;">
-            <div style="">01</div>
-            <svg width="3" height="166" style="top: 29px; left: 10px;">
-              <line x1="1.5" y1="0" x2="1.5" y2="166" stroke="white" stroke-width="1">
-            </svg>
-            
-            <svg width="3" height="166" style="top: 29px; left: 10px;">
-              <line x1="1.5" y1="0" x2="1.5" y2="16" stroke="white" stroke-width="3">
-            </svg>
-            <div style="top: 204px;">08</div>
-          </div>
-        </section>
+      <section style="color: white;">
+        <img src="../img/bg.png" alt="" class="center x" style="height: 100%;">
         
-        <section>
-          <h1>NEWS</h1>
-          <h2>디마뉴스</h2>
-          <div class="" style="bottom: 37px; right: 1512px; width: 82px;">
-            <button type="button" name="button" class="selected">2022</button>
-            <button type="button" name="button">2021</button>
-            <button type="button" name="button">2020</button>
-            <br>
-            <button type="button" name="button">MORE</button>
-          </div>
-          <div class="border" style="left: 451px;"></div>
-          
-          <div class="pageholder">
-            <!-- page 1 -->
-            <div class="cardspage">
-              <div class="card">
-                <img src="../img/news/1.png" alt="">
-                <a>동아방송예술대학교, PMC 프로덕션 예술...</a>
-                <p>동아방송예술대학(총장 최용혁)가 국내 최초 비언어극 '난타'의 기획자인 송승환 PMC프로덕션 예술감독을 초청해 특강을 개최...</p>
-                <div class="date">12월 03일</div>
-                <div class="views"><img src="../img/news/views.png" alt="">1104</div>
-                <div class="likes"><img src="../img/news/heart.png" alt="">1104</div>
-              </div>
-              <div class="card">
-                <img src="../img/news/2.png" alt="">
-                <a>동아방송예술대학교, PMC 프로덕션 예술...</a>
-                <p>동아방송예술대학(총장 최용혁)가 국내 최초 비언어극 '난타'의 기획자인 송승환 PMC프로덕션 예술감독을 초청해 특강을 개최...</p>
-                <div class="date">12월 03일</div>
-                <div class="views"><img src="../img/news/views.png" alt="">1104</div>
-                <div class="likes"><img src="../img/news/heart.png" alt="">1104</div>
-              </div>
-              <div class="card">
-                <img src="../img/news/3.png" alt="">
-                <a>동아방송예술대학교, PMC 프로덕션 예술...</a>
-                <p>동아방송예술대학(총장 최용혁)가 국내 최초 비언어극 '난타'의 기획자인 송승환 PMC프로덕션 예술감독을 초청해 특강을 개최...</p>
-                <div class="date">12월 03일</div>
-                <div class="views"><img src="../img/news/views.png" alt="">1104</div>
-                <div class="likes"><img src="../img/news/heart.png" alt="">1104</div>
-              </div>
-              <div class="card">
-                <img src="../img/news/4.png" alt="">
-                <a>동아방송예술대학교, PMC 프로덕션 예술...</a>
-                <p>동아방송예술대학(총장 최용혁)가 국내 최초 비언어극 '난타'의 기획자인 송승환 PMC프로덕션 예술감독을 초청해 특강을 개최...</p>
-                <div class="date">12월 03일</div>
-                <div class="views"><img src="../img/news/views.png" alt="">1104</div>
-                <div class="likes"><img src="../img/news/heart.png" alt="">1104</div>
-              </div>
-              <div class="card">
-                <img src="../img/news/5.png" alt="">
-                <a>동아방송예술대학교, PMC 프로덕션 예술...</a>
-                <p>동아방송예술대학(총장 최용혁)가 국내 최초 비언어극 '난타'의 기획자인 송승환 PMC프로덕션 예술감독을 초청해 특강을 개최...</p>
-                <div class="date">12월 03일</div>
-                <div class="views"><img src="../img/news/views.png" alt="">1104</div>
-                <div class="likes"><img src="../img/news/heart.png" alt="">1104</div>
-              </div>
-              <div class="card">
-                <img src="../img/news/6.png" alt="">
-                <a>동아방송예술대학교, PMC 프로덕션 예술...</a>
-                <p>동아방송예술대학(총장 최용혁)가 국내 최초 비언어극 '난타'의 기획자인 송승환 PMC프로덕션 예술감독을 초청해 특강을 개최...</p>
-                <div class="date">12월 03일</div>
-                <div class="views"><img src="../img/news/views.png" alt="">1104</div>
-                <div class="likes"><img src="../img/news/heart.png" alt="">1104</div>
-              </div>
-            </div>
-            
-            <!-- page 2 -->
-            <div class="cardspage">
-              <div class="card">
-                <img src="../img/news/1.png" alt="">
-                <a>동아방송예술대학교, PMC 프로덕션 예술...</a>
-                <p>동아방송예술대학(총장 최용혁)가 국내 최초 비언어극 '난타'의 기획자인 송승환 PMC프로덕션 예술감독을 초청해 특강을 개최...</p>
-                <div class="date">12월 03일</div>
-                <div class="views"><img src="../img/news/views.png" alt="">1104</div>
-                <div class="likes"><img src="../img/news/heart.png" alt="">1104</div>
-              </div>
-              <div class="card">
-                <img src="../img/news/2.png" alt="">
-                <a>동아방송예술대학교, PMC 프로덕션 예술...</a>
-                <p>동아방송예술대학(총장 최용혁)가 국내 최초 비언어극 '난타'의 기획자인 송승환 PMC프로덕션 예술감독을 초청해 특강을 개최...</p>
-                <div class="date">12월 03일</div>
-                <div class="views"><img src="../img/news/views.png" alt="">1104</div>
-                <div class="likes"><img src="../img/news/heart.png" alt="">1104</div>
-              </div>
-              <div class="card">
-                <img src="../img/news/3.png" alt="">
-                <a>동아방송예술대학교, PMC 프로덕션 예술...</a>
-                <p>동아방송예술대학(총장 최용혁)가 국내 최초 비언어극 '난타'의 기획자인 송승환 PMC프로덕션 예술감독을 초청해 특강을 개최...</p>
-                <div class="date">12월 03일</div>
-                <div class="views"><img src="../img/news/views.png" alt="">1104</div>
-                <div class="likes"><img src="../img/news/heart.png" alt="">1104</div>
-              </div>
-              <div class="card">
-                <img src="../img/news/4.png" alt="">
-                <a>동아방송예술대학교, PMC 프로덕션 예술...</a>
-                <p>동아방송예술대학(총장 최용혁)가 국내 최초 비언어극 '난타'의 기획자인 송승환 PMC프로덕션 예술감독을 초청해 특강을 개최...</p>
-                <div class="date">12월 03일</div>
-                <div class="views"><img src="../img/news/views.png" alt="">1104</div>
-                <div class="likes"><img src="../img/news/heart.png" alt="">1104</div>
-              </div>
-              <div class="card">
-                <img src="../img/news/5.png" alt="">
-                <a>동아방송예술대학교, PMC 프로덕션 예술...</a>
-                <p>동아방송예술대학(총장 최용혁)가 국내 최초 비언어극 '난타'의 기획자인 송승환 PMC프로덕션 예술감독을 초청해 특강을 개최...</p>
-                <div class="date">12월 03일</div>
-                <div class="views"><img src="../img/news/views.png" alt="">1104</div>
-                <div class="likes"><img src="../img/news/heart.png" alt="">1104</div>
-              </div>
-              <div class="card">
-                <img src="../img/news/6.png" alt="">
-                <a>동아방송예술대학교, PMC 프로덕션 예술...</a>
-                <p>동아방송예술대학(총장 최용혁)가 국내 최초 비언어극 '난타'의 기획자인 송승환 PMC프로덕션 예술감독을 초청해 특강을 개최...</p>
-                <div class="date">12월 03일</div>
-                <div class="views"><img src="../img/news/views.png" alt="">1104</div>
-                <div class="likes"><img src="../img/news/heart.png" alt="">1104</div>
-              </div>
-            </div>
-          </div>
-          <div class="scrollprompt">
-            <span>
-              SWIPE
-              &nbsp;
-              <svg width="20" height="18" style="position: relative; vertical-align: middle;">
-                <path d="M 1.5 1.5 L 10 9 L 1.5 16.5 M 10 1.5 L 18.5 9 L 10 16.5" stroke-width="3" stroke-linecap="round" stroke="rgba(0, 0, 0, .3)" fill="none">
-              </svg>
-            </span>
-          </div>
-        </section>
+        <div style="left: 122px; width: 100%;">
+          <h1 style="position: absolute; top: 333px; left: 0;">열정으로<br>
+          하나된 우리</h1>
+          <div style="font-size: 24px; top: 488px;">꿈을 현실로 이루다</div>
+        </div>
         
-        <section>
-          <svg viewBox="0 0 787 168" style="position: absolute; top: 730px; left: 574px; width: 787px; height: 168px;">
-            <ellipse cx="393.5" cy="84" rx="392.5" ry="83" stroke-width="2" stroke="black" fill="none" />
+        <div style="top: 750px; right: 148px; font-size: 20px;">
+          <div style="">01</div>
+          <svg width="3" height="166" style="top: 29px; left: 10px;">
+            <line x1="1.5" y1="0" x2="1.5" y2="166" stroke="white" stroke-width="1">
           </svg>
           
-          <div class="carousel">
-            <div class="poster front">
-              <img src="../img/posters/1.png" alt="">
-              <h1>전시 'NEW WAVE'</h1>
-              <h2>과동아리 V-CON</h2>
-            </div>
-            
-            <div class="poster right">
-              <img src="../img/posters/2.png" alt="">
-              <h1>전시 'NEWMEDIA UNIVERSE'</h1>
-              <h2>뉴미디어콘텐츠과</h2>
-            </div>
-            
-            <div class="poster">
-              <img src="../img/posters/3.png" alt="">
-              <h1>공연 'RECORDING STUDIO IN MEVOICE'</h1>
-              <h2>중앙동아리 미보이스</h2>
-            </div>
-            
-            <div class="poster">
-              <img src="../img/posters/4.png" alt="">
-              <h1>공연 'REMIND'</h1>
-              <h2>흑인음악동아리</h2>
-            </div>
-            
-            <div class="poster">
-              <img src="../img/posters/5.png" alt="">
-              <h1>연극 'THE CHAIR'</h1>
-              <h2>뮤지컬전공</h2>
-            </div>
-            
-            <div class="poster left">
-              <img src="../img/posters/6.png" alt="">
-              <h1>연극 '갈매기'</h1>
-              <h2>공연예술계열 연극전공</h2>
-            </div>
-          </div>
-          
-          <div style="top: 510px;">
-            <img class="imgbutton" src="../img/arrow.png" style="left: 53px; transform: scaleX(-1)" onclick="carousel(-1)">
-            <img class="imgbutton" src="../img/arrow.png" style="left: 1824px;" onclick="carousel(1)">
-          </div>
-        </section>
+          <svg width="3" height="166" style="top: 29px; left: 10px;">
+            <line x1="1.5" y1="0" x2="1.5" y2="16" stroke="white" stroke-width="3">
+          </svg>
+          <div style="top: 204px;">08</div>
+        </div>
+      </section>
+      
+      <section>
+        <h1>NEWS</h1>
+        <h2>디마뉴스</h2>
+        <div class="" style="bottom: 37px; right: 1512px; width: 82px;">
+          <button type="button" name="button" class="selected">2022</button>
+          <button type="button" name="button">2021</button>
+          <button type="button" name="button">2020</button>
+          <br>
+          <button type="button" name="button">MORE</button>
+        </div>
+        <div class="border" style="left: 451px;"></div>
         
-        <section>
-          <h1>학부소개</h1>
-          <h2>Introduction of the Departments</h2>
-          
-          <div class="" style="bottom: 37px; right: 1512px; width: 150px;">
-            <button type="button" name="button" class="selected">방송예술융합학부</button>
-            <button type="button" name="button">콘텐츠학부</button>
-            <button type="button" name="button">예술학부</button>
-            <button type="button" name="button">실용음악학부</button>
-            <button type="button" name="button">방송연예학부</button>
+        <div class="pageholder">
+          <!-- page 1 -->
+          <div class="cardspage">
+            <div class="card">
+              <img src="../img/news/1.png" alt="">
+              <a>동아방송예술대학교, PMC 프로덕션 예술...</a>
+              <p>동아방송예술대학(총장 최용혁)가 국내 최초 비언어극 '난타'의 기획자인 송승환 PMC프로덕션 예술감독을 초청해 특강을 개최...</p>
+              <div class="date">12월 03일</div>
+              <div class="views"><img src="../img/news/views.png" alt="">1104</div>
+              <div class="likes"><img src="../img/news/heart.png" alt="">1104</div>
+            </div>
+            <div class="card">
+              <img src="../img/news/2.png" alt="">
+              <a>동아방송예술대학교, PMC 프로덕션 예술...</a>
+              <p>동아방송예술대학(총장 최용혁)가 국내 최초 비언어극 '난타'의 기획자인 송승환 PMC프로덕션 예술감독을 초청해 특강을 개최...</p>
+              <div class="date">12월 03일</div>
+              <div class="views"><img src="../img/news/views.png" alt="">1104</div>
+              <div class="likes"><img src="../img/news/heart.png" alt="">1104</div>
+            </div>
+            <div class="card">
+              <img src="../img/news/3.png" alt="">
+              <a>동아방송예술대학교, PMC 프로덕션 예술...</a>
+              <p>동아방송예술대학(총장 최용혁)가 국내 최초 비언어극 '난타'의 기획자인 송승환 PMC프로덕션 예술감독을 초청해 특강을 개최...</p>
+              <div class="date">12월 03일</div>
+              <div class="views"><img src="../img/news/views.png" alt="">1104</div>
+              <div class="likes"><img src="../img/news/heart.png" alt="">1104</div>
+            </div>
+            <div class="card">
+              <img src="../img/news/4.png" alt="">
+              <a>동아방송예술대학교, PMC 프로덕션 예술...</a>
+              <p>동아방송예술대학(총장 최용혁)가 국내 최초 비언어극 '난타'의 기획자인 송승환 PMC프로덕션 예술감독을 초청해 특강을 개최...</p>
+              <div class="date">12월 03일</div>
+              <div class="views"><img src="../img/news/views.png" alt="">1104</div>
+              <div class="likes"><img src="../img/news/heart.png" alt="">1104</div>
+            </div>
+            <div class="card">
+              <img src="../img/news/5.png" alt="">
+              <a>동아방송예술대학교, PMC 프로덕션 예술...</a>
+              <p>동아방송예술대학(총장 최용혁)가 국내 최초 비언어극 '난타'의 기획자인 송승환 PMC프로덕션 예술감독을 초청해 특강을 개최...</p>
+              <div class="date">12월 03일</div>
+              <div class="views"><img src="../img/news/views.png" alt="">1104</div>
+              <div class="likes"><img src="../img/news/heart.png" alt="">1104</div>
+            </div>
+            <div class="card">
+              <img src="../img/news/6.png" alt="">
+              <a>동아방송예술대학교, PMC 프로덕션 예술...</a>
+              <p>동아방송예술대학(총장 최용혁)가 국내 최초 비언어극 '난타'의 기획자인 송승환 PMC프로덕션 예술감독을 초청해 특강을 개최...</p>
+              <div class="date">12월 03일</div>
+              <div class="views"><img src="../img/news/views.png" alt="">1104</div>
+              <div class="likes"><img src="../img/news/heart.png" alt="">1104</div>
+            </div>
           </div>
           
-          <div class="border" style="left: 451px;"></div>
-          <div class="boxholder">
-            <div class="box">
-              <img src="../img/majors/bg/fill2.png" alt="">
-              <div class="cover">
-                <img src="../img/majors/screenwriting.png" alt="">
-              </div>
-              <h1>방송기술계열</h1>
+          <!-- page 2 -->
+          <div class="cardspage">
+            <div class="card">
+              <img src="../img/news/1.png" alt="">
+              <a>동아방송예술대학교, PMC 프로덕션 예술...</a>
+              <p>동아방송예술대학(총장 최용혁)가 국내 최초 비언어극 '난타'의 기획자인 송승환 PMC프로덕션 예술감독을 초청해 특강을 개최...</p>
+              <div class="date">12월 03일</div>
+              <div class="views"><img src="../img/news/views.png" alt="">1104</div>
+              <div class="likes"><img src="../img/news/heart.png" alt="">1104</div>
             </div>
-            
-            <div class="box">
-              <img src="../img/majors/bg/sound.png" alt="">
-              <div class="cover">
-                <img src="../img/majors/sound.png" alt="">
-              </div>
-              <h1>음향제작과</h1>
+            <div class="card">
+              <img src="../img/news/2.png" alt="">
+              <a>동아방송예술대학교, PMC 프로덕션 예술...</a>
+              <p>동아방송예술대학(총장 최용혁)가 국내 최초 비언어극 '난타'의 기획자인 송승환 PMC프로덕션 예술감독을 초청해 특강을 개최...</p>
+              <div class="date">12월 03일</div>
+              <div class="views"><img src="../img/news/views.png" alt="">1104</div>
+              <div class="likes"><img src="../img/news/heart.png" alt="">1104</div>
             </div>
-            
-            <div class="box">
-              <img src="../img/majors/bg/fill2.png" alt="">
-              <div class="cover">
-                <img src="../img/majors/newmedia.png" alt="">
-              </div>
-              <h1>뉴미디어콘텐츠과</h1>
+            <div class="card">
+              <img src="../img/news/3.png" alt="">
+              <a>동아방송예술대학교, PMC 프로덕션 예술...</a>
+              <p>동아방송예술대학(총장 최용혁)가 국내 최초 비언어극 '난타'의 기획자인 송승환 PMC프로덕션 예술감독을 초청해 특강을 개최...</p>
+              <div class="date">12월 03일</div>
+              <div class="views"><img src="../img/news/views.png" alt="">1104</div>
+              <div class="likes"><img src="../img/news/heart.png" alt="">1104</div>
             </div>
-            
-            <div class="box">
-              <img src="../img/majors/bg/fill1.png" alt="">
+            <div class="card">
+              <img src="../img/news/4.png" alt="">
+              <a>동아방송예술대학교, PMC 프로덕션 예술...</a>
+              <p>동아방송예술대학(총장 최용혁)가 국내 최초 비언어극 '난타'의 기획자인 송승환 PMC프로덕션 예술감독을 초청해 특강을 개최...</p>
+              <div class="date">12월 03일</div>
+              <div class="views"><img src="../img/news/views.png" alt="">1104</div>
+              <div class="likes"><img src="../img/news/heart.png" alt="">1104</div>
             </div>
-            <div class="box">
-              <img src="../img/majors/bg/fill1.png" alt="">
+            <div class="card">
+              <img src="../img/news/5.png" alt="">
+              <a>동아방송예술대학교, PMC 프로덕션 예술...</a>
+              <p>동아방송예술대학(총장 최용혁)가 국내 최초 비언어극 '난타'의 기획자인 송승환 PMC프로덕션 예술감독을 초청해 특강을 개최...</p>
+              <div class="date">12월 03일</div>
+              <div class="views"><img src="../img/news/views.png" alt="">1104</div>
+              <div class="likes"><img src="../img/news/heart.png" alt="">1104</div>
             </div>
-            <div class="box">
-              <img src="../img/majors/bg/fill1.png" alt="">
+            <div class="card">
+              <img src="../img/news/6.png" alt="">
+              <a>동아방송예술대학교, PMC 프로덕션 예술...</a>
+              <p>동아방송예술대학(총장 최용혁)가 국내 최초 비언어극 '난타'의 기획자인 송승환 PMC프로덕션 예술감독을 초청해 특강을 개최...</p>
+              <div class="date">12월 03일</div>
+              <div class="views"><img src="../img/news/views.png" alt="">1104</div>
+              <div class="likes"><img src="../img/news/heart.png" alt="">1104</div>
             </div>
-            
-            <!-- <div class="box">
-              <img src="../img/majors/bg/fill1.png" alt="">
-              <div class="cover">
-                <img src="../img/majors/screenwriting.png" alt="">
-              </div>
-              <h1>방송극작과</h1>
-            </div>
-            
-            <div class="box">
-              <img src="../img/majors/bg/fill2.png" alt="">
-              <div class="cover">
-                <img src="../img/majors/d0d.png" alt="">
-              </div>
-              <h1>디지털영상디자인과</h1>
-            </div>
-            
-            <div class="box">
-              <img src="../img/majors/bg/music.png" alt="">
-              <div class="cover">
-                <img src="../img/majors/music.png" alt="">
-              </div>
-              <h1>실용음악계열</h1>
-            </div>
-            
-            <div class="box">
-              <img src="../img/majors/bg/sound.png" alt="">
-              <div class="cover">
-                <img src="../img/majors/sound.png" alt="">
-              </div>
-              <h1>음향제작과</h1>
-            </div>
-            
-            <div class="box">
-              <img src="../img/majors/bg/fill1.png" alt="">
-              <div class="cover">
-                <img src="../img/majors/video.png" alt="">
-              </div>
-              <h1>영상제작과</h1>
-            </div>
-            
-            <div class="box">
-              <img src="../img/majors/bg/fill2.png" alt="">
-              <div class="cover">
-                <img src="../img/majors/newmedia.png" alt="">
-              </div>
-              <h1>뉴미디어콘텐츠과</h1>
-            </div> -->
           </div>
-        </section>
+        </div>
+        <div class="scrollprompt">
+          <span>
+            SWIPE
+            &nbsp;
+            <svg width="20" height="18" style="position: relative; vertical-align: middle;">
+              <path d="M 1.5 1.5 L 10 9 L 1.5 16.5 M 10 1.5 L 18.5 9 L 10 16.5" stroke-width="3" stroke-linecap="round" stroke="rgba(0, 0, 0, .3)" fill="none">
+            </svg>
+          </span>
+        </div>
+      </section>
+      
+      <section>
+        <svg viewBox="0 0 787 168" style="position: absolute; top: 730px; left: 574px; width: 787px; height: 168px;">
+          <ellipse cx="393.5" cy="84" rx="392.5" ry="83" stroke-width="2" stroke="black" fill="none" />
+        </svg>
         
-        <section>
-          <h1>공지사항</h1>
-          <h2>NOTICE</h2>
-          <!-- <div class="" style="top: 832px; left: 326px;">
-            <button type="button" name="button" class="selected">2022</button>
-            <button type="button" name="button">2021</button>
-            <button type="button" name="button">2020</button>
-            <br>
-            <button type="button" name="button">MORE</button>
+        <div class="carousel">
+          <div class="poster front">
+            <img src="../img/posters/1.png" alt="">
+            <h1>전시 'NEW WAVE'</h1>
+            <h2>과동아리 V-CON</h2>
+          </div>
+          
+          <div class="poster right">
+            <img src="../img/posters/2.png" alt="">
+            <h1>전시 'NEWMEDIA UNIVERSE'</h1>
+            <h2>뉴미디어콘텐츠과</h2>
+          </div>
+          
+          <div class="poster">
+            <img src="../img/posters/3.png" alt="">
+            <h1>공연 'RECORDING STUDIO IN MEVOICE'</h1>
+            <h2>중앙동아리 미보이스</h2>
+          </div>
+          
+          <div class="poster">
+            <img src="../img/posters/4.png" alt="">
+            <h1>공연 'REMIND'</h1>
+            <h2>흑인음악동아리</h2>
+          </div>
+          
+          <div class="poster">
+            <img src="../img/posters/5.png" alt="">
+            <h1>연극 'THE CHAIR'</h1>
+            <h2>뮤지컬전공</h2>
+          </div>
+          
+          <div class="poster left">
+            <img src="../img/posters/6.png" alt="">
+            <h1>연극 '갈매기'</h1>
+            <h2>공연예술계열 연극전공</h2>
+          </div>
+        </div>
+        
+        <div style="top: 510px;">
+          <img class="imgbutton" src="../img/arrow.png" style="left: 53px; transform: scaleX(-1)" onclick="carousel(-1)">
+          <img class="imgbutton" src="../img/arrow.png" style="left: 1824px;" onclick="carousel(1)">
+        </div>
+      </section>
+      
+      <section>
+        <h1>학부소개</h1>
+        <h2>Introduction of the Departments</h2>
+        
+        <div class="" style="bottom: 37px; right: 1512px; width: 150px;">
+          <button type="button" name="button" class="selected">방송예술융합학부</button>
+          <button type="button" name="button">콘텐츠학부</button>
+          <button type="button" name="button">예술학부</button>
+          <button type="button" name="button">실용음악학부</button>
+          <button type="button" name="button">방송연예학부</button>
+        </div>
+        
+        <div class="border" style="left: 451px;"></div>
+        <div class="boxholder">
+          <div class="box">
+            <img src="../img/majors/bg/fill2.png" alt="">
+            <div class="cover">
+              <img src="../img/majors/screenwriting.png" alt="">
+            </div>
+            <h1>방송기술계열</h1>
+          </div>
+          
+          <div class="box">
+            <img src="../img/majors/bg/sound.png" alt="">
+            <div class="cover">
+              <img src="../img/majors/sound.png" alt="">
+            </div>
+            <h1>음향제작과</h1>
+          </div>
+          
+          <div class="box">
+            <img src="../img/majors/bg/fill2.png" alt="">
+            <div class="cover">
+              <img src="../img/majors/newmedia.png" alt="">
+            </div>
+            <h1>뉴미디어콘텐츠과</h1>
+          </div>
+          
+          <div class="box">
+            <img src="../img/majors/bg/fill1.png" alt="">
+          </div>
+          <div class="box">
+            <img src="../img/majors/bg/fill1.png" alt="">
+          </div>
+          <div class="box">
+            <img src="../img/majors/bg/fill1.png" alt="">
+          </div>
+          
+          <!-- <div class="box">
+            <img src="../img/majors/bg/fill1.png" alt="">
+            <div class="cover">
+              <img src="../img/majors/screenwriting.png" alt="">
+            </div>
+            <h1>방송극작과</h1>
+          </div>
+          
+          <div class="box">
+            <img src="../img/majors/bg/fill2.png" alt="">
+            <div class="cover">
+              <img src="../img/majors/d0d.png" alt="">
+            </div>
+            <h1>디지털영상디자인과</h1>
+          </div>
+          
+          <div class="box">
+            <img src="../img/majors/bg/music.png" alt="">
+            <div class="cover">
+              <img src="../img/majors/music.png" alt="">
+            </div>
+            <h1>실용음악계열</h1>
+          </div>
+          
+          <div class="box">
+            <img src="../img/majors/bg/sound.png" alt="">
+            <div class="cover">
+              <img src="../img/majors/sound.png" alt="">
+            </div>
+            <h1>음향제작과</h1>
+          </div>
+          
+          <div class="box">
+            <img src="../img/majors/bg/fill1.png" alt="">
+            <div class="cover">
+              <img src="../img/majors/video.png" alt="">
+            </div>
+            <h1>영상제작과</h1>
+          </div>
+          
+          <div class="box">
+            <img src="../img/majors/bg/fill2.png" alt="">
+            <div class="cover">
+              <img src="../img/majors/newmedia.png" alt="">
+            </div>
+            <h1>뉴미디어콘텐츠과</h1>
           </div> -->
-          <div class="border" style="left: 451px;"></div>
-          
-          <div class="pageholder">
-            <!-- page 1 -->
-            <div class="cardspage">
-              <div class="notice card">
-                <img src="../img/pin.png" alt="">
-                <a>22학년도 2학기 대면·비대면 수업 운영 안내</a>
-                <div class="tag announcement"></div>
-              </div>
-              <div class="notice card">
-                <a>22학년도 통계 계절학기 학점교류 교과목 수강신청 안내</a>
-                <div class="tag org"></div>
-              </div>
-              <div class="notice card">
-                <a>2023학년 1학기 국가장학금 1차 신청 안내</a>
-                <div class="tag info"></div>
-              </div>
-              <div class="notice card">
-                <a>학과조교 모집 안내 (실용음악계열)</a>
-                <div class="tag info"></div>
-              </div>
-              <div class="notice card">
-                <a>졸업학점 조정 검토 설문조사 (11.25일까지 연장)</a>
-                <div class="tag org"></div>
-              </div>
-              <div class="notice card">
-                <a>2023학년 1학기 국가장학금 1차 신청 안내</a>
-                <div class="tag info"></div>
-              </div>
-            </div>
-            
-            <!-- page 2 -->
-            <div class="cardspage">
-              <div class="notice card">
-                <a>22학년도 2학기 대면·비대면 수업 운영 안내</a>
-                <div class="tag announcement"></div>
-              </div>
-              <div class="notice card">
-                <a>22학년도 통계 계절학기 학점교류 교과목 수강신청 안내</a>
-                <div class="tag org"></div>
-              </div>
-              <div class="notice card">
-                <a>2023학년 1학기 국가장학금 1차 신청 안내</a>
-                <div class="tag info"></div>
-              </div>
-              <div class="notice card">
-                <a>학과조교 모집 안내 (실용음악계열)</a>
-                <div class="tag info"></div>
-              </div>
-              <div class="notice card">
-                <a>졸업학점 조정 검토 설문조사 (11.25일까지 연장)</a>
-                <div class="tag org"></div>
-              </div>
-              <div class="notice card">
-                <a>2023학년 1학기 국가장학금 1차 신청 안내</a>
-                <div class="tag info"></div>
-              </div>
-            </div>
-          </div>
-          <div class="scrollprompt">
-            <span>
-              SWIPE
-              &nbsp;
-              <svg width="20" height="18" style="position: relative; vertical-align: middle;">
-                <path d="M 1.5 1.5 L 10 9 L 1.5 16.5 M 10 1.5 L 18.5 9 L 10 16.5" stroke-width="3" stroke-linecap="round" stroke="rgba(0, 0, 0, .3)" fill="none">
-              </svg>
-            </span>
-          </div>
-        </section>
+        </div>
+      </section>
+      
+      <section>
+        <h1>공지사항</h1>
+        <h2>NOTICE</h2>
+        <!-- <div class="" style="top: 832px; left: 326px;">
+          <button type="button" name="button" class="selected">2022</button>
+          <button type="button" name="button">2021</button>
+          <button type="button" name="button">2020</button>
+          <br>
+          <button type="button" name="button">MORE</button>
+        </div> -->
+        <div class="border" style="left: 451px;"></div>
         
-        <footer>
-          <div class="" style="background: rgba(0, 0, 0, 0.03); height: 61px; width: 100%;">
-            <div style="top: 20px; font-size: 18px;">
-              <a style="left: 1009px">대학자체평가</a>
-              <a style="left: 1150px">예결산공고</a>
-              <a style="left: 1274px">정보공개</a>
-              <a style="left: 1380px">개인정보처리방침</a>
-              <a style="left: 1554px">개인정보 제3자 제공</a>
-              <a style="left: 1750px">찾아오시는 길</a>
+        <div class="pageholder">
+          <!-- page 1 -->
+          <div class="cardspage">
+            <div class="notice card">
+              <img src="../img/pin.png" alt="">
+              <a>22학년도 2학기 대면·비대면 수업 운영 안내</a>
+              <div class="tag announcement"></div>
+            </div>
+            <div class="notice card">
+              <a>22학년도 통계 계절학기 학점교류 교과목 수강신청 안내</a>
+              <div class="tag org"></div>
+            </div>
+            <div class="notice card">
+              <a>2023학년 1학기 국가장학금 1차 신청 안내</a>
+              <div class="tag info"></div>
+            </div>
+            <div class="notice card">
+              <a>학과조교 모집 안내 (실용음악계열)</a>
+              <div class="tag info"></div>
+            </div>
+            <div class="notice card">
+              <a>졸업학점 조정 검토 설문조사 (11.25일까지 연장)</a>
+              <div class="tag org"></div>
+            </div>
+            <div class="notice card">
+              <a>2023학년 1학기 국가장학금 1차 신청 안내</a>
+              <div class="tag info"></div>
             </div>
           </div>
-          <img src="../img/footer logo.png" alt="" style="top: 82px; left: 61px; width: 219px; height: 138px;">
           
-          <div class="" style="font-size: 16px; width: 100%;">
-            <div class="" style="top: 147px; left: 325px;">
-              경기도 안성시 삼죽면 동아예대길 47(진촌리 632-18) 17516<br>
-              47, DongAhYedaegil, Samjuk-myun, Ansung-si, Gyeonggi-do, Republic of Korea 17516<br>
-              <br>
-              TEL : 031-670-6600
-              &nbsp;&nbsp;&nbsp;&nbsp;
-              입학문의 | 031-670-6612~3
+          <!-- page 2 -->
+          <div class="cardspage">
+            <div class="notice card">
+              <a>22학년도 2학기 대면·비대면 수업 운영 안내</a>
+              <div class="tag announcement"></div>
             </div>
-            <div class="" style="top: 207px; right: 59px;">
-              Copyright © 2022 DONG-AH INSTITUTE OF MEDIA AND ART ALL RIGHTS RESERVED.
+            <div class="notice card">
+              <a>22학년도 통계 계절학기 학점교류 교과목 수강신청 안내</a>
+              <div class="tag org"></div>
+            </div>
+            <div class="notice card">
+              <a>2023학년 1학기 국가장학금 1차 신청 안내</a>
+              <div class="tag info"></div>
+            </div>
+            <div class="notice card">
+              <a>학과조교 모집 안내 (실용음악계열)</a>
+              <div class="tag info"></div>
+            </div>
+            <div class="notice card">
+              <a>졸업학점 조정 검토 설문조사 (11.25일까지 연장)</a>
+              <div class="tag org"></div>
+            </div>
+            <div class="notice card">
+              <a>2023학년 1학기 국가장학금 1차 신청 안내</a>
+              <div class="tag info"></div>
             </div>
           </div>
-        </footer>
+        </div>
+        <div class="scrollprompt">
+          <span>
+            SWIPE
+            &nbsp;
+            <svg width="20" height="18" style="position: relative; vertical-align: middle;">
+              <path d="M 1.5 1.5 L 10 9 L 1.5 16.5 M 10 1.5 L 18.5 9 L 10 16.5" stroke-width="3" stroke-linecap="round" stroke="rgba(0, 0, 0, .3)" fill="none">
+            </svg>
+          </span>
+        </div>
+      </section>
+      
+      <footer>
+        <div class="" style="background: rgba(0, 0, 0, 0.03); height: 61px; width: 100%;">
+          <div style="top: 20px; font-size: 18px;">
+            <a style="left: 1009px">대학자체평가</a>
+            <a style="left: 1150px">예결산공고</a>
+            <a style="left: 1274px">정보공개</a>
+            <a style="left: 1380px">개인정보처리방침</a>
+            <a style="left: 1554px">개인정보 제3자 제공</a>
+            <a style="left: 1750px">찾아오시는 길</a>
+          </div>
+        </div>
+        <img src="../img/footer logo.png" alt="" style="top: 82px; left: 61px; width: 219px; height: 138px;">
         
-      </div>
+        <div class="" style="font-size: 16px; width: 100%;">
+          <div class="" style="top: 147px; left: 325px;">
+            경기도 안성시 삼죽면 동아예대길 47(진촌리 632-18) 17516<br>
+            47, DongAhYedaegil, Samjuk-myun, Ansung-si, Gyeonggi-do, Republic of Korea 17516<br>
+            <br>
+            TEL : 031-670-6600
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            입학문의 | 031-670-6612~3
+          </div>
+          <div class="" style="top: 207px; right: 59px;">
+            Copyright © 2022 DONG-AH INSTITUTE OF MEDIA AND ART ALL RIGHTS RESERVED.
+          </div>
+        </div>
+      </footer>
+        
       
       <header class="slide1">
-        <img src="../img/logo.png" alt="" style="left: 56px; top: 39px; width: 281px; height: 46px; cursor: pointer" onclick="window.location.href = './main.html';">
+        <img src="../img/mobile logo.png" alt="" style="left: 143px; top: 15px; width: 74px; height: 40px;" onclick="window.location.href = './main.html';">
         
         <div style="top: 50px;">
           <a style="left: 567px;">대학소개</a>
@@ -1030,9 +999,9 @@
           한국어
         </a>
         
-        <div class="" style="left: 1855px; top: 58px;">
-          ☰
-        </div>
+        <svg width="17" height="16" style="position: absolute; top: 26px; right: 20px;">
+          <path d="M 0 1 L 17 1 M 0 8 L 17 8 M 0 15 L 17 15" stroke-width="1" stroke="black" fill="none">
+        </svg>
       </header>
       
       <nav onmouseover="header.classList.add('hovered')" onmouseout="header.classList.remove('hovered')">
@@ -1101,14 +1070,6 @@
   const header = document.querySelector("header");
   const container = document.querySelector(".container");
   
-  container.addEventListener("scroll", function() {
-    if (container.scrollTop < 955) {
-      header.classList.add("slide1");
-    } else {
-      header.classList.remove("slide1");
-    }
-  }, { passive: true });
-  
   const pageholders = document.getElementsByClassName("pageholder");
   for (let i=0; i<pageholders.length; i++) {
     const holder = pageholders[i];
@@ -1155,4 +1116,5 @@
   carousel(0);
   
   </script>
+  <script type="text/javascript" src="../touch-scroll-emulation.js"></script>
 </html>

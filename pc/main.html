@@ -19,12 +19,12 @@
       
       --width: 1920px;
       --height: 1080px;
-      --font-size: 20px;
       
       --header-height: 125px;
       --nav-height: 714px;
       
-      font-size: var(--font-size);
+      font-size: var(--s20);
+      font-weight: var(--w500);
     }
     
     .everything div, a, img, header, nav, svg {
@@ -73,7 +73,8 @@
       --color: black;
       
       height: var(--header-height);
-      border-bottom: 1.5px solid var(--color);
+      border-bottom: 1.5px solid rgba(0, 0, 0, 0);
+      box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.25);
       color: var(--color);
       background: var(--bg);
       /* mix-blend-mode: difference; */
@@ -91,6 +92,9 @@
       --bg: rgba(0, 0, 0, 0);
       --color: white;
       transition: all 200ms;
+      border-color: var(--color);
+      /* box-shadow: none; */
+      box-shadow: 0px 4px 30px rgba(0, 0, 0, 0);
     }
     
     header img {
@@ -121,7 +125,7 @@
     
     footer {
       height: 255px;
-      border-top: 1.5px solid black;
+      border-top: 1px solid gray;
     }
     
     section h1, section h2 {
@@ -129,16 +133,25 @@
       right: 1512px;
     }
     
-    section h1 {
-      font-weight: 900;
-      font-size: 64px;
-      top: 173px;
+    section > h1 {
+      top: 0;
+      left: 0;
+      width: 451px;
+      height: 100%;
+      background: rgba(0,0,0, .03);
+      padding-top: 173px;
+      padding-right: 40px;
+      box-sizing: border-box;
+      
+      font-weight: var(--w900);
+      font-size: var(--s64);
+      text-align: right;
     }
     
     section h2 {
-      top: 233px;
-      font-size: 20px;
-      font-weight: 500;
+      top: 242px;
+      font-size: var(--s20);
+      font-weight: var(--w500);
       color: rgba(0, 0, 0, .5);
     }
     
@@ -199,7 +212,7 @@
     }
     
     h1 {
-      font-size: 64px;
+      font-size: var(--s64);
       margin: 0;
     }
     
@@ -213,7 +226,7 @@
       background: white;
       cursor: pointer;
       display: block;
-      font-size: 18px;
+      font-size: var(--s20);
       color: black;
     }
     
@@ -267,43 +280,63 @@
       height: 405px;
       overflow: hidden;
       
-      border: 1px solid black;
+      /* border: 1px solid black; */
       box-sizing: border-box;
       border-top-right-radius: 50px;
       border-bottom-left-radius: 50px;
+      
+      text-overflow: ellipsis;
+    }
+    
+    .card.news {
+      border-radius: 0;
     }
     
     .card img {
       width: 414px;
       height: 245px;
-      border-bottom: 1px solid black;
+      /* border-bottom: 1px solid black; */
       box-sizing: border-box;
+      /* background: gray; */
     }
     
     .card a {
-      font-size: 21px;
-      font-weight: 800;
+      font-size: var(--s20);
+      font-weight: var(--w900);
       width: 390px;
-      top: 259px;
+      top: 263px;
       left: 15px;
     }
     
     .card p {
       position: absolute;
-      width: 390px;
-      height: 44px;
-      top: 296px;
-      left: 15px;
+      top: 245px;
+      left: 0;
+      display: block;
+      width: 100%;
+      height: 160px;
       margin: 0;
-      padding: 0;
-      font-size: 15px;
-      font-weight: 350;
+      padding: 15px;
+      padding-top: 50px;
+      padding-bottom: 66px;
+      box-sizing: border-box;
+      word-break: keep-all;
+      
+      border: 1px solid gray;
+      border-top: none;
+      
+      font-size: var(--s15);
+      font-weight: var(--w300);
       line-height: 22px;
+      
+      /* white-space: nowrap; */
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
     
     .card .views, .card .likes, .card .date {
-      font-weight: 800;
-      font-size: 10px;
+      font-weight: var(--w900);
+      font-size: var(--s10);
       color: rgba(0,0,0,.3);
       top: 362px;
     }
@@ -340,6 +373,10 @@
       height: 13px;
     }
     
+    .notice.card {
+      border: 1px solid gray;
+    }
+    
     .notice.card img {
       border: none;
       width: 37px;
@@ -350,8 +387,8 @@
     
     .notice.card a {
       white-space: unset;
-      font-size: 32px;
-      font-weight: 900;
+      font-size: var(--s32);
+      font-weight: var(--w900);
       line-height: 42px;
       top: 29px;
       left: 27px;
@@ -367,8 +404,8 @@
     .notice.card .tag::after {
       /* width: 57px;
       height: 27px; */
-      font-weight: 700;
-      font-size: 20px;
+      font-weight: var(--w900);
+      font-size: var(--s20);
       line-height: 22px;
       color: white;
       padding: 2px;
@@ -392,6 +429,7 @@
     }
     
     .scrollprompt {
+      opacity: 0;
       position: absolute;
       width: 334px;
       height: var(--height);
@@ -410,13 +448,29 @@
                                   supported by Chrome, Edge, Opera and Firefox */
     }
     
+    .scrollprompt.flash {
+      animation: flash 1s infinite;
+    }
+    
+    @keyframes flash {
+      0% {
+        opacity: 0;
+      }
+      50% {
+        opacity: 1;
+      }
+      100% {
+        opacity: 0;
+      }
+    }
+    
     .scrollprompt span {
       position: absolute;
       /* top: calc(50% + var(--header-height)); */
       top: 602px;
       transform: translate(0, -50%);
       left: 241px;
-      font-size: 12px;
+      font-size: var(--s12);
       color: rgba(0, 0, 0, .3);
     }
     
@@ -425,7 +479,8 @@
     }
     
     .pageholder.scrolldone + .scrollprompt {
-      opacity: 0;
+      /* opacity: 0; */
+      animation: none;
     }
     
     .boxholder {
@@ -452,7 +507,7 @@
       color: white;
       left: 26px;
       top: 412px;
-      font-size: 26px;
+      font-size: var(--s25);
       line-height: 60px;
       width: 100%;
       pointer-events: none;
@@ -511,8 +566,8 @@
       transform: translateX(-50%);
       width: fit-content;
       text-align: center;
-      font-weight: 900;
-      font-size: 20px;
+      font-weight: var(--w900);
+      font-size: var(--s20);
       margin: 0;
       white-space: nowrap;
       
@@ -527,8 +582,8 @@
       transform: translateX(-50%);
       width: fit-content;
       text-align: center;
-      font-weight: 400;
-      font-size: 16px;
+      font-weight: var(--w500);
+      font-size: var(--s15);
       margin: 0;
       white-space: nowrap;
       
@@ -551,12 +606,12 @@
     
     .carousel .poster.front h1 {
       top: 740px;
-      font-size: 32px;
+      font-size: var(--s32);
     }
     
     .carousel .poster.front h2 {
       top: 778px;
-      font-size: 28px;
+      font-size: var(--s25);
     }
     
     .carousel .poster.right {
@@ -592,12 +647,12 @@
           <img src="../img/bg.png" alt="" class="center x" style="height: 100%;">
           
           <div style="left: 122px; width: 100%;">
-            <h1 style="position: absolute; top: 333px; left: 0; line-height: 75px;">열정으로<br>
+            <h1 style="position: absolute; top: 333px; left: 0; line-height: 75px; font-weight: var(--w900)">열정으로<br>
             하나된 우리</h1>
-            <div style="font-size: 24px; top: 488px;">꿈을 현실로 이루다</div>
+            <div style="font-size: var(--s25); top: 488px;">꿈을 현실로 이루다</div>
           </div>
           
-          <div style="top: 750px; right: 148px; font-size: 20px;">
+          <div style="top: 750px; right: 148px; font-size: var(--s20);">
             <div style="">01</div>
             <svg width="3" height="166" style="top: 29px; left: 10px;">
               <line x1="1.5" y1="0" x2="1.5" y2="166" stroke="white" stroke-width="1">
@@ -613,19 +668,18 @@
         <section>
           <h1>NEWS</h1>
           <h2>디마뉴스</h2>
-          <div class="" style="bottom: 37px; right: 1512px; width: 82px;">
+          <div class="" style="bottom: 37px; right: 1512px; width: calc(var(--s20) * 4);">
             <button type="button" name="button" class="selected">2022</button>
             <button type="button" name="button">2021</button>
             <button type="button" name="button">2020</button>
             <br>
             <button type="button" name="button">MORE</button>
           </div>
-          <div class="border" style="left: 451px;"></div>
           
           <div class="pageholder">
             <!-- page 1 -->
             <div class="cardspage">
-              <div class="card">
+              <div class="card news">
                 <img src="../img/news/1.png" alt="">
                 <a>동아방송예술대학교, PMC 프로덕션 예술...</a>
                 <p>동아방송예술대학(총장 최용혁)가 국내 최초 비언어극 '난타'의 기획자인 송승환 PMC프로덕션 예술감독을 초청해 특강을 개최...</p>
@@ -633,7 +687,7 @@
                 <div class="views"><img src="../img/news/views.png" alt="">1104</div>
                 <div class="likes"><img src="../img/news/heart.png" alt="">1104</div>
               </div>
-              <div class="card">
+              <div class="card news">
                 <img src="../img/news/2.png" alt="">
                 <a>동아방송예술대학교, PMC 프로덕션 예술...</a>
                 <p>동아방송예술대학(총장 최용혁)가 국내 최초 비언어극 '난타'의 기획자인 송승환 PMC프로덕션 예술감독을 초청해 특강을 개최...</p>
@@ -641,7 +695,7 @@
                 <div class="views"><img src="../img/news/views.png" alt="">1104</div>
                 <div class="likes"><img src="../img/news/heart.png" alt="">1104</div>
               </div>
-              <div class="card">
+              <div class="card news">
                 <img src="../img/news/3.png" alt="">
                 <a>동아방송예술대학교, PMC 프로덕션 예술...</a>
                 <p>동아방송예술대학(총장 최용혁)가 국내 최초 비언어극 '난타'의 기획자인 송승환 PMC프로덕션 예술감독을 초청해 특강을 개최...</p>
@@ -649,7 +703,7 @@
                 <div class="views"><img src="../img/news/views.png" alt="">1104</div>
                 <div class="likes"><img src="../img/news/heart.png" alt="">1104</div>
               </div>
-              <div class="card">
+              <div class="card news">
                 <img src="../img/news/4.png" alt="">
                 <a>동아방송예술대학교, PMC 프로덕션 예술...</a>
                 <p>동아방송예술대학(총장 최용혁)가 국내 최초 비언어극 '난타'의 기획자인 송승환 PMC프로덕션 예술감독을 초청해 특강을 개최...</p>
@@ -657,7 +711,7 @@
                 <div class="views"><img src="../img/news/views.png" alt="">1104</div>
                 <div class="likes"><img src="../img/news/heart.png" alt="">1104</div>
               </div>
-              <div class="card">
+              <div class="card news">
                 <img src="../img/news/5.png" alt="">
                 <a>동아방송예술대학교, PMC 프로덕션 예술...</a>
                 <p>동아방송예술대학(총장 최용혁)가 국내 최초 비언어극 '난타'의 기획자인 송승환 PMC프로덕션 예술감독을 초청해 특강을 개최...</p>
@@ -665,7 +719,7 @@
                 <div class="views"><img src="../img/news/views.png" alt="">1104</div>
                 <div class="likes"><img src="../img/news/heart.png" alt="">1104</div>
               </div>
-              <div class="card">
+              <div class="card news">
                 <img src="../img/news/6.png" alt="">
                 <a>동아방송예술대학교, PMC 프로덕션 예술...</a>
                 <p>동아방송예술대학(총장 최용혁)가 국내 최초 비언어극 '난타'의 기획자인 송승환 PMC프로덕션 예술감독을 초청해 특강을 개최...</p>
@@ -677,7 +731,7 @@
             
             <!-- page 2 -->
             <div class="cardspage">
-              <div class="card">
+              <div class="card news">
                 <img src="../img/news/1.png" alt="">
                 <a>동아방송예술대학교, PMC 프로덕션 예술...</a>
                 <p>동아방송예술대학(총장 최용혁)가 국내 최초 비언어극 '난타'의 기획자인 송승환 PMC프로덕션 예술감독을 초청해 특강을 개최...</p>
@@ -685,7 +739,7 @@
                 <div class="views"><img src="../img/news/views.png" alt="">1104</div>
                 <div class="likes"><img src="../img/news/heart.png" alt="">1104</div>
               </div>
-              <div class="card">
+              <div class="card news">
                 <img src="../img/news/2.png" alt="">
                 <a>동아방송예술대학교, PMC 프로덕션 예술...</a>
                 <p>동아방송예술대학(총장 최용혁)가 국내 최초 비언어극 '난타'의 기획자인 송승환 PMC프로덕션 예술감독을 초청해 특강을 개최...</p>
@@ -693,7 +747,7 @@
                 <div class="views"><img src="../img/news/views.png" alt="">1104</div>
                 <div class="likes"><img src="../img/news/heart.png" alt="">1104</div>
               </div>
-              <div class="card">
+              <div class="card news">
                 <img src="../img/news/3.png" alt="">
                 <a>동아방송예술대학교, PMC 프로덕션 예술...</a>
                 <p>동아방송예술대학(총장 최용혁)가 국내 최초 비언어극 '난타'의 기획자인 송승환 PMC프로덕션 예술감독을 초청해 특강을 개최...</p>
@@ -701,7 +755,7 @@
                 <div class="views"><img src="../img/news/views.png" alt="">1104</div>
                 <div class="likes"><img src="../img/news/heart.png" alt="">1104</div>
               </div>
-              <div class="card">
+              <div class="card news">
                 <img src="../img/news/4.png" alt="">
                 <a>동아방송예술대학교, PMC 프로덕션 예술...</a>
                 <p>동아방송예술대학(총장 최용혁)가 국내 최초 비언어극 '난타'의 기획자인 송승환 PMC프로덕션 예술감독을 초청해 특강을 개최...</p>
@@ -709,7 +763,7 @@
                 <div class="views"><img src="../img/news/views.png" alt="">1104</div>
                 <div class="likes"><img src="../img/news/heart.png" alt="">1104</div>
               </div>
-              <div class="card">
+              <div class="card news">
                 <img src="../img/news/5.png" alt="">
                 <a>동아방송예술대학교, PMC 프로덕션 예술...</a>
                 <p>동아방송예술대학(총장 최용혁)가 국내 최초 비언어극 '난타'의 기획자인 송승환 PMC프로덕션 예술감독을 초청해 특강을 개최...</p>
@@ -717,7 +771,7 @@
                 <div class="views"><img src="../img/news/views.png" alt="">1104</div>
                 <div class="likes"><img src="../img/news/heart.png" alt="">1104</div>
               </div>
-              <div class="card">
+              <div class="card news">
                 <img src="../img/news/6.png" alt="">
                 <a>동아방송예술대학교, PMC 프로덕션 예술...</a>
                 <p>동아방송예술대학(총장 최용혁)가 국내 최초 비언어극 '난타'의 기획자인 송승환 PMC프로덕션 예술감독을 초청해 특강을 개최...</p>
@@ -788,10 +842,10 @@
         </section>
         
         <section>
-          <h1>학부소개</h1>
+          <h1 style="background: white;">학부소개</h1>
           <h2>Introduction of the Departments</h2>
           
-          <div class="" style="bottom: 37px; right: 1512px; width: 150px;">
+          <div class="" style="bottom: 37px; right: 1512px; width: calc(var(--s20) * 9);">
             <button type="button" name="button" class="selected">방송예술융합학부</button>
             <button type="button" name="button">콘텐츠학부</button>
             <button type="button" name="button">예술학부</button>
@@ -799,7 +853,6 @@
             <button type="button" name="button">방송연예학부</button>
           </div>
           
-          <div class="border" style="left: 451px;"></div>
           <div class="boxholder">
             <div class="box">
               <img src="../img/majors/bg/fill2.png" alt="">
@@ -888,14 +941,14 @@
         <section>
           <h1>공지사항</h1>
           <h2>NOTICE</h2>
-          <!-- <div class="" style="top: 832px; left: 326px;">
-            <button type="button" name="button" class="selected">2022</button>
-            <button type="button" name="button">2021</button>
-            <button type="button" name="button">2020</button>
+          <div class="" style="bottom: 37px; right: 1512px; width: calc(var(--s20) * 4);">
+            <button type="button" name="button" class="selected">전체</button>
+            <button type="button" name="button">공지</button>
+            <button type="button" name="button">교무</button>
+            <button type="button" name="button">정보</button>
             <br>
             <button type="button" name="button">MORE</button>
-          </div> -->
-          <div class="border" style="left: 451px;"></div>
+          </div>
           
           <div class="pageholder">
             <!-- page 1 -->
@@ -968,7 +1021,7 @@
         
         <footer>
           <div class="" style="background: rgba(0, 0, 0, 0.03); height: 61px; width: 100%;">
-            <div style="top: 20px; font-size: 18px;">
+            <div style="top: 20px; font-size: var(--s18);">
               <a style="left: 1009px">대학자체평가</a>
               <a style="left: 1150px">예결산공고</a>
               <a style="left: 1274px">정보공개</a>
@@ -979,8 +1032,8 @@
           </div>
           <img src="../img/footer logo.png" alt="" style="top: 82px; left: 61px; width: 219px; height: 138px;">
           
-          <div class="" style="font-size: 16px; width: 100%;">
-            <div class="" style="top: 147px; left: 325px;">
+          <div class="" style="font-size: var(--s15); width: 100%; height: 100%;">
+            <div class="" style="bottom: 30px; left: 325px; line-height: var(--s20)">
               경기도 안성시 삼죽면 동아예대길 47(진촌리 632-18) 17516<br>
               47, DongAhYedaegil, Samjuk-myun, Ansung-si, Gyeonggi-do, Republic of Korea 17516<br>
               <br>
@@ -988,7 +1041,7 @@
               &nbsp;&nbsp;&nbsp;&nbsp;
               입학문의 | 031-670-6612~3
             </div>
-            <div class="" style="top: 207px; right: 59px;">
+            <div class="" style="bottom: 30px; right: 59px;">
               Copyright © 2022 DONG-AH INSTITUTE OF MEDIA AND ART ALL RIGHTS RESERVED.
             </div>
           </div>
@@ -999,7 +1052,7 @@
       <header class="slide1">
         <img src="../img/logo.png" alt="" style="left: 56px; top: 39px; width: 281px; height: 46px; cursor: pointer" onclick="window.location.href = './main.html';">
         
-        <div style="top: 50px;">
+        <div style="top: 55px; font-size: var(--s20)">
           <a style="left: 567px;">대학소개</a>
           <a style="left: 749px;">학과안내</a>
           <a style="left: 931px;">입시</a>
@@ -1008,16 +1061,23 @@
           <a style="left: 1441px;">아카이브</a>
         </div>
         
-        <a style="left: 1775px; top: 55px; font-size: 13px;">
+        <a style="left: 1775px; top: 57px; font-size: var(--s15);">
           한국어
+          <svg width="10" height="5" style="position: relative; margin-left: 4px; vertical-align: middle; mix-blend-mode: difference;">
+            <path d="M .5 0 L 5 4.5 L 9.5 0" stroke-width="1" stroke="white" fill="none">
+          </svg>
         </a>
         
-        <div class="" style="left: 1855px; top: 58px;">
-          ☰
-        </div>
+        <svg width="19" height="18" style="position: absolute; top: 56px; right: 46px; mix-blend-mode: difference;">
+          <path d="M 0 1 L 19 1 M 0 9 L 19 9 M 0 17 L 19 17" stroke-width="2" stroke="white" fill="none">
+        </svg>
       </header>
       
       <nav onmouseover="header.classList.add('hovered')" onmouseout="header.classList.remove('hovered')">
+        <a class="" onclick="header.classList.remove('hovered')">
+          x
+        </a>
+        
         <div class="border" style="left: 517px;"></div>
         <div class="border" style="left: 689px;"></div>
         <div class="border" style="left: 881px;"></div>
@@ -1082,6 +1142,9 @@
   <script type="text/javascript">
   const header = document.querySelector("header");
   const container = document.querySelector(".container");
+  const scrollprompts = document.getElementsByClassName("scrollprompt");
+  
+  var tohide = [];
   
   container.addEventListener("scroll", function() {
     if (container.scrollTop < 955) {
@@ -1089,18 +1152,32 @@
     } else {
       header.classList.remove("slide1");
     }
+    
+    let sp;
+    switch (container.scrollTop) {
+      case 1080:
+        sp = scrollprompts[0];
+        break;
+      case 4320:
+        sp = scrollprompts[1];
+        break;
+    }
+    
+    if (sp && !sp.classList.contains("flash")) {
+      // sp.parentNode.getElementsByClassName("scrolldone")[0].classList.remove("scrolldone");
+      sp.classList.add("flash");
+      tohide.push(sp);
+      setTimeout(function() {
+        tohide[0].classList.remove("flash");
+      }, 5000);
+    }
   }, { passive: true });
   
   const pageholders = document.getElementsByClassName("pageholder");
   for (let i=0; i<pageholders.length; i++) {
     const holder = pageholders[i];
     holder.addEventListener("scroll", function(h) {
-      // done scrolling
-      if (h.target.scrollWidth - h.target.scrollLeft - h.target.clientWidth <= 50) {
-        h.target.classList.add("scrolldone");
-      } else {
-        h.target.classList.remove("scrolldone");
-      }
+      h.target.classList.add("scrolldone");
     }, { passive: true });
   }
   
