@@ -1,4 +1,4 @@
-document.resize = function() {
+window.onresize = function() {
   var width = window.innerWidth;
   var height = window.innerHeight;
   
@@ -11,7 +11,7 @@ document.resize = function() {
   var scaleY = height / sh;
   var scale = scaleX < scaleY ? scaleX : scaleY;
   
-  everything.style.transform = "translate(-50%, -50%) scale("+scale+")";
+  everything.style.transform = "translate(-50%,-50%) scale("+scale+")";
 }
 
-document.resize();
+window.onresize();

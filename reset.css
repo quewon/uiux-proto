@@ -52,9 +52,6 @@ table {
 }
 
 .everything {
-	backface-visibility: hidden;
-	transform: translateZ(0);
-	-webkit-font-smoothing: subpixel-antialiased;
 	position: absolute;
 	top: 50%;
 	left: 50%;
@@ -85,4 +82,10 @@ table {
 	--s30: 30px;
 	--s32: 32px;
 	--s64: 64px;
+}
+
+.everything * {
+	backface-visibility: hidden;
+	transform: translateZ(0);
+	-webkit-font-smoothing: subpixel-antialiased;
 }
