@@ -35,18 +35,52 @@
       --header-height: 69px;
       --nav-height: 714px;
       
+      overflow: hidden;
+      
       font-size: var(--font-size);
-      overflow-x: hidden;
-      overflow-y: scroll;
-      scroll-snap-type: y mandatory;
     }
     
-    .everything.scrolling {
+    .container {
+      overflow-x: hidden;
+      width: var(--width);
+      height: calc(var(--height) - var(--header-height));
+      top: var(--header-height);
+      overflow-y: scroll;
+      /* scroll-snap-type: y mandatory; */
+    }
+    
+    .everything.scrolling .container {
       scroll-snap-type: unset;
     }
     
     .everything div, a, img, header, nav, svg {
       position: absolute;
+    }
+    
+    section > h1, section > h2 {
+      position: absolute;
+      right: 1512px;
+    }
+    
+    section > h1 {
+      left: 0;
+      line-height: 60px;
+      font-weight: var(--w900);
+      font-size: var(--s32);
+      top: 11px;
+      width: 100%;
+      text-align: center;
+      color: black;
+    }
+    
+    section > h2 {
+      left: 0;
+      top: 58px;
+      width: 100%;
+      text-align: center;
+      font-size: var(--s12);
+      font-weight: var(--w500);
+      color: rgba(0, 0, 0, .5);
     }
     
     nav, header {
@@ -97,6 +131,12 @@
       z-index: 10;
       
       transition: all 200ms;
+      
+      box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.25);
+    }
+    
+    header.slide1 {
+      box-shadow: 0px 4px 30px rgba(0, 0, 0, 0);
     }
     
     footer, section {
@@ -110,26 +150,8 @@
     }
     
     footer {
-      height: 255px;
+      height: 109px;
       border-top: 1.5px solid black;
-    }
-    
-    section h1, section h2 {
-      position: absolute;
-      right: 1512px;
-    }
-    
-    section h1 {
-      font-weight: 900;
-      font-size: 64px;
-      top: 173px;
-    }
-    
-    section h2 {
-      top: 233px;
-      font-size: 20px;
-      font-weight: 500;
-      color: rgba(0, 0, 0, .5);
     }
     
     .flex {
@@ -166,7 +188,6 @@
     
     a {
       white-space: nowrap;
-      cursor: pointer;
     }
     
     a:active {
@@ -188,30 +209,23 @@
                                   supported by Chrome, Edge, Opera and Firefox */
     }
     
-    h1 {
-      font-size: 64px;
-      margin: 0;
-    }
-    
     button {
       box-sizing: border-box;
       border: 1px solid black;
       border-radius: 16.5px;
-      width: inherit;
-      height: 33px;
-      margin-bottom: 14px;
+      height: 23px;
+      margin: 0;
+      margin-left: 7px;
       background: white;
-      cursor: pointer;
-      display: block;
-      font-size: 18px;
+      display: inline-block;
+      padding-left: 13px;
+      padding-right: 13px;
+      font-size: var(--s12);
+      font-weight: var(--w500);
       color: black;
     }
     
     button.selected {
-      cursor: auto;
-    }
-    
-    button:hover, button.selected {
       background: black;
       color: white;
     }
@@ -227,34 +241,50 @@
       border-color: black;
     }
     
-    .pageholder, .boxholder {
-      display: flex;
-      padding-top: calc(var(--header-height) + 48px);
-      left: 451px;
-      padding-left: 58px;
-      width: calc(var(--width) - 509px);
-      height: calc(var(--height) - var(--header-height));
-      /* background: red; */
-      /* overflow: visible;
-      overflow-x: scroll; */
-      overflow: scroll;
+    button:first-child {
+      margin: 0;
+    }
+    
+    .pageholder {
+      width: 100%;
+      top: 143px;
+      height: 247px;
+      overflow: hidden;
+      /* overflow-x: scroll;
+      overflow-y: hidden;; */
+      /* padding-left: 31px; */
+    }
+    
+    .notice.pageholder {
+      top: 93px;
+      width: 100%;
+      height: 247px;
+      /* gap: 72px;
+      overflow-x: scroll;
+      overflow-y: hidden; */
+      /* padding-left: 72px; */
     }
     
     .cardspage {
-      position: relative !important;
-      min-width: 1356px;
-      height: 853px;
       display: flex;
-      flex-wrap: wrap;
-      padding-right: 58px;
-      
-      gap: 45px 57px;
+      width: fit-content;
+      height: inherit;
+      gap: 31px;
+      justify-content: space-evenly;
+      margin-left: 67px;
+      padding-right: 67px;
+    }
+    
+    .notice.pageholder .cardspage {
+      gap: 72px;
+      margin-left: 72px;
+      padding-right: 72px;
     }
     
     .card {
       position: relative !important;
-      width: 414px;
-      height: 405px;
+      width: 229px;
+      height: 247px;
       overflow: hidden;
       
       border: 1px solid black;
@@ -264,8 +294,8 @@
     }
     
     .card img {
-      width: 414px;
-      height: 245px;
+      width: 229px;
+      height: 136px;
       border-bottom: 1px solid black;
       box-sizing: border-box;
     }
@@ -330,55 +360,101 @@
       height: 13px;
     }
     
+    .notice.card {
+      width: 217px;
+      height: 212px;
+      border: 1px solid black;
+      box-sizing: border-box;
+      border-radius: 25px;
+    }
+    
     .notice.card img {
       border: none;
-      width: 37px;
-      height: 37px;
-      left: 342px;
-      top: 38px;
+      width: 14px;
+      height: 14px;
+      top: 15px;
+      right: 17px;
     }
     
     .notice.card a {
       white-space: unset;
-      font-size: 32px;
-      font-weight: 900;
-      line-height: 42px;
-      top: 29px;
-      left: 27px;
-      width: 270px;
+      font-size: var(--s15);
+      font-weight: var(--w900);
+      line-height: 20px;
+      top: 15px;
+      left: 14px;
+      width: 122px;
       word-break: keep-all;
     }
     
     .notice.card .tag {
-      bottom: 30px;
-      right: 30px;
+      bottom: 15px;
+      right: 15px;
     }
     
-    .notice.card .tag::after {
-      /* width: 57px;
-      height: 27px; */
-      font-weight: 700;
-      font-size: 20px;
-      line-height: 22px;
+    .tag::after {
+      display: inline-block;
+      /* width: 19px;
+      height: 11px; */
+      font-weight: var(--w900);
+      font-size: var(--s8);
+      line-height: var(--s8);
       color: white;
-      padding: 2px;
-      padding-left: 5px;
-      padding-right: 5px;
+      padding: 1px;
+      padding-left: 3px;
+      padding-right: 3px;
     }
     
-    .notice.card .announcement::after {
+    .announcement::after {
       content: "공지";
       background: #C30202;
     }
     
-    .notice.card .org::after {
+    .org::after {
       content: "교무";
       background: #02C30A;
     }
     
-    .notice.card .info::after {
+    .info::after {
       content: "정보";
       background: #040281;
+    }
+    
+    .notice.list {
+      top: 372px;
+      left: 72px;
+      width: 220px;
+      height: 157px;
+      border-top: 1px solid rgba(0, 0, 0, .5);
+      border-bottom: 1px solid rgba(0, 0, 0, .5);
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .li {
+      position: relative !important;
+      width: 100%;
+      height: 31px;
+      border-bottom: .5px solid rgba(0, 0, 0, .3);
+    }
+    
+    .li a {
+      top: 50%;
+      transform: translateY(-50%);
+      left: 27px;
+      font-weight: var(--w900);
+      font-size: var(--s10);
+      width: calc(100% - 27px);
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    
+    .li img {
+      display: none;
+    }
+    
+    .notice.list .tag {
+      left: 2px;
     }
     
     .scrollprompt {
@@ -400,51 +476,45 @@
                                   supported by Chrome, Edge, Opera and Firefox */
     }
     
-    .scrollprompt span {
-      position: absolute;
-      /* top: calc(50% + var(--header-height)); */
-      top: 602px;
-      transform: translate(0, -50%);
-      left: 241px;
-      font-size: 12px;
-      color: rgba(0, 0, 0, .3);
-    }
-    
-    .scrollprompt svg {
-      position: relative;
-    }
-    
-    .pageholder.scrolldone + .scrollprompt {
-      opacity: 0;
-    }
-    
     .boxholder {
-      padding-top: calc(var(--header-height) - 1px);
-      padding-left: 0;
-      overflow: visible;
+      display: flex;
+      top: 95px;
+      
+      /* padding-top: calc(var(--header-height) - 1px); */
+      /* padding-left: 0; */
+      /* overflow: visible; */
+      width: var(--width);
+      height: 528px;
+      flex-direction: row;
       flex-wrap: wrap;
-      width: calc(var(--width) - 451px);
       /* background: black; */
     }
     
     .box {
       position: relative !important;
-      width: 489px;
-      height: 478px;
+      width: 180px;
+      height: 176px;
       box-sizing: border-box;
-      border-right: 1px solid white;
-      border-top: 1px solid white;
+      /* border-right: 1px solid white; */
+      /* border-top: 1px solid white; */
       background: black;
       overflow: hidden;
     }
     
     .box h1 {
+      position: absolute;
+      font-size: var(--s10);
+      font-weight: var(--w900);
+      bottom: 7px;
+      left: 7px;
       color: white;
+      
+      /* color: white;
       left: 26px;
       top: 412px;
       font-size: 26px;
       line-height: 60px;
-      width: 100%;
+      width: 100%; */
       pointer-events: none;
     }
     
@@ -467,521 +537,377 @@
     }
     
     .box img {
+      width: inherit;
+      height: inherit;
       opacity: .5;
     }
     
     .cover img {
       right: 0;
       opacity: 1;
+      width: 66px;
+      height: inherit;
+    }
+    
+    .carousel {
+      top: 125px;
+      left: 55px;
+      width: 250px;
+      height: 100%;
     }
     
     .carousel .poster {
-      width: 334px;
-      height: 529px;
-      color: black;
-      top: 250px;
-      opacity: 0;
+      width: 250px;
+      height: fit-content;
       z-index: 0;
-      left: 793px;
-      
-      transition: all 500ms;
+      opacity: 0;
     }
     
-    .poster img {
-      transition: inherit;
-      width: 334px;
-      height: 461px;
+    .carousel .poster.front {
+      opacity: 1;
+      left: 0;
+    }
+    
+    .carousel .poster.left {
+      /* opacity: 1; */
+      left: -305px;
+    }
+    
+    .carousel .poster.right {
+      /* opacity: 1; */
+      left: 305px;
     }
     
     .poster h1 {
-      display: inline-block;
-      
-      top: 469px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: fit-content;
-      text-align: center;
-      font-weight: 900;
-      font-size: 20px;
-      margin: 0;
-      white-space: nowrap;
-      
+      position: absolute;
+      line-height: 40px;
+      font-size: var(--s15);
+      font-weight: var(--w900);
+      top: 342px;
+      /* left: 62px; */
+      /* white-space: nowrap; */
+      transition: inherit;
+    }
+    
+    .poster span {
+      position: absolute;
+      line-height: 40px;
+      font-size: var(--s10);
+      font-weight: var(--w300);
+      top: 361px;
+      /* left: 62px; */
       transition: inherit;
     }
     
     .poster h2 {
-      display: inline-block;
-      
-      top: 489px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: fit-content;
-      text-align: center;
-      font-weight: 400;
-      font-size: 16px;
-      margin: 0;
-      white-space: nowrap;
-      
+      background: #24FF00;
+      padding: 2px;
+      position: absolute;
+      font-size: var(--s12);
+      font-weight: var(--w900);
+      top: 407px;
+      right: 0;
       transition: inherit;
     }
     
-    .carousel .poster.front {
-      top: 188px;
-      left: 721px;
-      width: 477px;
-      height: 818px;
-      opacity: 1;
-      z-index: 1;
-    }
-    
-    .carousel .poster.front img {
-      width: 477px;
-      height: 659px;
-    }
-    
-    .carousel .poster.front h1 {
-      top: 740px;
-      font-size: 32px;
-    }
-    
-    .carousel .poster.front h2 {
-      top: 778px;
-      font-size: 28px;
-    }
-    
-    .carousel .poster.right {
-      left: 1378px;
-      opacity: .5;
-      z-index: 1;
-      cursor: pointer;
-    }
-    
-    .carousel .poster.left {
-      left: 208px;
-      opacity: .5;
-      z-index: 1;
-      cursor: pointer;
-    }
-    
-    .imgbutton {
-      cursor: pointer;
+    .carousel img {
+      width: 250px;
+      height: 345px;
     }
     
     .imgbutton:active {
       opacity: .75;
+    }
+    
+    b {
+      font-weight: var(--w900);
     }
   </style>
   <body>
     
     <div class="everything">
       
+      <div class="container">
         
-      <section style="color: white;">
-        <img src="../img/bg.png" alt="" class="center x" style="height: 100%;">
-        
-        <div style="left: 122px; width: 100%;">
-          <h1 style="position: absolute; top: 333px; left: 0;">열정으로<br>
-          하나된 우리</h1>
-          <div style="font-size: 24px; top: 488px;">꿈을 현실로 이루다</div>
-        </div>
-        
-        <div style="top: 750px; right: 148px; font-size: 20px;">
-          <div style="">01</div>
-          <svg width="3" height="166" style="top: 29px; left: 10px;">
-            <line x1="1.5" y1="0" x2="1.5" y2="166" stroke="white" stroke-width="1">
-          </svg>
+        <section style="color: white; height: 360px;">
+          <img src="../img/mobile main bg.png" alt="" class="center x" style="height: 360px;">
+          <div class="" style="width: 360px; height: 360px; background: rgba(0, 0, 0, .4)"></div>
           
-          <svg width="3" height="166" style="top: 29px; left: 10px;">
-            <line x1="1.5" y1="0" x2="1.5" y2="16" stroke="white" stroke-width="3">
-          </svg>
-          <div style="top: 204px;">08</div>
-        </div>
-      </section>
-      
-      <section>
-        <h1>NEWS</h1>
-        <h2>디마뉴스</h2>
-        <div class="" style="bottom: 37px; right: 1512px; width: 82px;">
-          <button type="button" name="button" class="selected">2022</button>
-          <button type="button" name="button">2021</button>
-          <button type="button" name="button">2020</button>
-          <br>
-          <button type="button" name="button">MORE</button>
-        </div>
-        <div class="border" style="left: 451px;"></div>
+          <div class="" style="bottom: 17px; right: 17px; text-align: right;">
+            <h1 style="font-size: var(--18px); font-weight: var(--w300)"><b>꿈</b>과 <b>열정</b>이 넘치는<br>
+            <b>동아방송예술대학교</b></h1>
+            <h2 style="font-size: var(--s10); font-weight: var(--w300)">DREAM&PASSION</h2>
+          </div>
+        </section>
         
-        <div class="pageholder">
-          <!-- page 1 -->
-          <div class="cardspage">
-            <div class="card">
-              <img src="../img/news/1.png" alt="">
-              <a>동아방송예술대학교, PMC 프로덕션 예술...</a>
-              <p>동아방송예술대학(총장 최용혁)가 국내 최초 비언어극 '난타'의 기획자인 송승환 PMC프로덕션 예술감독을 초청해 특강을 개최...</p>
-              <div class="date">12월 03일</div>
-              <div class="views"><img src="../img/news/views.png" alt="">1104</div>
-              <div class="likes"><img src="../img/news/heart.png" alt="">1104</div>
+        <section style="height: 460px;">
+          <h1>NEWS</h1>
+          <h2>디마뉴스</h2>
+          <div class="" style="width: fit-content; top: 91px; left: 50%; transform: translateX(-50%);">
+            <button type="button" name="button" class="selected">2022</button><button type="button" name="button">2021</button><button type="button" name="button">2020</button>
+          </div>
+          <button type="button" name="button" style="position: absolute; right: 20px; bottom: 24px;">MORE</button>
+          <div style="bottom: 0; width: 100%; border-top: 1px solid black"></div>
+          
+          <div class="pageholder">
+            <div class="cardspage">
+              <div class="card">
+                <img src="../img/news/1.png" alt="">
+                <a>동아방송예술대학교, PMC 프로덕션 예술...</a>
+                <p>동아방송예술대학(총장 최용혁)가 국내 최초 비언어극 '난타'의 기획자인 송승환 PMC프로덕션 예술감독을 초청해 특강을 개최...</p>
+                <div class="date">12월 03일</div>
+                <div class="views"><img src="../img/news/views.png" alt="">1104</div>
+                <div class="likes"><img src="../img/news/heart.png" alt="">1104</div>
+              </div>
+              <div class="card">
+                <img src="../img/news/2.png" alt="">
+                <a>동아방송예술대학교, PMC 프로덕션 예술...</a>
+                <p>동아방송예술대학(총장 최용혁)가 국내 최초 비언어극 '난타'의 기획자인 송승환 PMC프로덕션 예술감독을 초청해 특강을 개최...</p>
+                <div class="date">12월 03일</div>
+                <div class="views"><img src="../img/news/views.png" alt="">1104</div>
+                <div class="likes"><img src="../img/news/heart.png" alt="">1104</div>
+              </div>
+              <div class="card">
+                <img src="../img/news/3.png" alt="">
+                <a>동아방송예술대학교, PMC 프로덕션 예술...</a>
+                <p>동아방송예술대학(총장 최용혁)가 국내 최초 비언어극 '난타'의 기획자인 송승환 PMC프로덕션 예술감독을 초청해 특강을 개최...</p>
+                <div class="date">12월 03일</div>
+                <div class="views"><img src="../img/news/views.png" alt="">1104</div>
+                <div class="likes"><img src="../img/news/heart.png" alt="">1104</div>
+              </div>
+              <div class="card">
+                <img src="../img/news/4.png" alt="">
+                <a>동아방송예술대학교, PMC 프로덕션 예술...</a>
+                <p>동아방송예술대학(총장 최용혁)가 국내 최초 비언어극 '난타'의 기획자인 송승환 PMC프로덕션 예술감독을 초청해 특강을 개최...</p>
+                <div class="date">12월 03일</div>
+                <div class="views"><img src="../img/news/views.png" alt="">1104</div>
+                <div class="likes"><img src="../img/news/heart.png" alt="">1104</div>
+              </div>
+              <div class="card">
+                <img src="../img/news/5.png" alt="">
+                <a>동아방송예술대학교, PMC 프로덕션 예술...</a>
+                <p>동아방송예술대학(총장 최용혁)가 국내 최초 비언어극 '난타'의 기획자인 송승환 PMC프로덕션 예술감독을 초청해 특강을 개최...</p>
+                <div class="date">12월 03일</div>
+                <div class="views"><img src="../img/news/views.png" alt="">1104</div>
+                <div class="likes"><img src="../img/news/heart.png" alt="">1104</div>
+              </div>
+              <div class="card">
+                <img src="../img/news/6.png" alt="">
+                <a>동아방송예술대학교, PMC 프로덕션 예술...</a>
+                <p>동아방송예술대학(총장 최용혁)가 국내 최초 비언어극 '난타'의 기획자인 송승환 PMC프로덕션 예술감독을 초청해 특강을 개최...</p>
+                <div class="date">12월 03일</div>
+                <div class="views"><img src="../img/news/views.png" alt="">1104</div>
+                <div class="likes"><img src="../img/news/heart.png" alt="">1104</div>
+              </div>
             </div>
-            <div class="card">
-              <img src="../img/news/2.png" alt="">
-              <a>동아방송예술대학교, PMC 프로덕션 예술...</a>
-              <p>동아방송예술대학(총장 최용혁)가 국내 최초 비언어극 '난타'의 기획자인 송승환 PMC프로덕션 예술감독을 초청해 특강을 개최...</p>
-              <div class="date">12월 03일</div>
-              <div class="views"><img src="../img/news/views.png" alt="">1104</div>
-              <div class="likes"><img src="../img/news/heart.png" alt="">1104</div>
+          </div>
+        </section>
+        
+        <section style="height: 587px;">
+          <h1>공연&전시</h1>
+          <h2>Performance&Exhibition</h2>
+          <div style="bottom: 0; width: 100%; border-top: 1px solid black"></div>
+          
+          <div class="" style="right: 20px; top: 85px; height: 8px; font-size: var(--s8); font-weight: var(--w900)">
+            <span class="" style="width: 8px; height: 8px; background: #FF0000; border-radius: 50%; margin-right: 2px; display: inline-block; vertical-align: middle;"></span>
+            <span style="margin-right: 10px;">전시종료</span>
+            <span class="" style="width: 8px; height: 8px; background: #24FF00; border-radius: 50%; margin-right: 2px; display: inline-block; vertical-align: middle;"></span>
+            <span>전시진행중</span>
+          </div>
+          
+          <div class="carousel">
+            <div class="poster front">
+              <img src="../img/posters/1.png" alt="">
+              <h1>전시 'NEW WAVE'</h1>
+              <h2>과동아리 V-CON</h2>
+              <span>2022.11.26 ~ 2022.11.28</span>
             </div>
-            <div class="card">
-              <img src="../img/news/3.png" alt="">
-              <a>동아방송예술대학교, PMC 프로덕션 예술...</a>
-              <p>동아방송예술대학(총장 최용혁)가 국내 최초 비언어극 '난타'의 기획자인 송승환 PMC프로덕션 예술감독을 초청해 특강을 개최...</p>
-              <div class="date">12월 03일</div>
-              <div class="views"><img src="../img/news/views.png" alt="">1104</div>
-              <div class="likes"><img src="../img/news/heart.png" alt="">1104</div>
+            
+            <div class="poster right">
+              <img src="../img/posters/2.png" alt="">
+              <h1>전시 'NEWMEDIA UNIVERSE'</h1>
+              <h2>뉴미디어콘텐츠과</h2>
+              <span>2022.11.26 ~ 2022.11.28</span>
             </div>
-            <div class="card">
-              <img src="../img/news/4.png" alt="">
-              <a>동아방송예술대학교, PMC 프로덕션 예술...</a>
-              <p>동아방송예술대학(총장 최용혁)가 국내 최초 비언어극 '난타'의 기획자인 송승환 PMC프로덕션 예술감독을 초청해 특강을 개최...</p>
-              <div class="date">12월 03일</div>
-              <div class="views"><img src="../img/news/views.png" alt="">1104</div>
-              <div class="likes"><img src="../img/news/heart.png" alt="">1104</div>
+            
+            <div class="poster">
+              <img src="../img/posters/3.png" alt="">
+              <h1>공연 'RECORDING STUDIO IN MEVOICE'</h1>
+              <h2>중앙동아리 미보이스</h2>
+              <span>2022.11.26 ~ 2022.11.28</span>
             </div>
-            <div class="card">
-              <img src="../img/news/5.png" alt="">
-              <a>동아방송예술대학교, PMC 프로덕션 예술...</a>
-              <p>동아방송예술대학(총장 최용혁)가 국내 최초 비언어극 '난타'의 기획자인 송승환 PMC프로덕션 예술감독을 초청해 특강을 개최...</p>
-              <div class="date">12월 03일</div>
-              <div class="views"><img src="../img/news/views.png" alt="">1104</div>
-              <div class="likes"><img src="../img/news/heart.png" alt="">1104</div>
+            
+            <div class="poster">
+              <img src="../img/posters/4.png" alt="">
+              <h1>공연 'REMIND'</h1>
+              <h2>흑인음악동아리</h2>
+              <span>2022.11.26 ~ 2022.11.28</span>
             </div>
-            <div class="card">
-              <img src="../img/news/6.png" alt="">
-              <a>동아방송예술대학교, PMC 프로덕션 예술...</a>
-              <p>동아방송예술대학(총장 최용혁)가 국내 최초 비언어극 '난타'의 기획자인 송승환 PMC프로덕션 예술감독을 초청해 특강을 개최...</p>
-              <div class="date">12월 03일</div>
-              <div class="views"><img src="../img/news/views.png" alt="">1104</div>
-              <div class="likes"><img src="../img/news/heart.png" alt="">1104</div>
+            
+            <div class="poster">
+              <img src="../img/posters/5.png" alt="">
+              <h1>연극 'THE CHAIR'</h1>
+              <h2>뮤지컬전공</h2>
+              <span>2022.11.26 ~ 2022.11.28</span>
+            </div>
+            
+            <div class="poster left">
+              <img src="../img/posters/6.png" alt="">
+              <h1>연극 '갈매기'</h1>
+              <h2>공연예술계열 연극전공</h2>
+              <span>2022.11.26 ~ 2022.11.28</span>
             </div>
           </div>
           
-          <!-- page 2 -->
-          <div class="cardspage">
-            <div class="card">
-              <img src="../img/news/1.png" alt="">
-              <a>동아방송예술대학교, PMC 프로덕션 예술...</a>
-              <p>동아방송예술대학(총장 최용혁)가 국내 최초 비언어극 '난타'의 기획자인 송승환 PMC프로덕션 예술감독을 초청해 특강을 개최...</p>
-              <div class="date">12월 03일</div>
-              <div class="views"><img src="../img/news/views.png" alt="">1104</div>
-              <div class="likes"><img src="../img/news/heart.png" alt="">1104</div>
-            </div>
-            <div class="card">
-              <img src="../img/news/2.png" alt="">
-              <a>동아방송예술대학교, PMC 프로덕션 예술...</a>
-              <p>동아방송예술대학(총장 최용혁)가 국내 최초 비언어극 '난타'의 기획자인 송승환 PMC프로덕션 예술감독을 초청해 특강을 개최...</p>
-              <div class="date">12월 03일</div>
-              <div class="views"><img src="../img/news/views.png" alt="">1104</div>
-              <div class="likes"><img src="../img/news/heart.png" alt="">1104</div>
-            </div>
-            <div class="card">
-              <img src="../img/news/3.png" alt="">
-              <a>동아방송예술대학교, PMC 프로덕션 예술...</a>
-              <p>동아방송예술대학(총장 최용혁)가 국내 최초 비언어극 '난타'의 기획자인 송승환 PMC프로덕션 예술감독을 초청해 특강을 개최...</p>
-              <div class="date">12월 03일</div>
-              <div class="views"><img src="../img/news/views.png" alt="">1104</div>
-              <div class="likes"><img src="../img/news/heart.png" alt="">1104</div>
-            </div>
-            <div class="card">
-              <img src="../img/news/4.png" alt="">
-              <a>동아방송예술대학교, PMC 프로덕션 예술...</a>
-              <p>동아방송예술대학(총장 최용혁)가 국내 최초 비언어극 '난타'의 기획자인 송승환 PMC프로덕션 예술감독을 초청해 특강을 개최...</p>
-              <div class="date">12월 03일</div>
-              <div class="views"><img src="../img/news/views.png" alt="">1104</div>
-              <div class="likes"><img src="../img/news/heart.png" alt="">1104</div>
-            </div>
-            <div class="card">
-              <img src="../img/news/5.png" alt="">
-              <a>동아방송예술대학교, PMC 프로덕션 예술...</a>
-              <p>동아방송예술대학(총장 최용혁)가 국내 최초 비언어극 '난타'의 기획자인 송승환 PMC프로덕션 예술감독을 초청해 특강을 개최...</p>
-              <div class="date">12월 03일</div>
-              <div class="views"><img src="../img/news/views.png" alt="">1104</div>
-              <div class="likes"><img src="../img/news/heart.png" alt="">1104</div>
-            </div>
-            <div class="card">
-              <img src="../img/news/6.png" alt="">
-              <a>동아방송예술대학교, PMC 프로덕션 예술...</a>
-              <p>동아방송예술대학(총장 최용혁)가 국내 최초 비언어극 '난타'의 기획자인 송승환 PMC프로덕션 예술감독을 초청해 특강을 개최...</p>
-              <div class="date">12월 03일</div>
-              <div class="views"><img src="../img/news/views.png" alt="">1104</div>
-              <div class="likes"><img src="../img/news/heart.png" alt="">1104</div>
-            </div>
-          </div>
-        </div>
-        <div class="scrollprompt">
-          <span>
-            SWIPE
-            &nbsp;
-            <svg width="20" height="18" style="position: relative; vertical-align: middle;">
-              <path d="M 1.5 1.5 L 10 9 L 1.5 16.5 M 10 1.5 L 18.5 9 L 10 16.5" stroke-width="3" stroke-linecap="round" stroke="rgba(0, 0, 0, .3)" fill="none">
+          <div class="" style="width: 250px; top: 532px; left: 50%; transform: translateX(-50%); font-size: var(--s15); font-weight: var(--w900)">
+            <svg width="10" height="10" style="position: relative; display: inline-block; margin-right: 3px;">
+              <path d="M 9 1 L 1 5 L 9 9" stroke="black" stroke-width="2" fill="none">
             </svg>
-          </span>
-        </div>
-      </section>
-      
-      <section>
-        <svg viewBox="0 0 787 168" style="position: absolute; top: 730px; left: 574px; width: 787px; height: 168px;">
-          <ellipse cx="393.5" cy="84" rx="392.5" ry="83" stroke-width="2" stroke="black" fill="none" />
-        </svg>
+            <svg width="10" height="10" style="position: relative; display: inline-block; margin-right: 3px;">
+              <path d="M 3 1 L 3 9 M 7 1 L 7 9" stroke="black" stroke-width="2" fill="none">
+            </svg>
+            <svg width="10" height="10" style="position: relative; display: inline-block;">
+              <path d="M 1 1 L 9 5 L 1 9" stroke="black" stroke-width="2" fill="none">
+            </svg>
+          </div>
+        </section>
         
-        <div class="carousel">
-          <div class="poster front">
-            <img src="../img/posters/1.png" alt="">
-            <h1>전시 'NEW WAVE'</h1>
-            <h2>과동아리 V-CON</h2>
+        <section style="height: 622px;">
+          <h1>학과소개</h1>
+          <h2>Introduction of the Departments</h2>
+          
+          <div class="" style="bottom: 37px; right: 1512px; width: 150px;">
+            <button type="button" name="button" class="selected">방송예술융합학부</button>
+            <button type="button" name="button">콘텐츠학부</button>
+            <button type="button" name="button">예술학부</button>
+            <button type="button" name="button">실용음악학부</button>
+            <button type="button" name="button">방송연예학부</button>
           </div>
           
-          <div class="poster right">
-            <img src="../img/posters/2.png" alt="">
-            <h1>전시 'NEWMEDIA UNIVERSE'</h1>
-            <h2>뉴미디어콘텐츠과</h2>
+          <div class="boxholder">
+            <div class="box">
+              <img src="../img/majors/bg/fill2.png" alt="">
+              <div class="cover">
+                <img src="../img/majors/screenwriting.png" alt="">
+              </div>
+              <h1>방송기술계열</h1>
+            </div>
+            
+            <div class="box">
+              <img src="../img/majors/bg/sound.png" alt="">
+              <div class="cover">
+                <img src="../img/majors/sound.png" alt="">
+              </div>
+              <h1>음향제작과</h1>
+            </div>
+            
+            <div class="box">
+              <img src="../img/majors/bg/fill2.png" alt="">
+              <div class="cover">
+                <img src="../img/majors/newmedia.png" alt="">
+              </div>
+              <h1>뉴미디어콘텐츠과</h1>
+            </div>
+            
+            <div class="box">
+              <img src="../img/majors/bg/fill1.png" alt="">
+            </div>
+            <div class="box">
+              <img src="../img/majors/bg/fill1.png" alt="">
+            </div>
+            <div class="box">
+              <img src="../img/majors/bg/fill1.png" alt="">
+            </div>
           </div>
-          
-          <div class="poster">
-            <img src="../img/posters/3.png" alt="">
-            <h1>공연 'RECORDING STUDIO IN MEVOICE'</h1>
-            <h2>중앙동아리 미보이스</h2>
-          </div>
-          
-          <div class="poster">
-            <img src="../img/posters/4.png" alt="">
-            <h1>공연 'REMIND'</h1>
-            <h2>흑인음악동아리</h2>
-          </div>
-          
-          <div class="poster">
-            <img src="../img/posters/5.png" alt="">
-            <h1>연극 'THE CHAIR'</h1>
-            <h2>뮤지컬전공</h2>
-          </div>
-          
-          <div class="poster left">
-            <img src="../img/posters/6.png" alt="">
-            <h1>연극 '갈매기'</h1>
-            <h2>공연예술계열 연극전공</h2>
-          </div>
-        </div>
+        </section>
         
-        <div style="top: 510px;">
-          <img class="imgbutton" src="../img/arrow.png" style="left: 53px; transform: scaleX(-1)" onclick="carousel(-1)">
-          <img class="imgbutton" src="../img/arrow.png" style="left: 1824px;" onclick="carousel(1)">
-        </div>
-      </section>
-      
-      <section>
-        <h1>학부소개</h1>
-        <h2>Introduction of the Departments</h2>
-        
-        <div class="" style="bottom: 37px; right: 1512px; width: 150px;">
-          <button type="button" name="button" class="selected">방송예술융합학부</button>
-          <button type="button" name="button">콘텐츠학부</button>
-          <button type="button" name="button">예술학부</button>
-          <button type="button" name="button">실용음악학부</button>
-          <button type="button" name="button">방송연예학부</button>
-        </div>
-        
-        <div class="border" style="left: 451px;"></div>
-        <div class="boxholder">
-          <div class="box">
-            <img src="../img/majors/bg/fill2.png" alt="">
-            <div class="cover">
-              <img src="../img/majors/screenwriting.png" alt="">
+        <section style="height: 563px">
+          <h1>공지사항</h1>
+          <h2>NOTICE</h2>
+          
+          <div class="notice pageholder">
+            <div class="cardspage">
+              <div class="notice card">
+                <img src="../img/pin.png" alt="">
+                <a>22학년도 2학기 대면·비대면 수업 운영 안내</a>
+                <div class="tag announcement"></div>
+              </div>
+              <div class="notice card">
+                <a>22학년도 통계 계절학기 학점교류 교과목 수강신청 안내</a>
+                <div class="tag org"></div>
+              </div>
+              <div class="notice card">
+                <a>2023학년 1학기 국가장학금 1차 신청 안내</a>
+                <div class="tag info"></div>
+              </div>
+              <div class="notice card">
+                <a>학과조교 모집 안내 (실용음악계열)</a>
+                <div class="tag info"></div>
+              </div>
+              <div class="notice card">
+                <a>졸업학점 조정 검토 설문조사 (11.25일까지 연장)</a>
+                <div class="tag org"></div>
+              </div>
+              <div class="notice card">
+                <a>2023학년 1학기 국가장학금 1차 신청 안내</a>
+                <div class="tag info"></div>
+              </div>
             </div>
-            <h1>방송기술계열</h1>
           </div>
           
-          <div class="box">
-            <img src="../img/majors/bg/sound.png" alt="">
-            <div class="cover">
-              <img src="../img/majors/sound.png" alt="">
-            </div>
-            <h1>음향제작과</h1>
+          <div class="" style="top: 320px; width: 100%; text-align: center; font-weight: var(--w500); font-size: var(--s8)">
+            <svg width="5" height="9" style="vertical-align:middle; margin-right: 4px; display: inline-block; position: relative;">
+              <path d="M 4 1 L 0 4.5 L 4 8" stroke-width=".75" stroke-linecap="round" fill="none" stroke="black">
+            </svg> 
+            <span style="inline-block;">스와이프를 하여 넘겨보세요.</span>
+            <svg width="5" height="9" style="vertical-align:middle; margin-left: 4px; display: inline-block; position: relative;">
+              <path d="M 0 1 L 4 4.5 L 0 8" stroke-width=".75" stroke-linecap="round" fill="none" stroke="black">
+            </svg>
           </div>
           
-          <div class="box">
-            <img src="../img/majors/bg/fill2.png" alt="">
-            <div class="cover">
-              <img src="../img/majors/newmedia.png" alt="">
-            </div>
-            <h1>뉴미디어콘텐츠과</h1>
-          </div>
-          
-          <div class="box">
-            <img src="../img/majors/bg/fill1.png" alt="">
-          </div>
-          <div class="box">
-            <img src="../img/majors/bg/fill1.png" alt="">
-          </div>
-          <div class="box">
-            <img src="../img/majors/bg/fill1.png" alt="">
-          </div>
-          
-          <!-- <div class="box">
-            <img src="../img/majors/bg/fill1.png" alt="">
-            <div class="cover">
-              <img src="../img/majors/screenwriting.png" alt="">
-            </div>
-            <h1>방송극작과</h1>
-          </div>
-          
-          <div class="box">
-            <img src="../img/majors/bg/fill2.png" alt="">
-            <div class="cover">
-              <img src="../img/majors/d0d.png" alt="">
-            </div>
-            <h1>디지털영상디자인과</h1>
-          </div>
-          
-          <div class="box">
-            <img src="../img/majors/bg/music.png" alt="">
-            <div class="cover">
-              <img src="../img/majors/music.png" alt="">
-            </div>
-            <h1>실용음악계열</h1>
-          </div>
-          
-          <div class="box">
-            <img src="../img/majors/bg/sound.png" alt="">
-            <div class="cover">
-              <img src="../img/majors/sound.png" alt="">
-            </div>
-            <h1>음향제작과</h1>
-          </div>
-          
-          <div class="box">
-            <img src="../img/majors/bg/fill1.png" alt="">
-            <div class="cover">
-              <img src="../img/majors/video.png" alt="">
-            </div>
-            <h1>영상제작과</h1>
-          </div>
-          
-          <div class="box">
-            <img src="../img/majors/bg/fill2.png" alt="">
-            <div class="cover">
-              <img src="../img/majors/newmedia.png" alt="">
-            </div>
-            <h1>뉴미디어콘텐츠과</h1>
-          </div> -->
-        </div>
-      </section>
-      
-      <section>
-        <h1>공지사항</h1>
-        <h2>NOTICE</h2>
-        <!-- <div class="" style="top: 832px; left: 326px;">
-          <button type="button" name="button" class="selected">2022</button>
-          <button type="button" name="button">2021</button>
-          <button type="button" name="button">2020</button>
-          <br>
-          <button type="button" name="button">MORE</button>
-        </div> -->
-        <div class="border" style="left: 451px;"></div>
-        
-        <div class="pageholder">
-          <!-- page 1 -->
-          <div class="cardspage">
-            <div class="notice card">
+          <div class="notice list">
+            <div class="li">
               <img src="../img/pin.png" alt="">
               <a>22학년도 2학기 대면·비대면 수업 운영 안내</a>
               <div class="tag announcement"></div>
             </div>
-            <div class="notice card">
+            <div class="li">
               <a>22학년도 통계 계절학기 학점교류 교과목 수강신청 안내</a>
               <div class="tag org"></div>
             </div>
-            <div class="notice card">
+            <div class="li">
               <a>2023학년 1학기 국가장학금 1차 신청 안내</a>
               <div class="tag info"></div>
             </div>
-            <div class="notice card">
+            <div class="li">
               <a>학과조교 모집 안내 (실용음악계열)</a>
               <div class="tag info"></div>
             </div>
-            <div class="notice card">
+            <div class="li">
               <a>졸업학점 조정 검토 설문조사 (11.25일까지 연장)</a>
               <div class="tag org"></div>
             </div>
-            <div class="notice card">
+            <div class="li">
               <a>2023학년 1학기 국가장학금 1차 신청 안내</a>
               <div class="tag info"></div>
             </div>
           </div>
-          
-          <!-- page 2 -->
-          <div class="cardspage">
-            <div class="notice card">
-              <a>22학년도 2학기 대면·비대면 수업 운영 안내</a>
-              <div class="tag announcement"></div>
-            </div>
-            <div class="notice card">
-              <a>22학년도 통계 계절학기 학점교류 교과목 수강신청 안내</a>
-              <div class="tag org"></div>
-            </div>
-            <div class="notice card">
-              <a>2023학년 1학기 국가장학금 1차 신청 안내</a>
-              <div class="tag info"></div>
-            </div>
-            <div class="notice card">
-              <a>학과조교 모집 안내 (실용음악계열)</a>
-              <div class="tag info"></div>
-            </div>
-            <div class="notice card">
-              <a>졸업학점 조정 검토 설문조사 (11.25일까지 연장)</a>
-              <div class="tag org"></div>
-            </div>
-            <div class="notice card">
-              <a>2023학년 1학기 국가장학금 1차 신청 안내</a>
-              <div class="tag info"></div>
-            </div>
-          </div>
-        </div>
-        <div class="scrollprompt">
-          <span>
-            SWIPE
-            &nbsp;
-            <svg width="20" height="18" style="position: relative; vertical-align: middle;">
-              <path d="M 1.5 1.5 L 10 9 L 1.5 16.5 M 10 1.5 L 18.5 9 L 10 16.5" stroke-width="3" stroke-linecap="round" stroke="rgba(0, 0, 0, .3)" fill="none">
-            </svg>
-          </span>
-        </div>
-      </section>
-      
-      <footer>
-        <div class="" style="background: rgba(0, 0, 0, 0.03); height: 61px; width: 100%;">
-          <div style="top: 20px; font-size: 18px;">
-            <a style="left: 1009px">대학자체평가</a>
-            <a style="left: 1150px">예결산공고</a>
-            <a style="left: 1274px">정보공개</a>
-            <a style="left: 1380px">개인정보처리방침</a>
-            <a style="left: 1554px">개인정보 제3자 제공</a>
-            <a style="left: 1750px">찾아오시는 길</a>
-          </div>
-        </div>
-        <img src="../img/footer logo.png" alt="" style="top: 82px; left: 61px; width: 219px; height: 138px;">
+        </section>
         
-        <div class="" style="font-size: 16px; width: 100%;">
-          <div class="" style="top: 147px; left: 325px;">
+        <footer>
+          <img src="../img/footer logo.png" alt="" style="top: 11px; left: 50%; transform: translateX(-50%); height: 20px;">
+          <img src="../img/star.png" alt="" style="top: 36px; left: 50%; transform: translateX(-50%)">
+          
+          <div class="" style="top: 45px; text-align: center; font-size: var(--s5); font-weight: var(--w300); width: 150px; line-height: 7px; left: 50%; transform: translateX(-50%)">
             경기도 안성시 삼죽면 동아예대길 47(진촌리 632-18) 17516<br>
             47, DongAhYedaegil, Samjuk-myun, Ansung-si, Gyeonggi-do, Republic of Korea 17516<br>
-            <br>
-            TEL : 031-670-6600
-            &nbsp;&nbsp;&nbsp;&nbsp;
-            입학문의 | 031-670-6612~3
-          </div>
-          <div class="" style="top: 207px; right: 59px;">
+            TEL : 031-670-6600 | 입학문의 : 031-670-6612~3<br>
+            <br style="height: 2px;">
             Copyright © 2022 DONG-AH INSTITUTE OF MEDIA AND ART ALL RIGHTS RESERVED.
           </div>
-        </div>
-      </footer>
+        </footer>
         
+      </div>
       
       <header class="slide1">
         <img src="../img/mobile logo.png" alt="" style="left: 143px; top: 15px; width: 74px; height: 40px;" onclick="window.location.href = './main.html';">
@@ -1070,51 +996,60 @@
   const header = document.querySelector("header");
   const container = document.querySelector(".container");
   
-  const pageholders = document.getElementsByClassName("pageholder");
-  for (let i=0; i<pageholders.length; i++) {
-    const holder = pageholders[i];
-    holder.addEventListener("scroll", function(h) {
-      // done scrolling
-      if (h.target.scrollWidth - h.target.scrollLeft - h.target.clientWidth <= 50) {
-        h.target.classList.add("scrolldone");
-      } else {
-        h.target.classList.remove("scrolldone");
+  container.addEventListener("scroll", function() {
+    if (container.scrollTop < 360) {
+      header.classList.add("slide1");
+    } else {
+      header.classList.remove("slide1");
+    }
+  }, { passive: true });
+  
+  if (!('ontouchstart' in document.documentElement)) {
+    const cursor = document.createElement("div");
+    cursor.style.position = "absolute";
+    cursor.style.transform = "translate(-50%, -50%)";
+    cursor.style.borderRadius = "50%";
+    cursor.style.background = "black";
+    cursor.style.border = "1px solid white";
+    cursor.style.opacity = ".5";
+    cursor.style.zIndex = "10";
+    cursor.style.width = "30px";
+    cursor.style.height = "30px";
+    cursor.style.pointerEvents = "none";
+    document.body.appendChild(cursor);
+    
+    var drag = { py:0, down: false };
+    
+    container.addEventListener("mousedown", function(e) {
+      cursor.style.background = "white";
+      container.classList.add("scrolling");
+      
+      drag = { py: container.scrollTop + e.pageY, down: true };
+    });
+    container.addEventListener("mouseup", function(e) {
+      cursor.style.background = "black";
+      drag.down = false;
+      container.classList.remove("scrolling");
+    });
+    container.addEventListener("mouseleave", function(e) {
+      cursor.style.background = "black";
+      drag.down = false;
+    });
+    
+    document.addEventListener("mousemove", function(e) {
+      e = e || window.event;
+      
+      cursor.style.left = e.pageX+"px";
+      cursor.style.top = e.pageY+"px";
+      
+      if (drag.down) {
+        // if (drag.py > e.pageY) {
+        //   everything.scrollTo(0, everything.scrollTop + 800);
+        //   drag.down = false;
+        // }
+        // container.scroll(0, drag.py - e.pageY);
       }
-    }, { passive: true });
+    });
   }
-  
-  const _carousel = document.getElementsByClassName("carousel")[0];
-  var index = 0;
-  function carousel(direction) {
-    const posters = _carousel.getElementsByClassName("poster");
-    
-    let front = posters[index];
-    let right = posters[index+1] || posters[index+1 - posters.length];
-    let left = posters[index-1] || posters[index-1 + posters.length];
-    front.classList.remove("front");
-    left.classList.remove("left");
-    right.classList.remove("right");
-    
-    index += direction;
-    
-    if (index < 0) index = posters.length - 1;
-    if (index >= posters.length) index = 0;
-    
-    front = posters[index];
-    right = posters[index+1] || posters[index+1 - posters.length];
-    left = posters[index-1] || posters[index-1 + posters.length];
-    
-    front.classList.add("front");
-    left.classList.add("left");
-    right.classList.add("right");
-    
-    front.onclick = null;
-    left.onclick = function() { carousel(-1) };
-    right.onclick = function() { carousel(1) };
-  }
-  
-  carousel(0);
-  
   </script>
-  <script type="text/javascript" src="../touch-scroll-emulation.js"></script>
 </html>
