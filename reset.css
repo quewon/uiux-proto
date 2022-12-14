@@ -56,7 +56,7 @@ table {
 	top: 50%;
 	left: 50%;
 	/* transform: translate(-50%, -50%) scale(.6); */
-	transform: translate(-50%, -50%) scale(.75);
+	/* transform: translate(-50%, -50%) scale(.75); */
 	/* overflow-y: scroll;
 	overflow-x: hidden; */
 	background: white;

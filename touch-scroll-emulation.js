@@ -38,12 +38,12 @@ if (!('ontouchstart' in document.documentElement)) {
     cursor.style.left = e.pageX+"px";
     cursor.style.top = e.pageY+"px";
     
-    if (drag.down) {
-      // if (drag.py > e.pageY) {
-      //   everything.scrollTo(0, everything.scrollTop + 800);
-      //   drag.down = false;
-      // }
-      everything.scroll(0, drag.py - e.pageY);
-    }
+    // if (drag.down) {
+    //   // if (drag.py > e.pageY) {
+    //   //   everything.scrollTo(0, everything.scrollTop + 800);
+    //   //   drag.down = false;
+    //   // }
+    //   everything.scroll(0, drag.py - e.pageY);
+    // }
   });
 }
