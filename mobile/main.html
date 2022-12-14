@@ -622,6 +622,44 @@
     b {
       font-weight: var(--w900);
     }
+    
+    .fadein {
+      opacity: 0;
+    }
+    
+    .fadein.start.left {
+      animation: fade-in-left 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+    }
+    
+    .fadein.start.right {
+      animation: fade-in-right 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+    }
+    
+    @keyframes fade-in-left {
+      0% {
+        -webkit-transform: translateX(-50px);
+                transform: translateX(-50px);
+        opacity: 0;
+      }
+      100% {
+        -webkit-transform: translateX(0);
+                transform: translateX(0);
+        opacity: 1;
+      }
+    }
+    
+    @keyframes fade-in-right {
+      0% {
+        -webkit-transform: translateX(50px);
+                transform: translateX(50px);
+        opacity: 0;
+      }
+      100% {
+        -webkit-transform: translateX(0);
+                transform: translateX(0);
+        opacity: 1;
+      }
+    }
   </style>
   <body>
     
@@ -703,7 +741,7 @@
           </div>
         </section>
         
-        <section style="height: 587px;">
+        <section class="fadein left" style="height: 587px;">
           <h1>공연&전시</h1>
           <h2>Performance&Exhibition</h2>
           <div style="bottom: 0; width: 100%; border-top: 1px solid black"></div>
@@ -772,7 +810,7 @@
           </div>
         </section>
         
-        <section style="height: 622px;">
+        <section class="fadein right" style="height: 622px;">
           <h1>학과소개</h1>
           <h2>Introduction of the Departments</h2>
           
@@ -821,7 +859,7 @@
           </div>
         </section>
         
-        <section style="height: 563px">
+        <section class="fadein left" style="height: 563px">
           <h1>공지사항</h1>
           <h2>NOTICE</h2>
           
@@ -993,6 +1031,10 @@
   
   <script type="text/javascript" src="../touch-scroll-emulation.js"></script>
   <script type="text/javascript">
+  const fadeins = document.getElementsByClassName("fadein");
+  
+  //
+  
   const header = document.querySelector("header");
   const container = document.querySelector(".container");
   
@@ -1001,6 +1043,13 @@
       header.classList.add("slide1");
     } else {
       header.classList.remove("slide1");
+    }
+    
+    for (let i=0; i<fadeins.length; i++) {
+      const f = fadeins[i];
+      if (container.scrollTop >= f.offsetTop - 600) {
+        f.classList.add("start");
+      }
     }
   }, { passive: true });
   
