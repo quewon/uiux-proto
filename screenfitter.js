@@ -1,4 +1,4 @@
-if ('ontouchstart' in document.documentElement) {
+if ('ontouchstart' in document.documentElement && window.location.href.indexOf("mobile") != -1) {
   window.onresize = function() {
     var width = document.documentElement.clientWidth;
     var height = document.documentElement.clientHeight;
