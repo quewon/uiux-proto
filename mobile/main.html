@@ -19,21 +19,16 @@
        -ms-user-select: none;
     }
     
-    body {
-      margin: 0;
-      background: black;
-    }
-    
     .everything {
       width: var(--width);
       height: var(--height);
       
-      --width: 360px;
-      --height: 800px;
+      --width: 720px;
+      --height: 1600px;
       --font-size: 20px;
       
-      --header-height: 69px;
-      --nav-height: 714px;
+      --header-height: 138px;
+      --nav-height: 1428px;
       
       overflow: hidden;
       
@@ -41,6 +36,7 @@
     }
     
     .container {
+      background: white;
       overflow-x: hidden;
       width: var(--width);
       height: calc(var(--height) - var(--header-height));
@@ -59,15 +55,14 @@
     
     section > h1, section > h2 {
       position: absolute;
-      right: 1512px;
     }
     
     section > h1 {
       left: 0;
-      line-height: 60px;
+      line-height: 120px;
       font-weight: var(--w900);
-      font-size: var(--s32);
-      top: 11px;
+      font-size: var(--s64);
+      top: 22px;
       width: 100%;
       text-align: center;
       color: black;
@@ -75,10 +70,10 @@
     
     section > h2 {
       left: 0;
-      top: 58px;
+      top: 116px;
       width: 100%;
       text-align: center;
-      font-size: var(--s12);
+      font-size: var(--s25);
       font-weight: var(--w500);
       color: rgba(0, 0, 0, .5);
     }
@@ -92,7 +87,7 @@
     nav {
       display: none;
       height: var(--nav-height);
-      border-bottom: 1.5px solid rgba(0, 0, 0, .25);
+      border-bottom: 3px solid rgba(0, 0, 0, .25);
       background: white;
       padding-top: var(--header-height);
       z-index: 9;
@@ -100,12 +95,12 @@
     
     .border {
       height: 100%;
-      border-left: 1px solid black;
+      border-left: 2px solid black;
     }
     
     nav .border {
       height: calc(var(--nav-height) - var(--header-height));
-      border-left: 1.5px solid rgba(0, 0, 0, .25);
+      border-left: 3px solid rgba(0, 0, 0, .25);
     }
     
     nav .column {
@@ -116,7 +111,7 @@
     }
     
     nav .column a {
-      margin-top: 1em;
+      margin-top: 2em;
       text-align: center;
     }
     
@@ -132,11 +127,11 @@
       
       transition: all 200ms;
       
-      box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.25);
+      box-shadow: 0px 8px 60px rgba(0, 0, 0, 0.25);
     }
     
     header.slide1 {
-      box-shadow: 0px 4px 30px rgba(0, 0, 0, 0);
+      box-shadow: 0px 8px 60px rgba(0, 0, 0, 0);
     }
     
     footer, section {
@@ -150,8 +145,8 @@
     }
     
     footer {
-      height: 109px;
-      border-top: 1.5px solid black;
+      height: 218px;
+      border-top: 3px solid black;
     }
     
     .flex {
@@ -211,16 +206,16 @@
     
     button {
       box-sizing: border-box;
-      border: 1px solid black;
-      border-radius: 16.5px;
-      height: 23px;
+      border: 2px solid black;
+      border-radius: 33px;
+      height: 46px;
       margin: 0;
-      margin-left: 7px;
+      margin-left: 14px;
       background: white;
       display: inline-block;
-      padding-left: 13px;
-      padding-right: 13px;
-      font-size: var(--s12);
+      padding-left: 26px;
+      padding-right: 26px;
+      font-size: var(--s25);
       font-weight: var(--w500);
       color: black;
     }
@@ -247,8 +242,8 @@
     
     .pageholder {
       width: 100%;
-      top: 143px;
-      height: 247px;
+      top: 286px;
+      height: 494px;
       overflow: hidden;
       /* overflow-x: scroll;
       overflow-y: hidden;; */
@@ -256,9 +251,9 @@
     }
     
     .notice.pageholder {
-      top: 93px;
+      top: 186px;
       width: 100%;
-      height: 247px;
+      height: 494px;
       /* gap: 72px;
       overflow-x: scroll;
       overflow-y: hidden; */
@@ -269,127 +264,127 @@
       display: flex;
       width: fit-content;
       height: inherit;
-      gap: 31px;
+      gap: 62px;
       justify-content: space-evenly;
-      margin-left: 67px;
-      padding-right: 67px;
+      margin-left: 134px;
+      padding-right: 134px;
     }
     
     .notice.pageholder .cardspage {
-      gap: 72px;
-      margin-left: 72px;
-      padding-right: 72px;
+      gap: 144px;
+      margin-left: 144px;
+      padding-right: 144px;
     }
     
     .card {
       position: relative !important;
-      width: 229px;
-      height: 247px;
+      width: 458px;
+      height: 494px;
       overflow: hidden;
       
-      border: 1px solid black;
+      border: 2px solid black;
       box-sizing: border-box;
-      border-top-right-radius: 50px;
-      border-bottom-left-radius: 50px;
+      border-top-right-radius: 100px;
+      border-bottom-left-radius: 100px;
     }
     
     .card img {
-      width: 229px;
-      height: 136px;
-      border-bottom: 1px solid black;
+      width: 458px;
+      height: 272px;
+      border-bottom: 2px solid black;
       box-sizing: border-box;
     }
     
     .card a {
-      font-size: 21px;
-      font-weight: 800;
-      width: 390px;
-      top: 259px;
-      left: 15px;
+      font-size: 42px;
+      font-weight: var(--w900);
+      width: 780px;
+      top: 518px;
+      left: 30px;
     }
     
     .card p {
       position: absolute;
-      width: 390px;
-      height: 44px;
-      top: 296px;
-      left: 15px;
+      width: 780px;
+      height: 88px;
+      top: 592px;
+      left: 30px;
       margin: 0;
       padding: 0;
-      font-size: 15px;
+      font-size: 30px;
       font-weight: 350;
-      line-height: 22px;
+      line-height: 44px;
     }
     
     .card .views, .card .likes, .card .date {
       font-weight: 800;
-      font-size: 10px;
+      font-size: 20px;
       color: rgba(0,0,0,.3);
-      top: 362px;
+      top: 724px;
     }
     
     .card .date {
-      left: 19px;
+      left: 38px;
       color: rgba(0,0,0,.5);
     }
     
     .card .views {
-      left: 290px;
-      top: 365px;
+      left: 580px;
+      top: 730px;
     }
     
     .views img, .likes img {
       position: relative;
       border: none;
-      margin-right: 2px;
+      margin-right: 4px;
       vertical-align: middle;
     }
     
     .views img {
-      width: 20px;
-      height: 21px;
+      width: 40px;
+      height: 42px;
     }
     
     .card .likes {
-      left: 352px;
-      top: 369px;
+      left: 704px;
+      top: 738px;
     }
     
     .likes img {
-      width: 15px;
-      height: 13px;
+      width: 30px;
+      height: 26px;
     }
     
     .notice.card {
-      width: 217px;
-      height: 212px;
-      border: 1px solid black;
+      width: 434px;
+      height: 424px;
+      border: 2px solid black;
       box-sizing: border-box;
-      border-radius: 25px;
+      border-radius: 50px;
     }
     
     .notice.card img {
       border: none;
-      width: 14px;
-      height: 14px;
-      top: 15px;
-      right: 17px;
+      width: 28px;
+      height: 28px;
+      top: 30px;
+      right: 34px;
     }
     
     .notice.card a {
       white-space: unset;
-      font-size: var(--s15);
+      font-size: var(--s30);
       font-weight: var(--w900);
-      line-height: 20px;
-      top: 15px;
-      left: 14px;
-      width: 122px;
+      line-height: 40px;
+      top: 30px;
+      left: 28px;
+      width: 244px;
       word-break: keep-all;
     }
     
     .notice.card .tag {
-      bottom: 15px;
-      right: 15px;
+      bottom: 30px;
+      right: 30px;
     }
     
     .tag::after {
@@ -397,12 +392,13 @@
       /* width: 19px;
       height: 11px; */
       font-weight: var(--w900);
-      font-size: var(--s8);
-      line-height: var(--s8);
+      font-size: var(--s15);
+      line-height: var(--s15);
       color: white;
-      padding: 1px;
-      padding-left: 3px;
-      padding-right: 3px;
+      padding: 2px;
+      padding-left: 6px;
+      padding-right: 6px;
+      margin-top: 15px;
     }
     
     .announcement::after {
@@ -421,12 +417,12 @@
     }
     
     .notice.list {
-      top: 372px;
-      left: 72px;
-      width: 220px;
-      height: 157px;
-      border-top: 1px solid rgba(0, 0, 0, .5);
-      border-bottom: 1px solid rgba(0, 0, 0, .5);
+      top: 744px;
+      left: 144px;
+      width: 440px;
+      height: 314px;
+      border-top: 2px solid rgba(0, 0, 0, .5);
+      border-bottom: 2px solid rgba(0, 0, 0, .5);
       display: flex;
       flex-direction: column;
     }
@@ -434,17 +430,17 @@
     .li {
       position: relative !important;
       width: 100%;
-      height: 31px;
-      border-bottom: .5px solid rgba(0, 0, 0, .3);
+      height: 62px;
+      border-bottom: 1px solid rgba(0, 0, 0, .3);
     }
     
     .li a {
       top: 50%;
       transform: translateY(-50%);
-      left: 27px;
+      left: 54px;
       font-weight: var(--w900);
-      font-size: var(--s10);
-      width: calc(100% - 27px);
+      font-size: var(--s20);
+      width: calc(100% - 54px);
       overflow: hidden;
       text-overflow: ellipsis;
     }
@@ -454,15 +450,15 @@
     }
     
     .notice.list .tag {
-      left: 2px;
+      left: 4px;
     }
     
     .scrollprompt {
       position: absolute;
-      width: 334px;
+      width: 668px;
       height: var(--height);
       top: 0;
-      left: 1587px;
+      left: 3174px;
       background: linear-gradient(270deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0) 100%);
       transition: all 300ms;
       pointer-events: none;
@@ -478,13 +474,13 @@
     
     .boxholder {
       display: flex;
-      top: 95px;
+      top: 190px;
       
       /* padding-top: calc(var(--header-height) - 1px); */
       /* padding-left: 0; */
       /* overflow: visible; */
       width: var(--width);
-      height: 528px;
+      height: 1056px;
       flex-direction: row;
       flex-wrap: wrap;
       /* background: black; */
@@ -492,8 +488,8 @@
     
     .box {
       position: relative !important;
-      width: 180px;
-      height: 176px;
+      width: 360px;
+      height: 352px;
       box-sizing: border-box;
       /* border-right: 1px solid white; */
       /* border-top: 1px solid white; */
@@ -503,10 +499,10 @@
     
     .box h1 {
       position: absolute;
-      font-size: var(--s10);
+      font-size: var(--s20);
       font-weight: var(--w900);
-      bottom: 7px;
-      left: 7px;
+      bottom: 14px;
+      left: 14px;
       color: white;
       
       /* color: white;
@@ -545,19 +541,19 @@
     .cover img {
       right: 0;
       opacity: 1;
-      width: 66px;
+      width: 132px;
       height: inherit;
     }
     
     .carousel {
-      top: 125px;
-      left: 55px;
-      width: 250px;
+      top: 250px;
+      left: 110px;
+      width: 500px;
       height: 100%;
     }
     
     .carousel .poster {
-      width: 250px;
+      width: 500px;
       height: fit-content;
       z-index: 0;
       opacity: 0;
@@ -570,20 +566,20 @@
     
     .carousel .poster.left {
       /* opacity: 1; */
-      left: -305px;
+      left: -610px;
     }
     
     .carousel .poster.right {
       /* opacity: 1; */
-      left: 305px;
+      left: 610px;
     }
     
     .poster h1 {
       position: absolute;
-      line-height: 40px;
-      font-size: var(--s15);
+      line-height: 80px;
+      font-size: var(--s30);
       font-weight: var(--w900);
-      top: 342px;
+      top: 684px;
       /* left: 62px; */
       /* white-space: nowrap; */
       transition: inherit;
@@ -591,28 +587,28 @@
     
     .poster span {
       position: absolute;
-      line-height: 40px;
-      font-size: var(--s10);
+      line-height: 80px;
+      font-size: var(--s20);
       font-weight: var(--w300);
-      top: 361px;
+      top: 722px;
       /* left: 62px; */
       transition: inherit;
     }
     
     .poster h2 {
       background: #24FF00;
-      padding: 2px;
+      padding: 4px;
       position: absolute;
-      font-size: var(--s12);
+      font-size: var(--s25);
       font-weight: var(--w900);
-      top: 407px;
+      top: 814px;
       right: 0;
       transition: inherit;
     }
     
     .carousel img {
-      width: 250px;
-      height: 345px;
+      width: 500px;
+      height: 690px;
     }
     
     .imgbutton:active {
@@ -667,25 +663,25 @@
       
       <div class="container">
         
-        <section style="color: white; height: 360px;">
-          <img src="../img/mobile main bg.png" alt="" class="center x" style="height: 360px;">
-          <div class="" style="width: 360px; height: 360px; background: rgba(0, 0, 0, .4)"></div>
+        <section style="color: white; height: 720px;">
+          <img src="../img/mobile main bg.png" alt="" class="center x" style="height: 720px;">
+          <div class="" style="width: 720px; height: 720px; background: rgba(0, 0, 0, .4)"></div>
           
-          <div class="" style="bottom: 17px; right: 17px; text-align: right;">
-            <h1 style="font-size: var(--18px); font-weight: var(--w300)"><b>꿈</b>과 <b>열정</b>이 넘치는<br>
+          <div class="" style="bottom: 34px; right: 34px; text-align: right;">
+            <h1 style="font-size: var(--s30); font-weight: var(--w300)"><b>꿈</b>과 <b>열정</b>이 넘치는<br>
             <b>동아방송예술대학교</b></h1>
-            <h2 style="font-size: var(--s10); font-weight: var(--w300)">DREAM&PASSION</h2>
+            <h2 style="font-size: var(--s20); font-weight: var(--w300)">DREAM&PASSION</h2>
           </div>
         </section>
         
-        <section style="height: 460px;">
+        <section style="height: 920px;">
           <h1>NEWS</h1>
           <h2>디마뉴스</h2>
-          <div class="" style="width: fit-content; top: 91px; left: 50%; transform: translateX(-50%);">
-            <button type="button" name="button" class="selected">2022</button><button type="button" name="button">2021</button><button type="button" name="button">2020</button>
+          <div class="" style="width: 100%; text-align: center; top: 182px; left: 50%; transform: translateX(-50%);">
+            <button type="button" name="button" class="selected" style="display: inline">2022</button><button type="button" name="button" style="display: inline">2021</button><button type="button" name="button" style="display: inline">2020</button>
           </div>
-          <button type="button" name="button" style="position: absolute; right: 20px; bottom: 24px;">MORE</button>
-          <div style="bottom: 0; width: 100%; border-top: 1px solid black"></div>
+          <button type="button" name="button" style="position: absolute; right: 40px; bottom: 48px;">MORE</button>
+          <div style="bottom: 0; width: 100%; border-top: 2px solid black"></div>
           
           <div class="pageholder">
             <div class="cardspage">
@@ -741,15 +737,15 @@
           </div>
         </section>
         
-        <section class="fadein left" style="height: 587px;">
+        <section class="fadein left" style="height: 1174px;">
           <h1>공연&전시</h1>
           <h2>Performance&Exhibition</h2>
-          <div style="bottom: 0; width: 100%; border-top: 1px solid black"></div>
+          <div style="bottom: 0; width: 100%; border-top: 2px solid black"></div>
           
-          <div class="" style="right: 20px; top: 85px; height: 8px; font-size: var(--s8); font-weight: var(--w900)">
-            <span class="" style="width: 8px; height: 8px; background: #FF0000; border-radius: 50%; margin-right: 2px; display: inline-block; vertical-align: middle;"></span>
-            <span style="margin-right: 10px;">전시종료</span>
-            <span class="" style="width: 8px; height: 8px; background: #24FF00; border-radius: 50%; margin-right: 2px; display: inline-block; vertical-align: middle;"></span>
+          <div class="" style="right: 40px; top: 170px; height: 16px; font-size: var(--s15); font-weight: var(--w900)">
+            <span class="" style="width: 16px; height: 16px; background: #FF0000; border-radius: 50%; margin-right: 4px; display: inline-block; vertical-align: middle;"></span>
+            <span style="margin-right: 20px;">전시종료</span>
+            <span class="" style="width: 16px; height: 16px; background: #24FF00; border-radius: 50%; margin-right: 4px; display: inline-block; vertical-align: middle;"></span>
             <span>전시진행중</span>
           </div>
           
@@ -797,24 +793,24 @@
             </div>
           </div>
           
-          <div class="" style="width: 250px; top: 532px; left: 50%; transform: translateX(-50%); font-size: var(--s15); font-weight: var(--w900)">
-            <svg width="10" height="10" style="position: relative; display: inline-block; margin-right: 3px;">
-              <path d="M 9 1 L 1 5 L 9 9" stroke="black" stroke-width="2" fill="none">
+          <div class="" style="width: 500px; top: 1064px; left: 50%; transform: translateX(-50%); font-size: var(--s30); font-weight: var(--w900)">
+            <svg width="20" height="20" style="position: relative; display: inline-block; margin-right: 6px;">
+              <path d="M 18 2 L 2 10 L 18 18" stroke="black" stroke-width="4" fill="none">
             </svg>
-            <svg width="10" height="10" style="position: relative; display: inline-block; margin-right: 3px;">
-              <path d="M 3 1 L 3 9 M 7 1 L 7 9" stroke="black" stroke-width="2" fill="none">
+            <svg width="20" height="20" style="position: relative; display: inline-block; margin-right: 6px;">
+              <path d="M 6 2 L 6 18 M 14 2 L 14 18" stroke="black" stroke-width="4" fill="none">
             </svg>
-            <svg width="10" height="10" style="position: relative; display: inline-block;">
-              <path d="M 1 1 L 9 5 L 1 9" stroke="black" stroke-width="2" fill="none">
+            <svg width="20" height="20" style="position: relative; display: inline-block;">
+              <path d="M 2 2 L 18 10 L 2 18" stroke="black" stroke-width="4" fill="none">
             </svg>
           </div>
         </section>
         
-        <section class="fadein right" style="height: 622px;">
+        <section class="fadein right" style="height: 1244px;">
           <h1>학과소개</h1>
           <h2>Introduction of the Departments</h2>
           
-          <div class="" style="bottom: 37px; right: 1512px; width: 150px;">
+          <div class="" style="bottom: 74px; right: 3024px; width: 300px;">
             <button type="button" name="button" class="selected">방송예술융합학부</button>
             <button type="button" name="button">콘텐츠학부</button>
             <button type="button" name="button">예술학부</button>
@@ -859,7 +855,7 @@
           </div>
         </section>
         
-        <section class="fadein left" style="height: 563px">
+        <section class="fadein left" style="height: 1126px">
           <h1>공지사항</h1>
           <h2>NOTICE</h2>
           
@@ -893,13 +889,13 @@
             </div>
           </div>
           
-          <div class="" style="top: 320px; width: 100%; text-align: center; font-weight: var(--w500); font-size: var(--s8)">
-            <svg width="5" height="9" style="vertical-align:middle; margin-right: 4px; display: inline-block; position: relative;">
-              <path d="M 4 1 L 0 4.5 L 4 8" stroke-width=".75" stroke-linecap="round" fill="none" stroke="black">
+          <div class="" style="top: 640px; width: 100%; text-align: center; font-weight: var(--w500); font-size: var(--s15)">
+            <svg width="10" height="18" style="vertical-align:middle; margin-right: 8px; display: inline-block; position: relative;">
+              <path d="M 8 2 L 0 9 L 8 16" stroke-width="1.5" stroke-linecap="round" fill="none" stroke="black">
             </svg> 
             <span style="inline-block;">스와이프를 하여 넘겨보세요.</span>
-            <svg width="5" height="9" style="vertical-align:middle; margin-left: 4px; display: inline-block; position: relative;">
-              <path d="M 0 1 L 4 4.5 L 0 8" stroke-width=".75" stroke-linecap="round" fill="none" stroke="black">
+            <svg width="10" height="18" style="vertical-align:middle; margin-left: 8px; display: inline-block; position: relative;">
+              <path d="M 0 2 L 8 9 L 0 16" stroke-width="1.5" stroke-linecap="round" fill="none" stroke="black">
             </svg>
           </div>
           
@@ -933,14 +929,14 @@
         </section>
         
         <footer>
-          <img src="../img/footer logo.png" alt="" style="top: 11px; left: 50%; transform: translateX(-50%); height: 20px;">
-          <img src="../img/star.png" alt="" style="top: 36px; left: 50%; transform: translateX(-50%)">
+          <img src="../img/footer logo.png" alt="" style="top: 22px; left: 50%; transform: translateX(-50%); height: 40px;">
+          <img src="../img/star.png" alt="" style="top: 72px; left: 50%; transform: translateX(-50%)">
           
-          <div class="" style="top: 45px; text-align: center; font-size: var(--s5); font-weight: var(--w300); width: 150px; line-height: 7px; left: 50%; transform: translateX(-50%)">
+          <div class="" style="top: 90px; text-align: center; font-size: var(--s10); font-weight: var(--w300); width: 300px; line-height: 14px; left: 50%; transform: translateX(-50%)">
             경기도 안성시 삼죽면 동아예대길 47(진촌리 632-18) 17516<br>
             47, DongAhYedaegil, Samjuk-myun, Ansung-si, Gyeonggi-do, Republic of Korea 17516<br>
             TEL : 031-670-6600 | 입학문의 : 031-670-6612~3<br>
-            <br style="height: 2px;">
+            <br style="height: 4px;">
             Copyright © 2022 DONG-AH INSTITUTE OF MEDIA AND ART ALL RIGHTS RESERVED.
           </div>
         </footer>
@@ -948,36 +944,36 @@
       </div>
       
       <header class="slide1">
-        <img src="../img/mobile logo.png" alt="" style="left: 143px; top: 15px; width: 74px; height: 40px;" onclick="window.location.href = './main.html';">
+        <img src="../img/mobile logo.png" alt="" style="left: 286px; top: 30px; width: 148px; height: 80px;" onclick="window.location.href = './main.html';">
         
-        <div style="top: 50px;">
-          <a style="left: 567px;">대학소개</a>
-          <a style="left: 749px;">학과안내</a>
-          <a style="left: 931px;">입시</a>
-          <a style="left: 1074px;">대학광장</a>
-          <a style="left: 1258px;">대학생활</a>
-          <a style="left: 1441px;">아카이브</a>
+        <div style="top: 100px;">
+          <a style="left: 1134px;">대학소개</a>
+          <a style="left: 1498px;">학과안내</a>
+          <a style="left: 1862px;">입시</a>
+          <a style="left: 2148px;">대학광장</a>
+          <a style="left: 2516px;">대학생활</a>
+          <a style="left: 2882px;">아카이브</a>
         </div>
         
-        <a style="left: 1775px; top: 55px; font-size: 13px;">
+        <a style="left: 3550px; top: 110px; font-size: var(--s25);">
           한국어
         </a>
         
-        <svg width="17" height="16" style="position: absolute; top: 26px; right: 20px;">
-          <path d="M 0 1 L 17 1 M 0 8 L 17 8 M 0 15 L 17 15" stroke-width="1" stroke="black" fill="none">
+        <svg width="34" height="32" style="position: absolute; top: 52px; right: 40px;">
+          <path d="M 0 2 L 34 1 M 0 16 L 34 16 M 0 30 L 34 30" stroke-width="2" stroke="black" fill="none">
         </svg>
       </header>
       
       <nav onmouseover="header.classList.add('hovered')" onmouseout="header.classList.remove('hovered')">
-        <div class="border" style="left: 517px;"></div>
-        <div class="border" style="left: 689px;"></div>
-        <div class="border" style="left: 881px;"></div>
-        <div class="border" style="left: 1018px;"></div>
-        <div class="border" style="left: 1204px;"></div>
-        <div class="border" style="left: 1386px;"></div>
-        <div class="border" style="left: 1570px;"></div>
+        <div class="border" style="left: 1034px;"></div>
+        <div class="border" style="left: 1378px;"></div>
+        <div class="border" style="left: 1762px;"></div>
+        <div class="border" style="left: 2036px;"></div>
+        <div class="border" style="left: 2408px;"></div>
+        <div class="border" style="left: 2772px;"></div>
+        <div class="border" style="left: 3140px;"></div>
         
-        <div class="flex column" style="left: 602px;">
+        <div class="flex column" style="left: 1204px;">
           <a>인삿말</a>
           <a>교육이념</a>
           <a>비전</a>
@@ -988,7 +984,7 @@
           <a>로고</a>
         </div>
         
-        <div class="flex column" style="left: 784px;">
+        <div class="flex column" style="left: 1586px;">
           <a>방송예술기술학부</a>
           <a>콘텐츠학부</a>
           <a>예술학부</a>
@@ -996,24 +992,24 @@
           <a>방송연예학부</a>
         </div>
         
-        <div class="flex column" style="left: 950px;">
+        <div class="flex column" style="left: 1900px;">
           <a>입시</a>
         </div>
         
-        <div class="flex column" style="left: 1110px;">
+        <div class="flex column" style="left: 2220px;">
           <a>공지 및 자료</a>
           <a>소통</a>
           <a>정보공개</a>
         </div>
         
-        <div class="flex column" style="left: 1295px;">
+        <div class="flex column" style="left: 2590px;">
           <a>학사행정</a>
           <a>학생지원</a>
           <a>캠퍼스</a>
           <a>학생자치기구</a>
         </div>
         
-        <div class="flex column" style="left: 1478px;">
+        <div class="flex column" style="left: 2956px;">
           <a>대학홍보물</a>
           <a>디마갤러리</a>
           <a>디마전경앨범</a>
@@ -1039,7 +1035,7 @@
   const container = document.querySelector(".container");
   
   container.addEventListener("scroll", function() {
-    if (container.scrollTop < 360) {
+    if (container.scrollTop < 720) {
       header.classList.add("slide1");
     } else {
       header.classList.remove("slide1");
@@ -1047,7 +1043,7 @@
     
     for (let i=0; i<fadeins.length; i++) {
       const f = fadeins[i];
-      if (container.scrollTop >= f.offsetTop - 600) {
+      if (container.scrollTop >= f.offsetTop - 1200) {
         f.classList.add("start");
       }
     }

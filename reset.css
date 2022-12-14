@@ -34,6 +34,7 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
 	line-height: 1;
+	background: black;
 }
 ol, ul {
 	list-style: none;
@@ -60,7 +61,7 @@ table {
 	/* transform: translate(-50%, -50%) scale(.75); */
 	/* overflow-y: scroll;
 	overflow-x: hidden; */
-	background: white;
+	background: black;
 	overflow: hidden;
 	--dima-red: #CF2791;
 	font-family: 'NanumSquare Neo OTF', sans-serif;
