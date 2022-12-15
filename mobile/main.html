@@ -503,10 +503,9 @@
       width: 360px;
       height: 352px;
       box-sizing: border-box;
-      /* border-right: 1px solid white; */
-      /* border-top: 1px solid white; */
       background: black;
       overflow: hidden;
+      color: white;
     }
     
     .box h1 {
@@ -515,14 +514,6 @@
       font-weight: var(--w900);
       bottom: 14px;
       left: 14px;
-      color: white;
-      
-      /* color: white;
-      left: 26px;
-      top: 412px;
-      font-size: 26px;
-      line-height: 60px;
-      width: 100%; */
       pointer-events: none;
     }
     
@@ -533,10 +524,10 @@
       width: 100%;
       height: 100%;
       opacity: 1;
-      transition: all 200ms;
+      transition: opacity 200ms;
     }
     
-    .box:hover .cover {
+    .box.touch .cover {
       opacity: 0;
     }
     
@@ -569,6 +560,7 @@
       height: fit-content;
       z-index: 0;
       opacity: 0;
+      transition: all 500ms;
     }
     
     .carousel .poster.front {
@@ -803,7 +795,7 @@
             
             <div class="poster">
               <img src="../img/posters/3.png" alt="">
-              <h1>공연 'RECORDING STUDIO IN MEVOICE'</h1>
+              <h1 style="white-space: nowrap">공연 'RECORDING STUDIO IN MEVOICE'</h1>
               <h2>중앙동아리 미보이스</h2>
               <span>2022.11.26 ~ 2022.11.28</span>
             </div>
@@ -831,13 +823,13 @@
           </div>
           
           <div class="" style="width: 500px; top: 1064px; left: 50%; transform: translateX(-50%); font-size: var(--s30); font-weight: var(--w900)">
-            <svg width="20" height="20" style="position: relative; display: inline-block; margin-right: 6px;">
+            <svg width="20" height="20" style="position: relative; display: inline-block; margin-right: 6px;" onclick="carousel(-1)">
               <path d="M 18 2 L 2 10 L 18 18" stroke="black" stroke-width="4" fill="none">
             </svg>
             <svg width="20" height="20" style="position: relative; display: inline-block; margin-right: 6px;">
               <path d="M 6 2 L 6 18 M 14 2 L 14 18" stroke="black" stroke-width="4" fill="none">
             </svg>
-            <svg width="20" height="20" style="position: relative; display: inline-block;">
+            <svg width="20" height="20" style="position: relative; display: inline-block;" onclick="carousel(1)">
               <path d="M 2 2 L 18 10 L 2 18" stroke="black" stroke-width="4" fill="none">
             </svg>
           </div>
@@ -874,7 +866,7 @@
             </div>
             
             <div class="box">
-              <img src="../img/majors/bg/fill2.png" alt="">
+              <img src="../img/majors/bg/newmedia.png" alt="">
               <div class="cover">
                 <img src="../img/majors/newmedia.png" alt="">
               </div>
@@ -1005,7 +997,8 @@
           한국어
         </a>
         
-        <svg width="34" height="32" style="display: block; position: absolute; top: 52px; right: 40px;" onclick="togglenav()">
+        <!-- hamburger -->
+        <svg width="34" height="32" style="display: block; position: absolute; top: 12px; right: 0; padding: 40px;" onclick="togglenav()">
           <path d="M 0 2 L 34 1 M 0 16 L 34 16 M 0 30 L 34 30" stroke-width="2" stroke="black" fill="none">
         </svg>
       </header>
@@ -1016,6 +1009,50 @@
   
   <script type="text/javascript" src="../touch-scroll-emulation.js"></script>
   <script type="text/javascript">
+  const _carousel = document.getElementsByClassName("carousel")[0];
+  
+  var index = 0;
+  function carousel(direction) {
+    const posters = _carousel.getElementsByClassName("poster");
+    
+    let front = posters[index];
+    let right = posters[index+1] || posters[index+1 - posters.length];
+    let left = posters[index-1] || posters[index-1 + posters.length];
+    front.classList.remove("front");
+    left.classList.remove("left");
+    right.classList.remove("right");
+    
+    index += direction;
+    
+    if (index < 0) index = posters.length - 1;
+    if (index >= posters.length) index = 0;
+    
+    front = posters[index];
+    right = posters[index+1] || posters[index+1 - posters.length];
+    left = posters[index-1] || posters[index-1 + posters.length];
+    
+    front.classList.add("front");
+    left.classList.add("left");
+    right.classList.add("right");
+  }
+  
+  carousel(0);
+  
+  var _togglecarousel;
+  function toggleCarousel() {
+    if (_togglecarousel) {
+      _togglecarousel = null;
+    } else {
+      togglecarousel = setInterval(function() {
+        carousel(1)
+      }, 3000);
+    }
+  }
+  
+  toggleCarousel();
+  
+  //
+  
   const fadeins = document.getElementsByClassName("fadein");
   
   //
@@ -1094,6 +1131,17 @@
     } else {
       nav.classList.remove("shown");
       nav.classList.add("hidden");
+    }
+  }
+  
+  const boxes = document.getElementsByClassName("box");
+  for (let i=0; i<boxes.length; i++) {
+    boxes[i].ontouchstart = boxes[i].onmousedown = function() {
+      console.log(this);
+      this.classList.add("touch");
+    }
+    boxes[i].ontouchend = boxes[i].ontouchcancel = boxes[i].onmouseup = boxes[i].onmouseout = function() {
+      this.classList.remove("touch");
     }
   }
   </script>
