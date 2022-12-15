@@ -37,8 +37,6 @@ body {
 	background: black;
 	overflow: hidden;
 	position: relative;
-	width: 100vw;
-	height: 100vh;
 }
 ol, ul {
 	list-style: none;
@@ -94,4 +92,8 @@ table {
 	backface-visibility: hidden;
 	transform: translateZ(0);
 	-webkit-font-smoothing: subpixel-antialiased;
+}
+
+button {
+	white-space: nowrap;
 }
