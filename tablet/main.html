@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <title></title>
   </head>
+  <link rel="stylesheet" href="../reset.css">
   <style media="screen">
     @import url('https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css');
     
@@ -18,36 +19,57 @@
        -ms-user-select: none;
     }
     
-    body {
-      margin: 0;
-      background: black;
-    }
-    
     .everything {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%) scale(.6);
       width: var(--width);
       height: var(--height);
-      margin: 0;
-      padding: 0;
       
-      --dima-red: #CF2791;
-      
-      --width: 1920px;
-      --height: 1080px;
+      --width: 768px;
+      --height: 1024px;
       --font-size: 20px;
       
-      --header-height: 125px;
-      --nav-height: 714px;
+      --header-height: 148px;
       
-      font-family: 'NanumSquare Neo OTF', sans-serif;
+      overflow: hidden;
+      
       font-size: var(--font-size);
+    }
+    
+    .container {
+      background: white;
+      overflow-x: hidden;
+      width: var(--width);
+      height: calc(var(--height) - var(--header-height));
+      top: var(--header-height);
+      overflow-y: scroll;
     }
     
     .everything div, a, img, header, nav, svg {
       position: absolute;
+    }
+    
+    section > h1, section > h2 {
+      position: absolute;
+    }
+    
+    section > h1 {
+      left: 0;
+      line-height: 60px;
+      font-weight: var(--w900);
+      font-size: var(--s32);
+      top: 16px;
+      width: 100%;
+      text-align: center;
+      color: black;
+    }
+    
+    section > h2 {
+      left: 0;
+      top: 63px;
+      width: 100%;
+      text-align: center;
+      font-size: var(--s12);
+      font-weight: var(--w500);
+      color: rgba(0, 0, 0, .5);
     }
     
     nav, header {
@@ -57,34 +79,50 @@
     }
     
     nav {
-      display: none;
-      height: var(--nav-height);
-      border-bottom: 1.5px solid rgba(0, 0, 0, .25);
+      height: var(--height);
       background: white;
-      padding-top: var(--header-height);
       z-index: 9;
+      transition: all 200ms;
+      
+      opacity: 0;
+      pointer-events: none;
+    }
+    
+    nav.shown {
+      animation: nav-slide-in 500ms;
+      pointer-events: auto;
+      opacity: 1;
+    }
+    
+    nav.hidden {
+      animation: nav-slide-out 500ms;
+    }
+    
+    @keyframes nav-slide-in {
+      from {
+        opacity: 1;
+        transform: translateX(100%);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+    
+    @keyframes nav-slide-out {
+      from {
+        opacity: 1;
+        transform: translateX(0);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(100%);
+      }
     }
     
     .border {
       height: 100%;
-      border-left: 1px solid black;
-    }
-    
-    nav .border {
-      height: calc(var(--nav-height) - var(--header-height));
-      border-left: 1.5px solid rgba(0, 0, 0, .25);
-    }
-    
-    nav .column {
-      white-space: nowrap;
-      height: calc(var(--nav-height) - var(--header-height));
-      justify-content: flex-start;
-      transform: translateX(-50%);
-    }
-    
-    nav .column a {
-      margin-top: 1em;
-      text-align: center;
+      border-left: 2px solid black;
     }
     
     header {
@@ -92,39 +130,18 @@
       --color: black;
       
       height: var(--header-height);
-      border-bottom: 1.5px solid var(--color);
       color: var(--color);
-      background: var(--bg);
+      background: white;
       /* mix-blend-mode: difference; */
       z-index: 10;
       
       transition: all 200ms;
+      
+      box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.25);
     }
     
-    header.hovered, header:hover, header.slide1.hovered, header.slide1:hover {
-      --bg: white;
-      --color: black;
-    }
-    
-    header.slide1 {
-      --bg: rgba(0, 0, 0, 0);
-      --color: white;
-      transition: all 200ms;
-    }
-    
-    header img {
-      mix-blend-mode: difference;
-    }
-    
-    header:hover ~ nav, nav:hover {
-      display: block;
-    }
-    
-    .container {
-      width: var(--width);
-      height: var(--height);
-      overflow: auto;
-      scroll-snap-type: y mandatory;
+    header.slide1, nav.shown + header {
+      box-shadow: 0px 4px 30px rgba(0, 0, 0, 0);
     }
     
     footer, section {
@@ -138,26 +155,8 @@
     }
     
     footer {
-      height: 255px;
-      border-top: 1.5px solid black;
-    }
-    
-    section h1, section h2 {
-      position: absolute;
-      right: 1512px;
-    }
-    
-    section h1 {
-      font-weight: 900;
-      font-size: 64px;
-      top: 173px;
-    }
-    
-    section h2 {
-      top: 233px;
-      font-size: 20px;
-      font-weight: 500;
-      color: rgba(0, 0, 0, .5);
+      height: 328px;
+      border-top: 1px solid black;
     }
     
     .flex {
@@ -194,7 +193,6 @@
     
     a {
       white-space: nowrap;
-      cursor: pointer;
     }
     
     a:active {
@@ -216,30 +214,23 @@
                                   supported by Chrome, Edge, Opera and Firefox */
     }
     
-    h1 {
-      font-size: 64px;
-      margin: 0;
-    }
-    
     button {
       box-sizing: border-box;
       border: 1px solid black;
       border-radius: 16.5px;
-      width: inherit;
-      height: 33px;
-      margin-bottom: 14px;
+      height: 23px;
+      margin: 0;
+      margin-left: 7px;
       background: white;
-      cursor: pointer;
-      display: block;
-      font-size: 18px;
+      display: inline-block;
+      padding-left: 13px;
+      padding-right: 13px;
+      font-size: var(--s12);
+      font-weight: var(--w500);
       color: black;
     }
     
     button.selected {
-      cursor: auto;
-    }
-    
-    button:hover, button.selected {
       background: black;
       color: white;
     }
@@ -255,224 +246,231 @@
       border-color: black;
     }
     
-    .pageholder, .boxholder {
-      display: flex;
-      padding-top: calc(var(--header-height) + 48px);
-      left: 451px;
-      padding-left: 58px;
-      width: calc(var(--width) - 509px);
-      height: calc(var(--height) - var(--header-height));
-      /* background: red; */
-      /* overflow: visible;
-      overflow-x: scroll; */
-      overflow: scroll;
+    button:first-child {
+      margin: 0;
+    }
+    
+    .pageholder {
+      width: 100%;
+      top: 155px;
+      height: 100%;
+      /* overflow: hidden; */
+      overflow-x: scroll;
+      overflow-y: hidden;
+      scroll-snap-type: x mandatory;
+    }
+    
+    .notice.pageholder {
+      top: 186px;
+      width: 100%;
+      /* gap: 72px;
+      overflow-x: scroll;
+      overflow-y: hidden; */
+      /* padding-left: 72px; */
     }
     
     .cardspage {
-      position: relative !important;
-      min-width: 1356px;
-      height: 853px;
       display: flex;
-      flex-wrap: wrap;
-      padding-right: 58px;
-      
-      gap: 45px 57px;
+      width: fit-content;
+      height: inherit;
+      gap: 77px;
+      justify-content: space-evenly;
+      margin-left: 256px;
+      padding-right: 256px;
+    }
+    
+    .notice.pageholder .cardspage {
+      gap: 144px;
+      margin-left: 144px;
+      padding-right: 144px;
     }
     
     .card {
+      scroll-snap-align: center;
       position: relative !important;
-      width: 414px;
-      height: 405px;
+      width: 256px;
+      height: 276px;
       overflow: hidden;
       
-      border: 1px solid black;
+      /* border: 2px solid black; */
       box-sizing: border-box;
-      border-top-right-radius: 50px;
-      border-bottom-left-radius: 50px;
+      /* border-top-right-radius: 100px;
+      border-bottom-left-radius: 100px; */
     }
     
     .card img {
-      width: 414px;
-      height: 245px;
-      border-bottom: 1px solid black;
+      width: 256px;
+      height: 152px;
       box-sizing: border-box;
     }
     
     .card a {
-      font-size: 21px;
-      font-weight: 800;
-      width: 390px;
-      top: 259px;
-      left: 15px;
+      font-size: var(--s12);
+      font-weight: var(--w900);
+      top: 162px;
+      left: 0;
+      width: 100%;
+      padding-left: 10px;
+      padding-right: 10px;
+      box-sizing: border-box;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    
+    .notice.card a {
+      padding: 0;
     }
     
     .card p {
       position: absolute;
-      width: 390px;
-      height: 44px;
-      top: 296px;
-      left: 15px;
+      width: 256px;
+      height: 124px;
+      top: 152px;
+      left: 0;
       margin: 0;
-      padding: 0;
-      font-size: 15px;
-      font-weight: 350;
-      line-height: 22px;
+      padding: 10px;
+      padding-top: 33px;
+      padding-bottom: 35px;
+      box-sizing: border-box;
+      font-size: var(--s8);
+      font-weight: var(--w300);
+      line-height: var(--s10);
+      border: 1px solid gray;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      border-top: none;
     }
     
     .card .views, .card .likes, .card .date {
-      font-weight: 800;
-      font-size: 10px;
+      font-weight: var(--w900);
+      font-size: var(--s8);
       color: rgba(0,0,0,.3);
-      top: 362px;
+      bottom: 20px;
     }
     
     .card .date {
-      left: 19px;
+      left: 13px;
       color: rgba(0,0,0,.5);
     }
     
     .card .views {
-      left: 290px;
-      top: 365px;
+      left: 580px;
+      top: 730px;
     }
     
     .views img, .likes img {
       position: relative;
       border: none;
-      margin-right: 2px;
+      margin-right: 4px;
       vertical-align: middle;
     }
     
     .views img {
-      width: 20px;
-      height: 21px;
+      width: 40px;
+      height: 42px;
     }
     
     .card .likes {
-      left: 352px;
-      top: 369px;
+      left: 704px;
+      top: 738px;
     }
     
     .likes img {
-      width: 15px;
-      height: 13px;
+      width: 30px;
+      height: 26px;
+    }
+    
+    .notice.card {
+      width: 217px;
+      height: 217px;
+      border: 1px solid gray;
+      box-sizing: border-box;
+      border-radius: 25px;
     }
     
     .notice.card img {
       border: none;
-      width: 37px;
-      height: 37px;
-      left: 342px;
-      top: 38px;
+      width: 14px;
+      height: 14px;
+      top: 15px;
+      right: 17px;
     }
     
     .notice.card a {
       white-space: unset;
-      font-size: 32px;
-      font-weight: 900;
-      line-height: 42px;
-      top: 29px;
-      left: 27px;
-      width: 270px;
+      font-size: var(--s15);
+      font-weight: var(--w900);
+      line-height: 20px;
+      top: 15px;
+      left: 14px;
+      width: 122px;
       word-break: keep-all;
     }
     
     .notice.card .tag {
-      bottom: 30px;
-      right: 30px;
+      bottom: 15px;
+      right: 15px;
     }
     
-    .notice.card .tag::after {
-      /* width: 57px;
-      height: 27px; */
-      font-weight: 700;
-      font-size: 20px;
-      line-height: 22px;
+    .tag::after {
+      display: inline-block;
+      /* width: 19px;
+      height: 11px; */
+      font-weight: var(--w900);
+      font-size: var(--s8);
+      line-height: var(--s8);
       color: white;
       padding: 2px;
-      padding-left: 5px;
-      padding-right: 5px;
+      padding-left: 3px;
+      padding-right: 3px;
+      margin-top: 8px;
     }
     
-    .notice.card .announcement::after {
+    .announcement::after {
       content: "공지";
       background: #C30202;
     }
     
-    .notice.card .org::after {
+    .org::after {
       content: "교무";
       background: #02C30A;
     }
     
-    .notice.card .info::after {
+    .info::after {
       content: "정보";
       background: #040281;
     }
     
-    .scrollprompt {
-      position: absolute;
-      width: 334px;
-      height: var(--height);
-      top: 0;
-      left: 1587px;
-      background: linear-gradient(270deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0) 100%);
-      transition: all 300ms;
-      pointer-events: none;
-      
-      -webkit-touch-callout: none; /* iOS Safari */
-    -webkit-user-select: none; /* Safari */
-     -khtml-user-select: none; /* Konqueror HTML */
-       -moz-user-select: none; /* Old versions of Firefox */
-        -ms-user-select: none; /* Internet Explorer/Edge */
-            user-select: none; /* Non-prefixed version, currently
-                                  supported by Chrome, Edge, Opera and Firefox */
-    }
-    
-    .scrollprompt span {
-      position: absolute;
-      /* top: calc(50% + var(--header-height)); */
-      top: 602px;
-      transform: translate(0, -50%);
-      left: 241px;
-      font-size: 12px;
-      color: rgba(0, 0, 0, .3);
-    }
-    
-    .scrollprompt svg {
-      position: relative;
-    }
-    
-    .pageholder.scrolldone + .scrollprompt {
-      opacity: 0;
-    }
-    
     .boxholder {
-      padding-top: calc(var(--header-height) - 1px);
-      padding-left: 0;
-      overflow: visible;
+      display: flex;
+      bottom: 0;
+      
+      /* padding-top: calc(var(--header-height) - 1px); */
+      /* padding-left: 0; */
+      /* overflow: visible; */
+      width: var(--width);
+      height: 493px;
+      flex-direction: row;
       flex-wrap: wrap;
-      width: calc(var(--width) - 451px);
       /* background: black; */
     }
     
     .box {
       position: relative !important;
-      width: 489px;
-      height: 478px;
+      width: 33%;
+      height: 50%;
       box-sizing: border-box;
-      border-right: 1px solid white;
-      border-top: 1px solid white;
       background: black;
       overflow: hidden;
+      color: white;
     }
     
     .box h1 {
-      color: white;
-      left: 26px;
-      top: 412px;
-      font-size: 26px;
-      line-height: 60px;
-      width: 100%;
+      position: absolute;
+      font-size: var(--s15);
+      font-weight: var(--w900);
+      bottom: 15px;
+      left: 15px;
       pointer-events: none;
     }
     
@@ -483,10 +481,10 @@
       width: 100%;
       height: 100%;
       opacity: 1;
-      transition: all 200ms;
+      transition: opacity 200ms;
     }
     
-    .box:hover .cover {
+    .box.touch .cover {
       opacity: 0;
     }
     
@@ -495,153 +493,193 @@
     }
     
     .box img {
+      /* width: inherit; */
+      height: 100%;
       opacity: .5;
     }
     
     .cover img {
       right: 0;
       opacity: 1;
+      width: 93px;
+      height: inherit;
+    }
+    
+    .carousel {
+      top: 153px;
+      /* left: 259px; */
+      width: 100%;
+      height: 100%;
     }
     
     .carousel .poster {
-      width: 334px;
-      height: 529px;
-      color: black;
-      top: 250px;
-      opacity: 0;
+      width: 250px;
+      height: fit-content;
       z-index: 0;
-      left: 793px;
-      
+      display: none;
       transition: all 500ms;
     }
     
-    .poster img {
-      transition: inherit;
-      width: 334px;
-      height: 461px;
+    .carousel .poster.front {
+      display: block;
+      left: 259px;
+    }
+    
+    .carousel .poster.left {
+      display: block;
+      left: -64px;
+    }
+    
+    .carousel .poster.lefter {
+      display: block;
+      left: calc(-64px - 250px - 64px);
+    }
+    
+    .carousel .poster.right {
+      display: block;
+      left: 582px;
+    }
+    
+    .carousel .poster.righter {
+      display: block;
+      left: calc(582px + 250px + 64px);
     }
     
     .poster h1 {
-      display: inline-block;
-      
-      top: 469px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: fit-content;
-      text-align: center;
-      font-weight: 900;
-      font-size: 20px;
-      margin: 0;
-      white-space: nowrap;
-      
+      position: absolute;
+      line-height: 40px;
+      font-size: var(--s15);
+      font-weight: var(--w900);
+      top: 342px;
+      /* left: 62px; */
+      /* white-space: nowrap; */
+      transition: inherit;
+    }
+    
+    .poster span {
+      position: absolute;
+      line-height: 40px;
+      font-size: var(--s10);
+      font-weight: var(--w300);
+      top: 361px;
+      /* left: 62px; */
       transition: inherit;
     }
     
     .poster h2 {
-      display: inline-block;
-      
-      top: 489px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: fit-content;
-      text-align: center;
-      font-weight: 400;
-      font-size: 16px;
-      margin: 0;
-      white-space: nowrap;
-      
+      background: #24FF00;
+      padding: 2px;
+      position: absolute;
+      font-size: var(--s12);
+      font-weight: var(--w900);
+      top: 407px;
+      right: 0;
       transition: inherit;
     }
     
-    .carousel .poster.front {
-      top: 188px;
-      left: 721px;
-      width: 477px;
-      height: 818px;
-      opacity: 1;
-      z-index: 1;
-    }
-    
-    .carousel .poster.front img {
-      width: 477px;
-      height: 659px;
-    }
-    
-    .carousel .poster.front h1 {
-      top: 740px;
-      font-size: 32px;
-    }
-    
-    .carousel .poster.front h2 {
-      top: 778px;
-      font-size: 28px;
-    }
-    
-    .carousel .poster.right {
-      left: 1378px;
-      opacity: .5;
-      z-index: 1;
-      cursor: pointer;
-    }
-    
-    .carousel .poster.left {
-      left: 208px;
-      opacity: .5;
-      z-index: 1;
-      cursor: pointer;
-    }
-    
-    .imgbutton {
-      cursor: pointer;
+    .carousel img {
+      width: 250px;
+      height: 345px;
     }
     
     .imgbutton:active {
       opacity: .75;
+    }
+    
+    b {
+      font-weight: var(--w900);
+    }
+    
+    .fadein {
+      opacity: 0;
+    }
+    
+    .fadein.start.left {
+      animation: fade-in-left 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+    }
+    
+    .fadein.start.right {
+      animation: fade-in-right 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+    }
+    
+    @keyframes fade-in-left {
+      0% {
+        -webkit-transform: translateX(-50px);
+                transform: translateX(-50px);
+        opacity: 0;
+      }
+      100% {
+        -webkit-transform: translateX(0);
+                transform: translateX(0);
+        opacity: 1;
+      }
+    }
+    
+    @keyframes fade-in-right {
+      0% {
+        -webkit-transform: translateX(50px);
+                transform: translateX(50px);
+        opacity: 0;
+      }
+      100% {
+        -webkit-transform: translateX(0);
+                transform: translateX(0);
+        opacity: 1;
+      }
+    }
+    
+    .boxbuttons {
+      display: flex;
+      border-top: 1px solid black;
+      box-sizing: border-box;
+      gap: 0;
+    }
+    
+    .boxbuttons button {
+      border-radius: 0;
+      border: none;
+      text-align: center;
+      font-size: var(--s15);
+      font-weight: var(--w500);
+      height: inherit;
+      margin: 0;
+      width: 100%;
+      /* min-width: fit-content; */
+      padding: 0;
+    }
+    
+    .boxbuttons button:active {
+      background: black;
+      color: white;
     }
   </style>
   <body>
     
     <div class="everything">
       
-      
       <div class="container">
         
-        <section style="color: white;">
-          <img src="../img/bg.png" alt="" class="center x" style="height: 100%;">
+        <section style="color: white; height: 770px;">
+          <img src="../img/tablet main bg.png" alt="" class="center x" style="height: 770px;">
+          <div class="" style="width: var(--width); height: 770px; background: rgba(0, 0, 0, .4)"></div>
           
-          <div style="left: 122px; width: 100%;">
-            <h1 style="position: absolute; top: 333px; left: 0;">열정으로<br>
-            하나된 우리</h1>
-            <div style="font-size: 24px; top: 488px;">꿈을 현실로 이루다</div>
-          </div>
-          
-          <div style="top: 750px; right: 148px; font-size: 20px;">
-            <div style="">01</div>
-            <svg width="3" height="166" style="top: 29px; left: 10px;">
-              <line x1="1.5" y1="0" x2="1.5" y2="166" stroke="white" stroke-width="1">
-            </svg>
-            
-            <svg width="3" height="166" style="top: 29px; left: 10px;">
-              <line x1="1.5" y1="0" x2="1.5" y2="16" stroke="white" stroke-width="3">
-            </svg>
-            <div style="top: 204px;">08</div>
+          <div class="" style="bottom: 34px; right: 34px; text-align: right;">
+            <h1 style="font-size: var(--s30); font-weight: var(--w300)"><b>꿈</b>과 <b>열정</b>이 넘치는<br>
+            <b>동아방송예술대학교</b></h1>
+            <h2 style="font-size: var(--s20); font-weight: var(--w300)">DREAM&PASSION</h2>
           </div>
         </section>
         
-        <section>
+        <section style="height: 496px;">
           <h1>NEWS</h1>
           <h2>디마뉴스</h2>
-          <div class="" style="bottom: 37px; right: 1512px; width: 82px;">
-            <button type="button" name="button" class="selected">2022</button>
-            <button type="button" name="button">2021</button>
-            <button type="button" name="button">2020</button>
-            <br>
-            <button type="button" name="button">MORE</button>
+          <div class="" style="width: 100%; text-align: center; top: 104px; left: 50%; transform: translateX(-50%);">
+            <button type="button" name="button" class="selected" style="display: inline">2022</button><button type="button" name="button" style="display: inline">2021</button><button type="button" name="button" style="display: inline">2020</button>
           </div>
-          <div class="border" style="left: 451px;"></div>
+          <button type="button" name="button" style="position: absolute; right: 38px; bottom: 19px;">MORE</button>
+          <div style="bottom: 0; width: 100%; border-top: 1px solid gray"></div>
           
           <div class="pageholder">
-            <!-- page 1 -->
             <div class="cardspage">
               <div class="card">
                 <img src="../img/news/1.png" alt="">
@@ -692,132 +730,95 @@
                 <div class="likes"><img src="../img/news/heart.png" alt="">1104</div>
               </div>
             </div>
-            
-            <!-- page 2 -->
-            <div class="cardspage">
-              <div class="card">
-                <img src="../img/news/1.png" alt="">
-                <a>동아방송예술대학교, PMC 프로덕션 예술...</a>
-                <p>동아방송예술대학(총장 최용혁)가 국내 최초 비언어극 '난타'의 기획자인 송승환 PMC프로덕션 예술감독을 초청해 특강을 개최...</p>
-                <div class="date">12월 03일</div>
-                <div class="views"><img src="../img/news/views.png" alt="">1104</div>
-                <div class="likes"><img src="../img/news/heart.png" alt="">1104</div>
-              </div>
-              <div class="card">
-                <img src="../img/news/2.png" alt="">
-                <a>동아방송예술대학교, PMC 프로덕션 예술...</a>
-                <p>동아방송예술대학(총장 최용혁)가 국내 최초 비언어극 '난타'의 기획자인 송승환 PMC프로덕션 예술감독을 초청해 특강을 개최...</p>
-                <div class="date">12월 03일</div>
-                <div class="views"><img src="../img/news/views.png" alt="">1104</div>
-                <div class="likes"><img src="../img/news/heart.png" alt="">1104</div>
-              </div>
-              <div class="card">
-                <img src="../img/news/3.png" alt="">
-                <a>동아방송예술대학교, PMC 프로덕션 예술...</a>
-                <p>동아방송예술대학(총장 최용혁)가 국내 최초 비언어극 '난타'의 기획자인 송승환 PMC프로덕션 예술감독을 초청해 특강을 개최...</p>
-                <div class="date">12월 03일</div>
-                <div class="views"><img src="../img/news/views.png" alt="">1104</div>
-                <div class="likes"><img src="../img/news/heart.png" alt="">1104</div>
-              </div>
-              <div class="card">
-                <img src="../img/news/4.png" alt="">
-                <a>동아방송예술대학교, PMC 프로덕션 예술...</a>
-                <p>동아방송예술대학(총장 최용혁)가 국내 최초 비언어극 '난타'의 기획자인 송승환 PMC프로덕션 예술감독을 초청해 특강을 개최...</p>
-                <div class="date">12월 03일</div>
-                <div class="views"><img src="../img/news/views.png" alt="">1104</div>
-                <div class="likes"><img src="../img/news/heart.png" alt="">1104</div>
-              </div>
-              <div class="card">
-                <img src="../img/news/5.png" alt="">
-                <a>동아방송예술대학교, PMC 프로덕션 예술...</a>
-                <p>동아방송예술대학(총장 최용혁)가 국내 최초 비언어극 '난타'의 기획자인 송승환 PMC프로덕션 예술감독을 초청해 특강을 개최...</p>
-                <div class="date">12월 03일</div>
-                <div class="views"><img src="../img/news/views.png" alt="">1104</div>
-                <div class="likes"><img src="../img/news/heart.png" alt="">1104</div>
-              </div>
-              <div class="card">
-                <img src="../img/news/6.png" alt="">
-                <a>동아방송예술대학교, PMC 프로덕션 예술...</a>
-                <p>동아방송예술대학(총장 최용혁)가 국내 최초 비언어극 '난타'의 기획자인 송승환 PMC프로덕션 예술감독을 초청해 특강을 개최...</p>
-                <div class="date">12월 03일</div>
-                <div class="views"><img src="../img/news/views.png" alt="">1104</div>
-                <div class="likes"><img src="../img/news/heart.png" alt="">1104</div>
-              </div>
-            </div>
-          </div>
-          <div class="scrollprompt">
-            <span>
-              SWIPE
-              &nbsp;
-              <svg width="20" height="18" style="position: relative; vertical-align: middle;">
-                <path d="M 1.5 1.5 L 10 9 L 1.5 16.5 M 10 1.5 L 18.5 9 L 10 16.5" stroke-width="3" stroke-linecap="round" stroke="rgba(0, 0, 0, .3)" fill="none">
-              </svg>
-            </span>
           </div>
         </section>
         
-        <section>
-          <svg viewBox="0 0 787 168" style="position: absolute; top: 730px; left: 574px; width: 787px; height: 168px;">
-            <ellipse cx="393.5" cy="84" rx="392.5" ry="83" stroke-width="2" stroke="black" fill="none" />
-          </svg>
+        <section style="height: 259px">
+          <div style="bottom: 0; width: 100%; border-top: 1px solid gray"></div>
+        </section>
+        
+        <section class="fadein left" style="height: 640px;">
+          <h1>공연&전시</h1>
+          <h2>Performance&Exhibition</h2>
+          <div style="bottom: 0; width: 100%; border-top: 2px solid black"></div>
+          
+          <div class="" style="right: 37px; top: 100px; font-size: var(--s10); font-weight: var(--w900)">
+            <span class="" style="width: 16px; height: 16px; background: #FF0000; border-radius: 50%; margin-right: 4px; display: inline-block; vertical-align: middle;"></span>
+            <span style="margin-right: 20px;">전시종료</span>
+            <span class="" style="width: 16px; height: 16px; background: #24FF00; border-radius: 50%; margin-right: 4px; display: inline-block; vertical-align: middle;"></span>
+            <span>전시진행중</span>
+          </div>
           
           <div class="carousel">
             <div class="poster front">
               <img src="../img/posters/1.png" alt="">
               <h1>전시 'NEW WAVE'</h1>
               <h2>과동아리 V-CON</h2>
+              <span>2022.11.26 ~ 2022.11.28</span>
             </div>
             
             <div class="poster right">
               <img src="../img/posters/2.png" alt="">
               <h1>전시 'NEWMEDIA UNIVERSE'</h1>
               <h2>뉴미디어콘텐츠과</h2>
+              <span>2022.11.26 ~ 2022.11.28</span>
             </div>
             
             <div class="poster">
               <img src="../img/posters/3.png" alt="">
-              <h1>공연 'RECORDING STUDIO IN MEVOICE'</h1>
+              <h1 style="white-space: nowrap">공연 'RECORDING STUDIO IN MEVOICE'</h1>
               <h2>중앙동아리 미보이스</h2>
+              <span>2022.11.26 ~ 2022.11.28</span>
             </div>
             
             <div class="poster">
               <img src="../img/posters/4.png" alt="">
               <h1>공연 'REMIND'</h1>
               <h2>흑인음악동아리</h2>
+              <span>2022.11.26 ~ 2022.11.28</span>
             </div>
             
             <div class="poster">
               <img src="../img/posters/5.png" alt="">
               <h1>연극 'THE CHAIR'</h1>
               <h2>뮤지컬전공</h2>
+              <span>2022.11.26 ~ 2022.11.28</span>
             </div>
             
             <div class="poster left">
               <img src="../img/posters/6.png" alt="">
               <h1>연극 '갈매기'</h1>
               <h2>공연예술계열 연극전공</h2>
+              <span>2022.11.26 ~ 2022.11.28</span>
             </div>
           </div>
           
-          <div style="top: 510px;">
-            <img class="imgbutton" src="../img/arrow.png" style="left: 53px; transform: scaleX(-1)" onclick="carousel(-1)">
-            <img class="imgbutton" src="../img/arrow.png" style="left: 1824px;" onclick="carousel(1)">
+          <div class="" style="top: 557px; left: 262px;">
+            <svg width="10" height="10" style="position: relative; display: inline-block; margin-right: 3px;" onclick="carousel(-1)">
+              <path d="M 9 1 L 1 5 L 9 9" stroke="black" stroke-width="2" fill="none">
+            </svg>
+            <svg width="10" height="10" style="position: relative; display: inline-block; margin-right: 3px;">
+              <path d="M 3 1 L 3 9 M 7 1 L 7 9" stroke="black" stroke-width="2" fill="none">
+            </svg>
+            <svg width="10" height="10" style="position: relative; display: inline-block;" onclick="carousel(1)">
+              <path d="M 1 1 L 9 5 L 1 9" stroke="black" stroke-width="2" fill="none">
+            </svg>
           </div>
         </section>
         
-        <section>
-          <h1>학부소개</h1>
+        <section class="fadein right" style="height: 621px;">
+          <h1>교육과정</h1>
           <h2>Introduction of the Departments</h2>
           
-          <div class="" style="bottom: 37px; right: 1512px; width: 150px;">
+          <div class="boxbuttons" style="bottom: 493px; height: 33px; width: 100%;">
             <button type="button" name="button" class="selected">방송예술융합학부</button>
             <button type="button" name="button">콘텐츠학부</button>
             <button type="button" name="button">예술학부</button>
             <button type="button" name="button">실용음악학부</button>
             <button type="button" name="button">방송연예학부</button>
+            <button type="button" name="button">학사학위과정</button>
           </div>
           
-          <div class="border" style="left: 451px;"></div>
           <div class="boxholder">
             <div class="box">
               <img src="../img/majors/bg/fill2.png" alt="">
@@ -836,7 +837,7 @@
             </div>
             
             <div class="box">
-              <img src="../img/majors/bg/fill2.png" alt="">
+              <img src="../img/majors/bg/newmedia.png" alt="">
               <div class="cover">
                 <img src="../img/majors/newmedia.png" alt="">
               </div>
@@ -852,71 +853,14 @@
             <div class="box">
               <img src="../img/majors/bg/fill1.png" alt="">
             </div>
-            
-            <!-- <div class="box">
-              <img src="../img/majors/bg/fill1.png" alt="">
-              <div class="cover">
-                <img src="../img/majors/screenwriting.png" alt="">
-              </div>
-              <h1>방송극작과</h1>
-            </div>
-            
-            <div class="box">
-              <img src="../img/majors/bg/fill2.png" alt="">
-              <div class="cover">
-                <img src="../img/majors/d0d.png" alt="">
-              </div>
-              <h1>디지털영상디자인과</h1>
-            </div>
-            
-            <div class="box">
-              <img src="../img/majors/bg/music.png" alt="">
-              <div class="cover">
-                <img src="../img/majors/music.png" alt="">
-              </div>
-              <h1>실용음악계열</h1>
-            </div>
-            
-            <div class="box">
-              <img src="../img/majors/bg/sound.png" alt="">
-              <div class="cover">
-                <img src="../img/majors/sound.png" alt="">
-              </div>
-              <h1>음향제작과</h1>
-            </div>
-            
-            <div class="box">
-              <img src="../img/majors/bg/fill1.png" alt="">
-              <div class="cover">
-                <img src="../img/majors/video.png" alt="">
-              </div>
-              <h1>영상제작과</h1>
-            </div>
-            
-            <div class="box">
-              <img src="../img/majors/bg/fill2.png" alt="">
-              <div class="cover">
-                <img src="../img/majors/newmedia.png" alt="">
-              </div>
-              <h1>뉴미디어콘텐츠과</h1>
-            </div> -->
           </div>
         </section>
         
-        <section>
+        <section class="fadein left" style="height: 653px">
           <h1>공지사항</h1>
           <h2>NOTICE</h2>
-          <!-- <div class="" style="top: 832px; left: 326px;">
-            <button type="button" name="button" class="selected">2022</button>
-            <button type="button" name="button">2021</button>
-            <button type="button" name="button">2020</button>
-            <br>
-            <button type="button" name="button">MORE</button>
-          </div> -->
-          <div class="border" style="left: 451px;"></div>
           
-          <div class="pageholder">
-            <!-- page 1 -->
+          <div class="notice pageholder">
             <div class="cardspage">
               <div class="notice card">
                 <img src="../img/pin.png" alt="">
@@ -944,153 +888,40 @@
                 <div class="tag info"></div>
               </div>
             </div>
-            
-            <!-- page 2 -->
-            <div class="cardspage">
-              <div class="notice card">
-                <a>22학년도 2학기 대면·비대면 수업 운영 안내</a>
-                <div class="tag announcement"></div>
-              </div>
-              <div class="notice card">
-                <a>22학년도 통계 계절학기 학점교류 교과목 수강신청 안내</a>
-                <div class="tag org"></div>
-              </div>
-              <div class="notice card">
-                <a>2023학년 1학기 국가장학금 1차 신청 안내</a>
-                <div class="tag info"></div>
-              </div>
-              <div class="notice card">
-                <a>학과조교 모집 안내 (실용음악계열)</a>
-                <div class="tag info"></div>
-              </div>
-              <div class="notice card">
-                <a>졸업학점 조정 검토 설문조사 (11.25일까지 연장)</a>
-                <div class="tag org"></div>
-              </div>
-              <div class="notice card">
-                <a>2023학년 1학기 국가장학금 1차 신청 안내</a>
-                <div class="tag info"></div>
-              </div>
-            </div>
           </div>
-          <div class="scrollprompt">
-            <span>
-              SWIPE
-              &nbsp;
-              <svg width="20" height="18" style="position: relative; vertical-align: middle;">
-                <path d="M 1.5 1.5 L 10 9 L 1.5 16.5 M 10 1.5 L 18.5 9 L 10 16.5" stroke-width="3" stroke-linecap="round" stroke="rgba(0, 0, 0, .3)" fill="none">
-              </svg>
-            </span>
-          </div>
+          
+          <a style="font-size: var(--s20); font-weight: var(--w500); position: absolute; right: 130px; top: 1080px;">MORE
+            <svg width="10" height="18" style="vertical-align:middle; margin-left: 8px; display: inline-block; position: relative; margin-top: -3px;">
+            <path d="M 0 2 L 8 9 L 0 16" stroke-width="1.5" stroke-linecap="round" fill="none" stroke="black">
+          </svg></a>
         </section>
         
         <footer>
-          <div class="" style="background: rgba(0, 0, 0, 0.03); height: 61px; width: 100%;">
-            <div style="top: 20px; font-size: 18px;">
-              <a style="left: 1009px">대학자체평가</a>
-              <a style="left: 1150px">예결산공고</a>
-              <a style="left: 1274px">정보공개</a>
-              <a style="left: 1380px">개인정보처리방침</a>
-              <a style="left: 1554px">개인정보 제3자 제공</a>
-              <a style="left: 1750px">찾아오시는 길</a>
-            </div>
-          </div>
-          <img src="../img/footer logo.png" alt="" style="top: 82px; left: 61px; width: 219px; height: 138px;">
+          <img src="../img/footer logo.png" alt="" style="top: 22px; left: 50%; transform: translateX(-50%); height: 40px;">
+          <img src="../img/star.png" alt="" style="top: 72px; left: 50%; transform: translateX(-50%)">
           
-          <div class="" style="font-size: 16px; width: 100%;">
-            <div class="" style="top: 147px; left: 325px;">
-              경기도 안성시 삼죽면 동아예대길 47(진촌리 632-18) 17516<br>
-              47, DongAhYedaegil, Samjuk-myun, Ansung-si, Gyeonggi-do, Republic of Korea 17516<br>
-              <br>
-              TEL : 031-670-6600
-              &nbsp;&nbsp;&nbsp;&nbsp;
-              입학문의 | 031-670-6612~3
-            </div>
-            <div class="" style="top: 207px; right: 59px;">
-              Copyright © 2022 DONG-AH INSTITUTE OF MEDIA AND ART ALL RIGHTS RESERVED.
-            </div>
+          <div class="" style="top: 90px; text-align: center; font-size: var(--s10); font-weight: var(--w300); width: 300px; line-height: 14px; left: 50%; transform: translateX(-50%)">
+            경기도 안성시 삼죽면 동아예대길 47(진촌리 632-18) 17516<br>
+            47, DongAhYedaegil, Samjuk-myun, Ansung-si, Gyeonggi-do, Republic of Korea 17516<br>
+            TEL : 031-670-6600 | 입학문의 : 031-670-6612~3<br>
+            <br style="height: 4px;">
+            Copyright © 2022 DONG-AH INSTITUTE OF MEDIA AND ART ALL RIGHTS RESERVED.
           </div>
         </footer>
         
       </div>
       
-      <header class="slide1">
-        <img src="../img/logo.png" alt="" style="left: 56px; top: 39px; width: 281px; height: 46px; cursor: pointer" onclick="window.location.href = './main.html';">
-        
-        <div style="top: 50px;">
-          <a style="left: 567px;">대학소개</a>
-          <a style="left: 749px;">학과안내</a>
-          <a style="left: 931px;">입시</a>
-          <a style="left: 1074px;">대학광장</a>
-          <a style="left: 1258px;">대학생활</a>
-          <a style="left: 1441px;">아카이브</a>
-        </div>
-        
-        <a style="left: 1775px; top: 55px; font-size: 13px;">
-          한국어
-        </a>
-        
-        <div class="" style="left: 1855px; top: 58px;">
-          ☰
-        </div>
-      </header>
-      
       <nav onmouseover="header.classList.add('hovered')" onmouseout="header.classList.remove('hovered')">
-        <div class="border" style="left: 517px;"></div>
-        <div class="border" style="left: 689px;"></div>
-        <div class="border" style="left: 881px;"></div>
-        <div class="border" style="left: 1018px;"></div>
-        <div class="border" style="left: 1204px;"></div>
-        <div class="border" style="left: 1386px;"></div>
-        <div class="border" style="left: 1570px;"></div>
-        
-        <div class="flex column" style="left: 602px;">
-          <a>인삿말</a>
-          <a>교육이념</a>
-          <a>비전</a>
-          <a>조직도</a>
-          <a>연혁</a>
-          <a>규정집</a>
-          <a>상징</a>
-          <a>로고</a>
-        </div>
-        
-        <div class="flex column" style="left: 784px;">
-          <a>방송예술기술학부</a>
-          <a>콘텐츠학부</a>
-          <a>예술학부</a>
-          <a>실용음악학부</a>
-          <a>방송연예학부</a>
-        </div>
-        
-        <div class="flex column" style="left: 950px;">
-          <a>입시</a>
-        </div>
-        
-        <div class="flex column" style="left: 1110px;">
-          <a>공지 및 자료</a>
-          <a>소통</a>
-          <a>정보공개</a>
-        </div>
-        
-        <div class="flex column" style="left: 1295px;">
-          <a>학사행정</a>
-          <a>학생지원</a>
-          <a>캠퍼스</a>
-          <a>학생자치기구</a>
-        </div>
-        
-        <div class="flex column" style="left: 1478px;">
-          <a>대학홍보물</a>
-          <a>디마갤러리</a>
-          <a>디마전경앨범</a>
-          <a>조직도</a>
-          <a>연혁</a>
-          <a>규정집</a>
-          <a>상징</a>
-          <a>로고</a>
-        </div>
       </nav>
+      
+      <header class="slide1">
+        <img src="../img/mobile logo.png" alt="" style="left: 303px; top: 32px; width: 158px; height: 86px;" onclick="window.location.href = './main.html';">
+        
+        <!-- hamburger -->
+        <svg width="34" height="32" style="display: block; position: absolute; top: 20px; right: 0; padding: 42px;" onclick="togglenav()">
+          <path d="M 0 2 L 34 1 M 0 16 L 34 16 M 0 30 L 34 30" stroke-width="2" stroke="black" fill="none">
+        </svg>
+      </header>
       
     </div>
     
@@ -1098,31 +929,8 @@
   
   <script type="text/javascript" src="../touch-scroll-emulation.js"></script>
   <script type="text/javascript">
-  const header = document.querySelector("header");
-  const container = document.querySelector(".container");
-  
-  container.addEventListener("scroll", function() {
-    if (container.scrollTop < 955) {
-      header.classList.add("slide1");
-    } else {
-      header.classList.remove("slide1");
-    }
-  }, { passive: true });
-  
-  const pageholders = document.getElementsByClassName("pageholder");
-  for (let i=0; i<pageholders.length; i++) {
-    const holder = pageholders[i];
-    holder.addEventListener("scroll", function(h) {
-      // done scrolling
-      if (h.target.scrollWidth - h.target.scrollLeft - h.target.clientWidth <= 50) {
-        h.target.classList.add("scrolldone");
-      } else {
-        h.target.classList.remove("scrolldone");
-      }
-    }, { passive: true });
-  }
-  
   const _carousel = document.getElementsByClassName("carousel")[0];
+  
   var index = 0;
   function carousel(direction) {
     const posters = _carousel.getElementsByClassName("poster");
@@ -1130,9 +938,15 @@
     let front = posters[index];
     let right = posters[index+1] || posters[index+1 - posters.length];
     let left = posters[index-1] || posters[index-1 + posters.length];
+    
+    let righter = posters[index+2] || posters[index+2 - posters.length];
+    let lefter = posters[index-2] || posters[index-2 + posters.length];
+    
     front.classList.remove("front");
     left.classList.remove("left");
     right.classList.remove("right");
+    lefter.classList.remove("lefter");
+    righter.classList.remove("righter");
     
     index += direction;
     
@@ -1142,17 +956,124 @@
     front = posters[index];
     right = posters[index+1] || posters[index+1 - posters.length];
     left = posters[index-1] || posters[index-1 + posters.length];
+    righter = posters[index+2] || posters[index+2 - posters.length];
+    lefter = posters[index-2] || posters[index-2 + posters.length];
     
     front.classList.add("front");
     left.classList.add("left");
     right.classList.add("right");
-    
-    front.onclick = null;
-    left.onclick = function() { carousel(-1) };
-    right.onclick = function() { carousel(1) };
+    lefter.classList.add("lefter");
+    righter.classList.add("righter");
   }
   
   carousel(0);
   
+  var _togglecarousel;
+  function toggleCarousel() {
+    if (_togglecarousel) {
+      _togglecarousel = null;
+    } else {
+      togglecarousel = setInterval(function() {
+        carousel(1)
+      }, 3000);
+    }
+  }
+  
+  toggleCarousel();
+  
+  //
+  
+  const fadeins = document.getElementsByClassName("fadein");
+  
+  //
+  
+  const header = document.querySelector("header");
+  const container = document.querySelector(".container");
+  
+  container.addEventListener("scroll", function() {
+    if (container.scrollTop < 720) {
+      header.classList.add("slide1");
+    } else {
+      header.classList.remove("slide1");
+    }
+    
+    for (let i=0; i<fadeins.length; i++) {
+      const f = fadeins[i];
+      if (container.scrollTop >= f.offsetTop - 900) {
+        f.classList.add("start");
+      }
+    }
+  }, { passive: true });
+  
+  if (!('ontouchstart' in document.documentElement)) {
+    const cursor = document.createElement("div");
+    cursor.style.position = "absolute";
+    cursor.style.transform = "translate(-50%, -50%)";
+    cursor.style.borderRadius = "50%";
+    cursor.style.background = "black";
+    cursor.style.border = "1px solid white";
+    cursor.style.opacity = ".5";
+    cursor.style.zIndex = "10";
+    cursor.style.width = "30px";
+    cursor.style.height = "30px";
+    cursor.style.pointerEvents = "none";
+    document.body.appendChild(cursor);
+    
+    var drag = { py:0, down: false };
+    
+    container.addEventListener("mousedown", function(e) {
+      cursor.style.background = "white";
+      container.classList.add("scrolling");
+      
+      drag = { py: container.scrollTop + e.pageY, down: true };
+    });
+    container.addEventListener("mouseup", function(e) {
+      cursor.style.background = "black";
+      drag.down = false;
+      container.classList.remove("scrolling");
+    });
+    container.addEventListener("mouseleave", function(e) {
+      cursor.style.background = "black";
+      drag.down = false;
+    });
+    
+    document.addEventListener("mousemove", function(e) {
+      e = e || window.event;
+      
+      cursor.style.left = e.pageX+"px";
+      cursor.style.top = e.pageY+"px";
+      
+      if (drag.down) {
+        // if (drag.py > e.pageY) {
+        //   everything.scrollTo(0, everything.scrollTop + 800);
+        //   drag.down = false;
+        // }
+        // container.scroll(0, drag.py - e.pageY);
+      }
+    });
+  }
+  
+  const nav = document.querySelector("nav");
+  function togglenav() {
+    if (nav.classList.contains("hidden") || !nav.classList.contains("shown")) {
+      nav.classList.add("shown");
+      nav.classList.remove("hidden");
+    } else {
+      nav.classList.remove("shown");
+      nav.classList.add("hidden");
+    }
+  }
+  
+  const boxes = document.getElementsByClassName("box");
+  for (let i=0; i<boxes.length; i++) {
+    boxes[i].ontouchstart = boxes[i].onmousedown = function() {
+      console.log(this);
+      this.classList.add("touch");
+    }
+    boxes[i].ontouchend = boxes[i].ontouchcancel = boxes[i].onmouseup = boxes[i].onmouseout = function() {
+      this.classList.remove("touch");
+    }
+  }
   </script>
+  <script type="text/javascript" src="../screenfitter.js"></script>
 </html>
