@@ -261,17 +261,22 @@
     }
     
     .notice.pageholder {
-      top: 186px;
-      width: 100%;
-      /* gap: 72px;
+      display: flex;
+      flex-wrap: nowrap;
+      flex-direction: row;
+      top: 121px;
+      width: var(--width);
+      height: var(--height);
+      /* gap: 34px; */
       overflow-x: scroll;
-      overflow-y: hidden; */
-      /* padding-left: 72px; */
+      overflow-y: hidden;
+      /* padding-left: 34px; */
+      /* padding-right: 57px; */
     }
     
     .cardspage {
       display: flex;
-      width: fit-content;
+      width: 100%;
       height: inherit;
       gap: 77px;
       justify-content: space-evenly;
@@ -280,9 +285,21 @@
     }
     
     .notice.pageholder .cardspage {
-      gap: 144px;
-      margin-left: 144px;
-      padding-right: 144px;
+      position: relative !important;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-evenly;
+      min-width: 697px;
+      height: 450px;
+      gap: 23px;
+      margin: 0;
+      padding: 0;
+      margin-left: 34px;
+      margin-right: 34px;
+    }
+    
+    .notice.pageholder .cardspage:last-child {
+      padding-right: 34px;
     }
     
     .card {
@@ -427,7 +444,7 @@
     }
     
     .announcement::after {
-      content: "공지";
+      content: "학사";
       background: #C30202;
     }
     
@@ -452,13 +469,14 @@
       height: 493px;
       flex-direction: row;
       flex-wrap: wrap;
+      justify-content: space-between;
       /* background: black; */
     }
     
     .box {
       position: relative !important;
-      width: 33%;
-      height: 50%;
+      width: 33.3%;
+      height: 49.9%;
       box-sizing: border-box;
       background: black;
       overflow: hidden;
@@ -493,8 +511,8 @@
     }
     
     .box img {
-      /* width: inherit; */
-      height: 100%;
+      width: 100%;
+      /* height: 100%; */
       opacity: .5;
     }
     
@@ -651,6 +669,57 @@
     .boxbuttons button:active {
       background: black;
       color: white;
+    }
+    
+    .scrollprompt {
+      opacity: 0;
+      position: absolute;
+      width: 334px;
+      height: 652px;
+      top: 0;
+      right: 0;
+      background: linear-gradient(270deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0) 100%);
+      transition: all 300ms;
+      pointer-events: none;
+      
+      -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
+    }
+    
+    .scrollprompt.flash {
+      animation: flash 600ms infinite;
+    }
+    
+    @keyframes flash {
+      0% {
+        opacity: 0;
+      }
+      50% {
+        opacity: 1;
+      }
+      100% {
+        opacity: 0;
+      }
+    }
+    
+    .scrollprompt span {
+      position: absolute;
+      /* top: calc(50% + var(--header-height)); */
+      top: 350px;
+      transform: translate(0, -50%);
+      left: 261px;
+      font-size: var(--s10);
+      color: rgba(0, 0, 0, .3);
+    }
+    
+    .scrollprompt svg {
+      position: relative;
+      transform: scale(.5);
     }
   </style>
   <body>
@@ -860,7 +929,44 @@
           <h1>공지사항</h1>
           <h2>NOTICE</h2>
           
+          <div class="scrollprompt">
+            <span>
+              SWIPE
+              <svg width="20" height="18" style="position: relative; vertical-align: middle;">
+                <path d="M 1.5 1.5 L 10 9 L 1.5 16.5 M 10 1.5 L 18.5 9 L 10 16.5" stroke-width="3" stroke-linecap="round" stroke="rgba(0, 0, 0, .3)" fill="none">
+              </svg>
+            </span>
+          </div>
+          
           <div class="notice pageholder">
+            <div class="cardspage">
+              <div class="notice card">
+                <img src="../img/pin.png" alt="">
+                <a>22학년도 2학기 대면·비대면 수업 운영 안내</a>
+                <div class="tag announcement"></div>
+              </div>
+              <div class="notice card">
+                <a>22학년도 통계 계절학기 학점교류 교과목 수강신청 안내</a>
+                <div class="tag org"></div>
+              </div>
+              <div class="notice card">
+                <a>2023학년 1학기 국가장학금 1차 신청 안내</a>
+                <div class="tag info"></div>
+              </div>
+              <div class="notice card">
+                <a>학과조교 모집 안내 (실용음악계열)</a>
+                <div class="tag info"></div>
+              </div>
+              <div class="notice card">
+                <a>졸업학점 조정 검토 설문조사 (11.25일까지 연장)</a>
+                <div class="tag org"></div>
+              </div>
+              <div class="notice card">
+                <a>2023학년 1학기 국가장학금 1차 신청 안내</a>
+                <div class="tag info"></div>
+              </div>
+            </div>
+            
             <div class="cardspage">
               <div class="notice card">
                 <img src="../img/pin.png" alt="">
@@ -989,6 +1095,7 @@
   
   const header = document.querySelector("header");
   const container = document.querySelector(".container");
+  const scrollprompt = document.getElementsByClassName("scrollprompt")[0];
   
   container.addEventListener("scroll", function() {
     if (container.scrollTop < 720) {
@@ -999,8 +1106,18 @@
     
     for (let i=0; i<fadeins.length; i++) {
       const f = fadeins[i];
-      if (container.scrollTop >= f.offsetTop - 900) {
+      if (container.scrollTop >= f.offsetTop - 800) {
         f.classList.add("start");
+      }
+    }
+    
+    if (container.scrollTop >= scrollprompt.offsetTop) {
+      if (!scrollprompt.classList.contains("flash")) {
+        // sp.parentNode.getElementsByClassName("scrolldone")[0].classList.remove("scrolldone");
+        scrollprompt.classList.add("flash");
+        setTimeout(function() {
+          scrollprompt.classList.remove("flash");
+        }, 2400);
       }
     }
   }, { passive: true });
