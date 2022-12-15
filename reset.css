@@ -88,12 +88,6 @@ table {
 	--s64: 64px;
 }
 
-.everything * {
-	backface-visibility: hidden;
-	transform: translateZ(0);
-	-webkit-font-smoothing: subpixel-antialiased;
-}
-
 button {
 	white-space: nowrap;
 }

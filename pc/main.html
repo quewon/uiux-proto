@@ -449,7 +449,7 @@
     }
     
     .scrollprompt.flash {
-      animation: flash 1s infinite;
+      animation: flash 600ms infinite;
     }
     
     @keyframes flash {
@@ -1169,7 +1169,7 @@
       tohide.push(sp);
       setTimeout(function() {
         tohide[0].classList.remove("flash");
-      }, 5000);
+      }, 2400);
     }
   }, { passive: true });
   
