@@ -140,7 +140,7 @@
       box-shadow: 0px 8px 60px rgba(0, 0, 0, 0.25);
     }
     
-    header.slide1 {
+    header.slide1, nav.shown + header {
       box-shadow: 0px 8px 60px rgba(0, 0, 0, 0);
     }
     
@@ -292,10 +292,10 @@
       height: 494px;
       overflow: hidden;
       
-      border: 2px solid black;
+      /* border: 2px solid black; */
       box-sizing: border-box;
-      border-top-right-radius: 100px;
-      border-bottom-left-radius: 100px;
+      /* border-top-right-radius: 100px;
+      border-bottom-left-radius: 100px; */
     }
     
     .card img {
@@ -306,35 +306,52 @@
     }
     
     .card a {
-      font-size: 42px;
+      font-size: var(--s25);
       font-weight: var(--w900);
-      width: 780px;
-      top: 518px;
-      left: 30px;
+      line-height: 40px;
+      top: 284px;
+      left: 0;
+      width: 100%;
+      padding-left: 24px;
+      padding-right: 24px;
+      box-sizing: border-box;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    
+    .notice.card a {
+      padding: 0;
     }
     
     .card p {
       position: absolute;
-      width: 780px;
-      height: 88px;
-      top: 592px;
-      left: 30px;
+      width: 458px;
+      height: 222px;
+      top: 272px;
+      left: 0;
       margin: 0;
-      padding: 0;
-      font-size: 30px;
-      font-weight: 350;
-      line-height: 44px;
+      padding: 24px;
+      padding-top: 60px;
+      padding-bottom: 102px;
+      box-sizing: border-box;
+      font-size: var(--s15);
+      font-weight: var(--w300);
+      line-height: var(--s20);
+      border: 1px solid gray;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      border-top: none;
     }
     
     .card .views, .card .likes, .card .date {
-      font-weight: 800;
-      font-size: 20px;
+      font-weight: var(--w900);
+      font-size: var(--s20);
       color: rgba(0,0,0,.3);
-      top: 724px;
+      top: 430px;
     }
     
     .card .date {
-      left: 38px;
+      left: 24px;
       color: rgba(0,0,0,.5);
     }
     
@@ -368,7 +385,7 @@
     .notice.card {
       width: 434px;
       height: 424px;
-      border: 2px solid black;
+      border: 2px solid gray;
       box-sizing: border-box;
       border-radius: 50px;
     }
@@ -444,6 +461,10 @@
       border-bottom: 1px solid rgba(0, 0, 0, .3);
     }
     
+    .li:last-child {
+      border-bottom: none;
+    }
+    
     .li a {
       top: 50%;
       transform: translateY(-50%);
@@ -465,7 +486,7 @@
     
     .boxholder {
       display: flex;
-      top: 190px;
+      bottom: 0;
       
       /* padding-top: calc(var(--header-height) - 1px); */
       /* padding-left: 0; */
@@ -647,6 +668,31 @@
         opacity: 1;
       }
     }
+    
+    .boxbuttons {
+      display: flex;
+      border-top: 1px solid black;
+      box-sizing: border-box;
+      gap: 0;
+    }
+    
+    .boxbuttons button {
+      border-radius: 0;
+      border: none;
+      text-align: center;
+      font-size: var(--s15);
+      font-weight: var(--w900);
+      height: inherit;
+      margin: 0;
+      width: 100%;
+      /* min-width: fit-content; */
+      padding: 0;
+    }
+    
+    .boxbuttons button:active {
+      background: black;
+      color: white;
+    }
   </style>
   <body>
     
@@ -797,16 +843,17 @@
           </div>
         </section>
         
-        <section class="fadein right" style="height: 1244px;">
+        <section class="fadein right" style="height: 1308px;">
           <h1>교육과정</h1>
           <h2>Introduction of the Departments</h2>
           
-          <div class="" style="bottom: 74px; right: 3024px; width: 300px;">
+          <div class="boxbuttons" style="bottom: 1054px; height: 54px; width: 100%;">
             <button type="button" name="button" class="selected">방송예술융합학부</button>
             <button type="button" name="button">콘텐츠학부</button>
             <button type="button" name="button">예술학부</button>
             <button type="button" name="button">실용음악학부</button>
             <button type="button" name="button">방송연예학부</button>
+            <button type="button" name="button">학사학위과정</button>
           </div>
           
           <div class="boxholder">
@@ -846,7 +893,7 @@
           </div>
         </section>
         
-        <section class="fadein left" style="height: 1126px">
+        <section class="fadein left" style="height: 1160px">
           <h1>공지사항</h1>
           <h2>NOTICE</h2>
           
@@ -917,6 +964,11 @@
               <div class="tag info"></div>
             </div>
           </div>
+          
+          <a style="font-size: var(--s20); font-weight: var(--w500); position: absolute; right: 130px; top: 1080px;">MORE
+            <svg width="10" height="18" style="vertical-align:middle; margin-left: 8px; display: inline-block; position: relative; margin-top: -3px;">
+            <path d="M 0 2 L 8 9 L 0 16" stroke-width="1.5" stroke-linecap="round" fill="none" stroke="black">
+          </svg></a>
         </section>
         
         <footer>
@@ -933,6 +985,9 @@
         </footer>
         
       </div>
+      
+      <nav onmouseover="header.classList.add('hovered')" onmouseout="header.classList.remove('hovered')">
+      </nav>
       
       <header class="slide1">
         <img src="../img/mobile logo.png" alt="" style="left: 286px; top: 30px; width: 148px; height: 80px;" onclick="window.location.href = './main.html';">
@@ -954,63 +1009,6 @@
           <path d="M 0 2 L 34 1 M 0 16 L 34 16 M 0 30 L 34 30" stroke-width="2" stroke="black" fill="none">
         </svg>
       </header>
-      
-      <nav onmouseover="header.classList.add('hovered')" onmouseout="header.classList.remove('hovered')">
-        <div class="border" style="left: 1034px;"></div>
-        <div class="border" style="left: 1378px;"></div>
-        <div class="border" style="left: 1762px;"></div>
-        <div class="border" style="left: 2036px;"></div>
-        <div class="border" style="left: 2408px;"></div>
-        <div class="border" style="left: 2772px;"></div>
-        <div class="border" style="left: 3140px;"></div>
-        
-        <div class="flex column" style="left: 1204px;">
-          <a>인삿말</a>
-          <a>교육이념</a>
-          <a>비전</a>
-          <a>조직도</a>
-          <a>연혁</a>
-          <a>규정집</a>
-          <a>상징</a>
-          <a>로고</a>
-        </div>
-        
-        <div class="flex column" style="left: 1586px;">
-          <a>방송예술기술학부</a>
-          <a>콘텐츠학부</a>
-          <a>예술학부</a>
-          <a>실용음악학부</a>
-          <a>방송연예학부</a>
-        </div>
-        
-        <div class="flex column" style="left: 1900px;">
-          <a>입시</a>
-        </div>
-        
-        <div class="flex column" style="left: 2220px;">
-          <a>공지 및 자료</a>
-          <a>소통</a>
-          <a>정보공개</a>
-        </div>
-        
-        <div class="flex column" style="left: 2590px;">
-          <a>학사행정</a>
-          <a>학생지원</a>
-          <a>캠퍼스</a>
-          <a>학생자치기구</a>
-        </div>
-        
-        <div class="flex column" style="left: 2956px;">
-          <a>대학홍보물</a>
-          <a>디마갤러리</a>
-          <a>디마전경앨범</a>
-          <a>조직도</a>
-          <a>연혁</a>
-          <a>규정집</a>
-          <a>상징</a>
-          <a>로고</a>
-        </div>
-      </nav>
       
     </div>
     
