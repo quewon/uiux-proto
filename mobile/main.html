@@ -28,7 +28,6 @@
       --font-size: 20px;
       
       --header-height: 138px;
-      --nav-height: 1428px;
       
       overflow: hidden;
       
@@ -85,34 +84,50 @@
     }
     
     nav {
-      display: none;
-      height: var(--nav-height);
-      border-bottom: 3px solid rgba(0, 0, 0, .25);
+      height: var(--height);
       background: white;
-      padding-top: var(--header-height);
       z-index: 9;
+      transition: all 200ms;
+      
+      opacity: 0;
+      pointer-events: none;
+    }
+    
+    nav.shown {
+      animation: nav-slide-in 500ms;
+      pointer-events: auto;
+      opacity: 1;
+    }
+    
+    nav.hidden {
+      animation: nav-slide-out 500ms;
+    }
+    
+    @keyframes nav-slide-in {
+      from {
+        opacity: 1;
+        transform: translateX(100%);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+    
+    @keyframes nav-slide-out {
+      from {
+        opacity: 1;
+        transform: translateX(0);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(100%);
+      }
     }
     
     .border {
       height: 100%;
       border-left: 2px solid black;
-    }
-    
-    nav .border {
-      height: calc(var(--nav-height) - var(--header-height));
-      border-left: 3px solid rgba(0, 0, 0, .25);
-    }
-    
-    nav .column {
-      white-space: nowrap;
-      height: calc(var(--nav-height) - var(--header-height));
-      justify-content: flex-start;
-      transform: translateX(-50%);
-    }
-    
-    nav .column a {
-      margin-top: 2em;
-      text-align: center;
     }
     
     header {
@@ -146,7 +161,7 @@
     
     footer {
       height: 218px;
-      border-top: 3px solid black;
+      border-top: 1px solid black;
     }
     
     .flex {
@@ -959,7 +974,7 @@
           한국어
         </a>
         
-        <svg width="34" height="32" style="position: absolute; top: 52px; right: 40px;">
+        <svg width="34" height="32" style="display: block; position: absolute; top: 52px; right: 40px;" onclick="togglenav()">
           <path d="M 0 2 L 34 1 M 0 16 L 34 16 M 0 30 L 34 30" stroke-width="2" stroke="black" fill="none">
         </svg>
       </header>
@@ -1095,6 +1110,17 @@
         // container.scroll(0, drag.py - e.pageY);
       }
     });
+  }
+  
+  const nav = document.querySelector("nav");
+  function togglenav() {
+    if (nav.classList.contains("hidden") || !nav.classList.contains("shown")) {
+      nav.classList.add("shown");
+      nav.classList.remove("hidden");
+    } else {
+      nav.classList.remove("shown");
+      nav.classList.add("hidden");
+    }
   }
   </script>
   <script type="text/javascript" src="../screenfitter.js"></script>
