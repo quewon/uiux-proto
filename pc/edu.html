@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" name="format-detection" content="telephone=no">
+    <title></title>
+  </head>
+  <link rel="stylesheet" href="../reset.css">
+  <style media="screen">
+    @import url('https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css');
+    
+    body {
+      margin: 0;
+      background: black;
+    }
+    
+    .everything {
+      width: var(--width);
+      height: var(--height);
+      
+      --width: 1920px;
+      --height: 1080px;
+      
+      --header-height: 125px;
+      --nav-height: 714px;
+      
+      font-size: var(--s20);
+      font-weight: var(--w500);
+    }
+    
+    .everything div, a, img, header, nav, svg {
+      position: absolute;
+    }
+    
+    nav, header {
+      top: 0;
+      width: var(--width);
+      box-sizing: border-box;
+    }
+    
+    nav {
+      display: none;
+      height: var(--nav-height);
+      border-bottom: 1.5px solid rgba(0, 0, 0, .25);
+      background: white;
+      padding-top: var(--header-height);
+      z-index: 9;
+    }
+    
+    .border {
+      height: 100%;
+      border-left: 1px solid black;
+    }
+    
+    nav .border {
+      height: calc(var(--nav-height) - var(--header-height));
+      border-left: 1.5px solid rgba(0, 0, 0, .25);
+    }
+    
+    nav .column {
+      white-space: nowrap;
+      height: calc(var(--nav-height) - var(--header-height));
+      justify-content: flex-start;
+      transform: translateX(-50%);
+    }
+    
+    nav .column a {
+      margin-top: 1em;
+      text-align: center;
+    }
+    
+    header {
+      --bg: white;
+      --color: black;
+      
+      height: var(--header-height);
+      border-bottom: 1.5px solid rgba(0, 0, 0, 0);
+      box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.25);
+      color: var(--color);
+      background: var(--bg);
+      /* mix-blend-mode: difference; */
+      z-index: 10;
+      
+      transition: all 200ms;
+    }
+    
+    header.hovered, header:hover, header.slide1.hovered, header.slide1:hover {
+      --bg: white;
+      --color: black;
+      /* border-bottom: 1.5px solid rgba(0, 0, 0, .25); */
+      border-bottom: 1px solid black;
+      box-shadow: none;
+    }
+    
+    header.slide1 {
+      --bg: rgba(0, 0, 0, 0);
+      --color: white;
+      transition: all 200ms;
+      border-color: var(--color);
+      box-shadow: 0px 4px 30px rgba(0, 0, 0, 0);
+    }
+    
+    header img {
+      mix-blend-mode: difference;
+    }
+    
+    header:hover ~ nav, nav:hover {
+      display: block;
+    }
+    
+    nav.quit {
+      display: none;
+    }
+    
+    .container {
+      width: var(--width);
+      height: var(--height);
+      /* scroll-snap-type: y mandatory; */
+      overflow-y: scroll;
+      overflow-x: hidden;
+    }
+    
+    footer, section {
+      position: relative;
+      width: var(--width);
+      height: var(--height);
+      overflow: hidden;
+      /* scroll-snap-align: start; */
+      background: white;
+      color: black;
+    }
+    
+    footer {
+      height: 255px;
+    }
+    
+    .flex {
+      display: flex;
+      justify-content: space-evenly;
+    }
+    
+    .flex.column {
+      flex-direction: column;
+    }
+    
+    .flex a {
+      position: relative;
+    }
+    
+    .center.x {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    
+    .center.y {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    
+    .center.x.y {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    
+    a {
+      white-space: nowrap;
+      cursor: pointer;
+    }
+    
+    a:active {
+      color: var(--dima-red);
+    }
+    
+    *::selection {
+      background: var(--dima-red);
+      color: white;
+    }
+    
+    h1 {
+      font-size: var(--s64);
+      margin: 0;
+    }
+    
+    button {
+      box-sizing: border-box;
+      border: 1px solid black;
+      border-radius: 16.5px;
+      width: inherit;
+      height: 33px;
+      margin-bottom: 14px;
+      background: white;
+      cursor: pointer;
+      display: block;
+      font-size: var(--s20);
+      color: black;
+    }
+    
+    button.selected {
+      cursor: auto;
+    }
+    
+    button:hover, button.selected {
+      background: black;
+      color: white;
+    }
+    
+    button:active {
+      background: var(--dima-red);
+      color: white;
+      border-color: var(--dima-red);
+    }
+    
+    button.selected:active {
+      background: black;
+      border-color: black;
+    }
+    
+    .search {
+      position: absolute; 
+      width: 18px; 
+      height: 18px; 
+      mix-blend-mode: difference; 
+      top: 56px; 
+      right: 46px;
+      cursor: pointer;
+    }
+    
+    .closenav {
+      position: absolute;
+      top: 124px;
+      left: 1570px;
+      font-weight: var(--w500);
+      font-size: var(--s32);
+      z-index: 10;
+    }
+  </style>
+  <body>
+    
+    <div class="everything">
+      
+      
+      <div class="container">
+        
+        <section class="title">
+          
+        </section>
+        
+        <section>
+          
+        </section>
+        
+        <section>
+          
+        </section>
+        
+        <footer>
+          <div class="" style="background: rgba(0, 0, 0, 0.03); height: 61px; width: 100%;">
+            <div style="top: 20px; font-size: var(--s18);">
+              <a style="left: 1009px">대학자체평가</a>
+              <a style="left: 1150px">예결산공고</a>
+              <a style="left: 1274px">정보공개</a>
+              <a style="left: 1380px">개인정보처리방침</a>
+              <a style="left: 1554px">개인정보 제3자 제공</a>
+              <a style="left: 1750px">찾아오시는 길</a>
+            </div>
+          </div>
+          <img src="../img/footer logo.png" alt="" style="top: 82px; left: 61px; width: 219px; height: 138px;">
+          
+          <div class="" style="font-size: var(--s15); width: 100%; height: 100%;">
+            <div class="" style="bottom: 30px; left: 325px; line-height: var(--s20)">
+              경기도 안성시 삼죽면 동아예대길 47(진촌리 632-18) 17516<br>
+              47, DongAhYedaegil, Samjuk-myun, Ansung-si, Gyeonggi-do, Republic of Korea 17516<br>
+              <br>
+              TEL : 031-670-6600
+              &nbsp;&nbsp;&nbsp;&nbsp;
+              입학문의 | 031-670-6612~3
+            </div>
+            <div class="" style="bottom: 30px; right: 59px;">
+              Copyright © 2022 DONG-AH INSTITUTE OF MEDIA AND ART ALL RIGHTS RESERVED.
+            </div>
+          </div>
+        </footer>
+        
+        <img src="../img/pageup.svg" alt="" style="position: fixed; top: 909px; left: 1803px; width: 60px; height: 60px; cursor: pointer;" onclick="container.scrollTo(0, 0);">
+        
+      </div>
+      
+      <header class="slide1">
+        <img src="../img/logo.png" alt="" style="left: 56px; top: 39px; width: 281px; height: 46px; cursor: pointer" onclick="window.location.href = './main.html';">
+        
+        <div style="top: 55px; font-size: var(--s20)">
+          <a style="left: 567px;">대학소개</a>
+          <a style="left: 749px;">학과안내</a>
+          <a style="left: 931px;">입시</a>
+          <a style="left: 1074px;">대학광장</a>
+          <a style="left: 1258px;">대학생활</a>
+          <a style="left: 1441px;">아카이브</a>
+        </div>
+        
+        <a style="left: 1775px; top: 57px; font-size: var(--s15);">
+          한국어
+          <svg width="10" height="5" style="position: relative; margin-left: 4px; vertical-align: middle; mix-blend-mode: difference;">
+            <path d="M .5 0 L 5 4.5 L 9.5 0" stroke-width="1" stroke="white" fill="none">
+          </svg>
+        </a>
+        
+        <img src="../img/search.svg" alt="" class="search">
+      </header>
+      
+      <nav onmouseover="header.classList.add('hovered')" onmouseout="header.classList.remove('hovered')">
+        <div class="border" style="left: 517px;"></div>
+        <div class="border" style="left: 689px;"></div>
+        <div class="border" style="left: 881px;"></div>
+        <div class="border" style="left: 1018px;"></div>
+        <div class="border" style="left: 1204px;"></div>
+        <div class="border" style="left: 1386px;"></div>
+        <div class="border" style="left: 1570px;"></div>
+        
+        <div class="flex column" style="left: 602px;">
+          <a>인삿말</a>
+          <a href="edu.html">교육이념</a>
+          <a>비전</a>
+          <a>조직도</a>
+          <a>연혁</a>
+          <a>규정집</a>
+          <a>상징</a>
+          <a>로고</a>
+        </div>
+        
+        <div class="flex column" style="left: 784px;">
+          <a>방송예술기술학부</a>
+          <a>콘텐츠학부</a>
+          <a>예술학부</a>
+          <a>실용음악학부</a>
+          <a>방송연예학부</a>
+        </div>
+        
+        <div class="flex column" style="left: 950px;">
+          <a>입시</a>
+        </div>
+        
+        <div class="flex column" style="left: 1110px;">
+          <a>공지 및 자료</a>
+          <a>소통</a>
+          <a>정보공개</a>
+        </div>
+        
+        <div class="flex column" style="left: 1295px;">
+          <a>학사행정</a>
+          <a>학생지원</a>
+          <a>캠퍼스</a>
+          <a>학생자치기구</a>
+        </div>
+        
+        <div class="flex column" style="left: 1478px;">
+          <a>대학홍보물</a>
+          <a>디마갤러리</a>
+          <a>디마전경앨범</a>
+          <a>조직도</a>
+          <a>연혁</a>
+          <a>규정집</a>
+          <a>상징</a>
+          <a>로고</a>
+        </div>
+        
+        <a class="closenav" onclick="nav.onmouseout(); nav.classList.add('quit'); setTimeout(function(){nav.classList.remove('quit')},500)">
+          <img src="../img/close nav.svg" alt="">
+        </a>
+      </nav>
+      
+    </div>
+    
+  </body>
+  
+  <script type="text/javascript" src="../trmix.min.js"></script>
+  <script type="text/javascript">
+  const header = document.querySelector("header");
+  const container = document.querySelector(".container");
+  const nav = document.querySelector("nav");
+  
+  var tohide = [];
+  
+  container.addEventListener("scroll", function() {
+    if (container.scrollTop < 955) {
+      header.classList.add("slide1");
+    } else {
+      header.classList.remove("slide1");
+    }
+    
+    prevscroll = container.scrollTop;
+  });
+  </script>
+  <script type="text/javascript" src="../screenfitter.js"></script>
+</html>
