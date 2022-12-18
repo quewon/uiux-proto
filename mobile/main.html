@@ -28,6 +28,7 @@
       --font-size: 20px;
       
       --header-height: 138px;
+      --nav-header-height: 68px;
       
       overflow: hidden;
       
@@ -140,8 +141,30 @@
       box-shadow: 0px 8px 60px rgba(0, 0, 0, 0.25);
     }
     
+    header > div {
+      width: 100%;
+      height: 100%;
+    }
+    
     header.slide1, nav.shown + header {
       box-shadow: 0px 8px 60px rgba(0, 0, 0, 0);
+    }
+    
+    nav.shown + header {
+      height: var(--nav-header-height);
+      background: #373637;
+    }
+    
+    header .nav {
+      display: none;
+    }
+    
+    nav.shown + header .notnav {
+      display: none;
+    }
+    
+    nav.shown + header .nav {
+      display: block;
     }
     
     footer, section {
@@ -502,7 +525,7 @@
       width: 360px;
       height: 352px;
       box-sizing: border-box;
-      background: black;
+      background: rgba(0, 0, 0, .03);
       overflow: hidden;
       color: white;
     }
@@ -683,6 +706,58 @@
     .boxbuttons button:active {
       background: black;
       color: white;
+    }
+    
+    nav {
+      display: flex;
+      margin-top: var(--nav-header-height);
+      background: 
+    }
+    
+    nav > div {
+      display: flex;
+      flex-flow: column nowrap;
+    }
+    
+    nav > div > a {
+      position: relative;
+      /* padding: 20px; */
+    }
+    
+    .menu a {
+      color: white;
+      padding-top: 42px;
+      padding-left: 46px;
+      font-size: var(--s25);
+    }
+    
+    nav .menu > span {
+      height: 70px;
+      width: 100%;
+    }
+    
+    nav a.selected {
+      font-weight: var(--w900);
+    }
+    
+    .menu a.small {
+      height: var(--s18);
+      font-size: var(--s18);
+    }
+    
+    .links a {
+      color: black;
+      padding: 28px;
+      padding-left: 44px;
+      font-size: var(--s18);
+      background: #F5F5F5;
+    }
+    
+    .links a img {
+      position: relative;
+      vertical-align: middle;
+      width: 13px;
+      height: 8px;
     }
   </style>
   <body>
@@ -873,13 +948,10 @@
             </div>
             
             <div class="box">
-              <img src="../img/majors/bg/fill1.png" alt="">
             </div>
             <div class="box">
-              <img src="../img/majors/bg/fill1.png" alt="">
             </div>
             <div class="box">
-              <img src="../img/majors/bg/fill1.png" alt="">
             </div>
           </div>
         </section>
@@ -978,15 +1050,47 @@
       </div>
       
       <nav onmouseover="header.classList.add('hovered')" onmouseout="header.classList.remove('hovered')">
+        <div class="menu" style="position: relative; width: 30%; height: 100%; background: var(--dima-red)">
+          <a class="selected">대학소개</a>
+          <a>학과안내</a>
+          <a>입시 <img src="../img/diffpage.svg" style="width: 26px; height: 22px; vertical-align: middle;"></a>
+          <a>대학광장</a>
+          <a>대학생활</a>
+          <a>아카이브</a>
+          <span class=""></span>
+          <a class="small"><img src="../img/search.svg" style="width: 16px; height: 16px; vertical-align: middle"></a>
+          <a class="small">ENG</a>
+        </div>
+        <div class="links" style="position: relative; height: 100%; width: 70%; background: white;">
+          <span style="width: 100%; height: 24px; background: #D9D9D9"></span>
+          <a>인삿말 <img src="../img/dropdown.svg" style="width: 13px; height: 8px; vertical-align: middle;"></a>
+          <a>교육이념</a>
+          <a>비전</a>
+          <a>조직도</a>
+          <a>연혁</a>
+          <a>이념</a>
+          <a>상징</a>
+        </div>
+        <img src="../img/ossollit.svg" alt="" style="width: 552px; height: 552px; bottom: -118px; right: -148px; opacity: .1">
       </nav>
       
       <header class="slide1">
-        <img src="../img/mobile logo.png" alt="" style="left: 286px; top: 30px; width: 148px; height: 80px;" onclick="window.location.href = './main.html';">
-        
-        <!-- hamburger -->
-        <svg width="34" height="32" style="display: block; position: absolute; top: 12px; right: 0; padding: 40px;" onclick="togglenav()">
-          <path d="M 0 2 L 34 1 M 0 16 L 34 16 M 0 30 L 34 30" stroke-width="2" stroke="black" fill="none">
-        </svg>
+        <div class="notnav">
+          <img src="../img/mobile logo.png" alt="" style="left: 286px; top: 30px; width: 148px; height: 80px;" onclick="window.location.href = './main.html';">
+          
+          <!-- hamburger -->
+          <svg width="34" height="32" style="display: block; position: absolute; top: 12px; right: 0; padding: 40px;" onclick="togglenav()">
+            <path d="M 0 2 L 34 1 M 0 16 L 34 16 M 0 30 L 34 30" stroke-width="2" stroke="black" fill="none">
+          </svg>
+        </div>
+        <div class="nav">
+          <img src="../img/navlogo.png" alt="" style="left: 314px; top: 12px; width: 84px; height: 44px;" onclick="window.location.href = './main.html';">
+          
+          <!-- close -->
+          <svg width="34" height="34" style="display: block; position: absolute; top: 0; right: 6px; padding: 18px;" onclick="togglenav()">
+            <path d="M 3 3 L 31 31 M 31 3 L 3 31" stroke-width="2" stroke="white" fill="none">
+          </svg>
+        </div>
       </header>
       
     </div>

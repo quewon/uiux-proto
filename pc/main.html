@@ -86,6 +86,8 @@
     header.hovered, header:hover, header.slide1.hovered, header.slide1:hover {
       --bg: white;
       --color: black;
+      border-bottom: 1.5px solid rgba(0, 0, 0, .25);
+      box-shadow: none;
     }
     
     header.slide1 {
@@ -93,7 +95,6 @@
       --color: white;
       transition: all 200ms;
       border-color: var(--color);
-      /* box-shadow: none; */
       box-shadow: 0px 4px 30px rgba(0, 0, 0, 0);
     }
     
@@ -103,6 +104,10 @@
     
     header:hover ~ nav, nav:hover {
       display: block;
+    }
+    
+    nav.quit {
+      display: none;
     }
     
     .container {
@@ -499,7 +504,7 @@
       box-sizing: border-box;
       border-right: 1px solid white;
       border-top: 1px solid white;
-      background: black;
+      background: rgba(0, 0, 0, .03);
       overflow: hidden;
     }
     
@@ -634,6 +639,24 @@
     
     .imgbutton:active {
       opacity: .75;
+    }
+    
+    .search {
+      position: absolute; 
+      width: 18px; 
+      height: 18px; 
+      mix-blend-mode: difference; 
+      top: 56px; 
+      right: 46px;
+      cursor: pointer;
+    }
+    
+    .closenav {
+      position: absolute;
+      top: 130px;
+      right: 320px;
+      font-weight: var(--w500);
+      font-size: var(--s32);
     }
   </style>
   <body>
@@ -880,13 +903,10 @@
             </div>
             
             <div class="box">
-              <img src="../img/majors/bg/fill1.png" alt="">
             </div>
             <div class="box">
-              <img src="../img/majors/bg/fill1.png" alt="">
             </div>
             <div class="box">
-              <img src="../img/majors/bg/fill1.png" alt="">
             </div>
             
             <!-- <div class="box">
@@ -1069,16 +1089,13 @@
           </svg>
         </a>
         
-        <svg width="19" height="18" style="position: absolute; top: 56px; right: 46px; mix-blend-mode: difference;">
+        <img src="../img/search.svg" alt="" class="search">
+        <!-- <svg width="19" height="18" style="position: absolute; top: 56px; right: 46px; mix-blend-mode: difference;">
           <path d="M 0 1 L 19 1 M 0 9 L 19 9 M 0 17 L 19 17" stroke-width="2" stroke="white" fill="none">
-        </svg>
+        </svg> -->
       </header>
       
       <nav onmouseover="header.classList.add('hovered')" onmouseout="header.classList.remove('hovered')">
-        <a class="" onclick="header.classList.remove('hovered')">
-          x
-        </a>
-        
         <div class="border" style="left: 517px;"></div>
         <div class="border" style="left: 689px;"></div>
         <div class="border" style="left: 881px;"></div>
@@ -1133,6 +1150,10 @@
           <a>상징</a>
           <a>로고</a>
         </div>
+        
+        <a class="closenav" onclick="nav.onmouseout(); nav.classList.add('quit'); setTimeout(function(){nav.classList.remove('quit')},500)">
+          x
+        </a>
       </nav>
       
     </div>
@@ -1144,6 +1165,7 @@
   const header = document.querySelector("header");
   const container = document.querySelector(".container");
   const scrollprompts = document.getElementsByClassName("scrollprompt");
+  const nav = document.querySelector("nav");
   
   var tohide = [];
   
@@ -1169,10 +1191,12 @@
       sp.classList.add("flash");
       tohide.push(sp);
       setTimeout(function() {
-        tohide[0].classList.remove("flash");
+        tohide.shift().classList.remove("flash");
       }, 2400);
     }
-  }, { passive: true });
+    
+    prevscroll = container.scrollTop;
+  });
   
   const pageholders = document.getElementsByClassName("pageholder");
   for (let i=0; i<pageholders.length; i++) {
