@@ -1183,15 +1183,6 @@
           <h1>공지사항</h1>
           <h2>NOTICE</h2>
           
-          <div class="scrollprompt">
-            <span>
-              SWIPE
-              <svg width="20" height="18" style="position: relative; vertical-align: middle;">
-                <path d="M 1.5 1.5 L 10 9 L 1.5 16.5 M 10 1.5 L 18.5 9 L 10 16.5" stroke-width="3" stroke-linecap="round" stroke="rgba(0, 0, 0, .3)" fill="none">
-              </svg>
-            </span>
-          </div>
-          
           <div class="notice pageholder">
             <div class="cardspage">
               <div class="notice card">
@@ -1248,6 +1239,17 @@
                 <div class="tag info"></div>
               </div>
             </div>
+          </div>
+          
+          <button type="button" name="button" style="position: absolute; font-size: var(--s10); left: 683px; top: 602px;">MORE</button>
+          
+          <div class="scrollprompt">
+            <span>
+              SWIPE
+              <svg width="20" height="18" style="position: relative; vertical-align: middle;">
+                <path d="M 1.5 1.5 L 10 9 L 1.5 16.5 M 10 1.5 L 18.5 9 L 10 16.5" stroke-width="3" stroke-linecap="round" stroke="rgba(0, 0, 0, .3)" fill="none">
+              </svg>
+            </span>
           </div>
           
           <a style="font-size: var(--s20); font-weight: var(--w500); position: absolute; right: 130px; top: 1080px;">MORE
@@ -1328,13 +1330,20 @@
       </nav>
       
       <header class="slide1">
-        <div class="notnav" style="width: 100%;">
+        <div class="notnav" style="width: 100%; height: 100%;">
           <img src="../img/mobile logo.png" alt="" style="left: 303px; top: 32px; width: 158px; height: 86px;" onclick="window.location.href = './main.html';">
           
           <!-- hamburger -->
           <svg width="34" height="32" style="display: block; position: absolute; top: 20px; right: 0; padding: 42px;" onclick="togglenav()">
             <path d="M 0 2 L 34 1 M 0 16 L 34 16 M 0 30 L 34 30" stroke-width="2" stroke="black" fill="none">
           </svg>
+          
+          <div style="top: 50%; transform: translateY(-50%); left: 30px; font-size: var(--s12); font-weight: var(--w300); line-height: 17px; border: 1px solid black; border-radius: 21px; width: 128.5px; padding: 7px; text-align: center;">
+            <span>Family Site</span>
+            <svg width="13" height="7" style="position: absolute; right: 15px; top: 50%; transform: translateY(-50%)">
+              <path d="M 1 1 L 6.5 6 L 12 1" stroke-width="1" stroke="black" fill="none">
+            </svg>
+          </div>
         </div>
         <div class="nav" style="width: 100%;">
           <img src="../img/navlogo.png" alt="" style="left: 336px; top: 13px; width: 90px; height: 47px;" onclick="window.location.href = './main.html';">
