@@ -243,7 +243,76 @@
     
     /*  */
     
+    section h1 {
+      position: absolute;
+      font-weight: var(--w900);
+      font-size: var(--s64);
+    }
     
+    section > h2 {
+      position: absolute;
+      font-weight: var(--w900);
+      font-size: var(--s32);
+      color: rgba(255, 255, 255, .75);
+    }
+    
+    section p {
+      font-weight: var(--w500);
+      font-size: var(--s25);
+      line-height: 30px;
+      display: block;
+      position: absolute;
+      font-weight: var(--w300);
+    }
+    
+    section > h3 {
+      position: absolute;
+      font-weight: var(--w500);
+      font-size: var(--s20);
+      color: rgba(255, 255, 255, .5);
+    }
+    
+    .pagebuttons {
+      top: 97px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+    }
+    
+    .pagebuttons a {
+      position: relative;
+      display: inline-block;
+      margin: 0;
+      padding: 20px;
+      width: 573px;
+      border: 1px solid black;
+      color: black;
+      box-sizing: border-box;
+      text-align: center;
+      vertical-align: middle;
+      font-size: var(--s25);
+      font-weight: var(--w500);
+    }
+    
+    .pagebuttons a.selected {
+      background: #FE16A1;
+      color: white;
+      cursor: default;
+    }
+    
+    button {
+      display: inline-block;
+      border: none;
+      background: #373637;
+      color: white;
+      font-weight: var(--w900);
+      font-size: var(--s25);
+      width: 268px;
+      height: auto;
+      padding: 16px;
+      border-radius: 50px;
+      margin-right: 108px;
+    }
   </style>
   <body>
     
@@ -255,31 +324,33 @@
         <section class="title">
           <img src="../img/sub/symbol1.png" alt="">
           <div style="top: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5);"></div>
+          <h1 style="color: white; top: 264px; left: 50%; transform: translateX(-50%);">상징</h1>
+          <h3 style="top: 340px; left: 50%; transform: translateX(-50%)">Symbol</h3>
         </section>
         
         <section style="height: 1839px">
           
-          <div class="">
+          <div class="pagebuttons">
             <a class="selected">DIMA 심볼 및 로고</a>
             <a href="symbol-2.html">상징물</a>
           </div>
           
-          <div class="">
-            <img src="../img/sub/graph.png" alt="">
-            <img src="../img/sub/symbolmark.png" alt="">
-            <h1>심볼마크</h1>
-            <p>동아방송예술대학교의 역사성과 권위, 전통성을 표현하는 오쏠리티 마크로 학문을 수호하는 방패와 학교를 상징하는 DIMA를 의인화하여 중심에 배치해 세계를 향해 힘차게 도전하고 자기 분야에서 우뚝 서는 위대한 디마인을 의미하며, 이를 '디마 자이언트'라는 상징성을 담아 표현하였다.<br><br>아울러 도형의 기본인 사각형과 원의 조형적 특성과 아름다움, 섬세함을 라인으로 배치해 미래지향적이며 동시에 학교의 가치와 전통성을 담아낼 수 있게 개발 되었다.</p>
-            <div class="">
+          <div class="" style="top: 375px; width: 100%;">
+            <img src="../img/sub/graph.png" alt="" style="width: 555px; height: 540px; top: 0; left: 211px;">
+            <img src="../img/sub/symbolmark.png" alt="" style="width: 519px; height: 507px; top: 20px; left: 225px;">
+            <h1 style="left: 823px; top: 35px;">심볼마크</h1>
+            <p style="width: 892px; top: 133px; left: 823px;">동아방송예술대학교의 역사성과 권위, 전통성을 표현하는 오쏠리티 마크로 학문을 수호하는 방패와 학교를 상징하는 DIMA를 의인화하여 중심에 배치해 세계를 향해 힘차게 도전하고 자기 분야에서 우뚝 서는 위대한 디마인을 의미하며, 이를 '디마 자이언트'라는 상징성을 담아 표현하였다.<br><br>아울러 도형의 기본인 사각형과 원의 조형적 특성과 아름다움, 섬세함을 라인으로 배치해 미래지향적이며 동시에 학교의 가치와 전통성을 담아낼 수 있게 개발 되었다.</p>
+            <div class="" style="left: 823px; top: 468px;">
               <button type="button" name="button">JPG 다운로드</button>
               <button type="button" name="button">AI 다운로드</button>
             </div>
           </div>
-          <div class="">
-            <img src="../img/sub/graph.png" alt="">
-            <img src="../img/sub/logo.png" alt="">
-            <h1>대학로고</h1>
-            <p>영문 약칭 dima에 학교의 중심인 학생 자신을 의미하는 im, 중요한 가치를 뜻하는 Important value를 부여하여 학생을 소중하게 생각하며 그 학생의 성장에 필요한 결정적인 가치를 배울 수 있는 차별화된 대학이라는 이미지를 담았다.</p>
-            <div class="">
+          <div class="" style="top: 1148px; width: 100%;">
+            <img src="../img/sub/graph.png" alt="" style="top: 0; left: 211px; height: 458px; width: 661px;">
+            <img src="../img/sub/logo.png" alt="" style="width: 628.79px; height: 380.58px; top: 39px; left: 227px;">
+            <h1 style="left: 934px; top: 35px;">대학로고</h1>
+            <p style="width: 892px; top: 133px; left: 934px;">영문 약칭 dima에 학교의 중심인 학생 자신을 의미하는 im, 중요한 가치를 뜻하는 Important value를 부여하여 학생을 소중하게 생각하며 그 학생의 성장에 필요한 결정적인 가치를 배울 수 있는 차별화된 대학이라는 이미지를 담았다.</p>
+            <div class="" style="left: 934px; top: 361px;">
               <button type="button" name="button">JPG 다운로드</button>
               <button type="button" name="button">AI 다운로드</button>
             </div>

@@ -106,3 +106,7 @@ a:any-link {
 	color: inherit;
 	text-decoration: none;
 }
+
+a {
+	z-index: 2;
+}

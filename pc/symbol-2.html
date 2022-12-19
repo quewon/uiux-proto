@@ -243,7 +243,147 @@
     
     /*  */
     
+    section h1 {
+      position: absolute;
+      font-weight: var(--w900);
+      font-size: var(--s64);
+    }
     
+    section > h2 {
+      position: absolute;
+      font-weight: var(--w900);
+      font-size: var(--s32);
+      color: rgba(255, 255, 255, .75);
+    }
+    
+    section p {
+      font-size: var(--s18);
+      line-height: 20px;
+      display: block;
+      position: absolute;
+      font-weight: var(--w300);
+    }
+    
+    section > h3 {
+      position: absolute;
+      font-weight: var(--w500);
+      font-size: var(--s20);
+      color: rgba(255, 255, 255, .5);
+    }
+    
+    .pagebuttons {
+      top: 97px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+    }
+    
+    .pagebuttons a {
+      position: relative;
+      display: inline-block;
+      margin: 0;
+      padding: 20px;
+      width: 573px;
+      border: 1px solid black;
+      color: black;
+      box-sizing: border-box;
+      text-align: center;
+      vertical-align: middle;
+      font-size: var(--s25);
+      font-weight: var(--w500);
+    }
+    
+    .pagebuttons a.selected {
+      background: #FE16A1;
+      color: white;
+      cursor: default;
+    }
+    
+    button {
+      display: inline-block;
+      border: none;
+      background: #373637;
+      color: white;
+      font-weight: var(--w900);
+      font-size: var(--s25);
+      width: 268px;
+      height: auto;
+      padding: 16px;
+      border-radius: 50px;
+      margin-right: 108px;
+    }
+    
+    .symbol {
+      width: 1302px;
+      height: 663px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    
+    .symbol img {
+      height: 543px;
+      /* width: 920px; */
+    }
+    
+    .symbol > h1 {
+      top: 190px;
+    }
+    
+    .symbol > div {
+      width: 632px;
+      height: 391px;
+      background: #2B2B2B;
+      color: white;
+      bottom: 0;
+      padding: 60px;
+      padding-left: 76px;
+      padding-right: 76px;
+      box-sizing: border-box;
+      display: flex;
+      flex-flow: column nowrap;
+      gap: 30px;
+      justify-content: center;
+    }
+    
+    .symbol div h1 {
+      position: relative;
+      /* line-height: 60px; */
+      /* top: 30px;
+      left: 76px; */
+      font-size: var(--s32);
+    }
+    
+    .symbol div p {
+      position: relative;
+      /* left: 76px;
+      width: 477px; */
+      /* top: 89px; */
+      word-break: keep-all;
+    }
+    
+    .symbol.left img {
+      left: 0;
+    }
+    
+    .symbol.left > h1 {
+      right: 12px;
+    }
+    
+    .symbol.left > div {
+      right: 0;
+    }
+    
+    .symbol.right img {
+      right: 0;
+    }
+    
+    .symbol.right > h1 {
+      left: 12px;
+    }
+    
+    .symbol.right > div {
+      left: 0;
+    }
   </style>
   <body>
     
@@ -255,16 +395,18 @@
         <section class="title">
           <img src="../img/sub/symbol1.png" alt="">
           <div style="top: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5);"></div>
+          <h1 style="color: white; top: 264px; left: 50%; transform: translateX(-50%);">상징</h1>
+          <h3 style="top: 340px; left: 50%; transform: translateX(-50%)">Symbol</h3>
         </section>
         
         <section style="height: 3856px">
           
-          <div class="">
+          <div class="pagebuttons">
             <a href="symbol-1.html">DIMA 심볼 및 로고</a>
             <a class="selected">상징물</a>
           </div>
           
-          <div class="">
+          <div class="symbol left" style="top: 307px;">
             <img src="../img/sub/symbols/tree.png" alt="">
             <h1>교목</h1>
             <div class="">
@@ -274,7 +416,7 @@
             </div>
           </div>
           
-          <div class="">
+          <div class="symbol right" style="top: 1201px;">
             <img src="../img/sub/symbols/flower.png" alt="">
             <h1>교화</h1>
             <div class="">
@@ -283,7 +425,7 @@
             </div>
           </div>
           
-          <div class="">
+          <div class="symbol left" style="top: 2085px;">
             <img src="../img/sub/symbols/horse.png" alt="">
             <h1>교수</h1>
             <div class="">
@@ -292,7 +434,7 @@
             </div>
           </div>
           
-          <div class="">
+          <div class="symbol right" style="top: 2948px;">
             <img src="../img/sub/symbols/bird.png" alt="">
             <h1>교조</h1>
             <div class="">
