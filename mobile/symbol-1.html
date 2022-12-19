@@ -347,10 +347,10 @@
     
     section p {
       position: absolute;
-      font-size: var(--s15);
+      font-size: var(--s20);
       font-weight: var(--w300);
-      color: rgba(0, 0, 0, .75);
-      line-height: 20px;
+      color: black;
+      line-height: 28px;
     }
     
     .title h1 {
@@ -368,40 +368,49 @@
       font-size: var(--s20);
     }
     
-    .iconboard {
-      width: 100%;
-    }
-    
-    .iconboard div {
-      position: absolute;
+    .pagebuttons {
+      top: 48px;
+      left: 50%;
+      transform: translateX(-50%);
       display: flex;
-      flex-flow: column nowrap;
-      gap: 30px;
-      align-items: center;
-      width: 120px;
     }
     
-    .iconboard div img {
+    .pagebuttons a {
       position: relative;
-      width: 100px;
-      height: 100px;
-    }
-    
-    .iconboard div span {
-      position: relative;
-      font-weight: var(--w500);
+      display: inline-block;
+      margin: 0;
+      padding: 20px;
+      width: 318px;
+      border: 1px solid black;
+      color: black;
+      box-sizing: border-box;
+      text-align: center;
+      vertical-align: middle;
       font-size: var(--s25);
-      text-align: center;
-      word-break: keep-all;
+      font-weight: var(--w500);
     }
     
-    .iconboard div p {
-      position: relative;
-      font-weight: var(--w300);
-      font-size: var(--s20);
-      text-align: center;
-      width: 208px;
-      word-break: keep-all;
+    .pagebuttons a.selected {
+      font-weight: var(--w900);
+      background: #FE16A1;
+      color: white;
+    }
+    
+    .center.x img, .center.x h1, .center.x p, .center.x button {
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    
+    button {
+      position: absolute;
+      font-size: var(--s25);
+      font-weight: var(--w500);
+      background: #373637;
+      border: none;
+      border-radius: 100px;
+      padding: 14px;
+      width: 232px;
+      color: white;
     }
   </style>
   <body>
@@ -421,48 +430,29 @@
           <a class="dropdown breadcrumb" style="top: 50%; left: 32px; transform: translateY(-50%);">대학소개</a>
         </section>
         
-        <section style="height: 212px">
-          <h1 style="left: 56px; top: 0;">건학이념</h1>
-          <p style="top: 102px; left: 56px; width: 574px;">동아방송예술대학교는 21세기 문화·예술·미디어 환경을 창조적으로 개척해<br>나아갈 글로벌 리더를 육성함으로써 세계인의 보편적 가치 신장에 기여 하고자 합니다.</p>
-        </section>
-        
-        <section style="height: 236px">
-          <img src="../img/sub/edu2.png" alt="" style="height: 100%">
-          <div style="top: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5);"></div>
-          <h1 style="color: white; right: 60px; top: 14px;">교육목적</h1>
-          <h2 style="color: #FFFFFFBF; top: 96px; right: 60px;">현장에서 빛나는 별</h2>
-          <p style="text-align: right; color: white; top: 146px; right: 60px; width: 408px;">현장에서 글로벌 리더십을 갖춘 전문가 양성을 통해 어디서나<br>실무에서 빛날 수 있는 인재 양성을 목적으로 하고 있습니다.</p>
-        </section>
-        
-        <section style="height: 1340px">
-          <h1 style="top: 16px; left: 56px;">교육목표</h1>
-          <div class="iconboard" style="top:0;left:0;">
-            <div class="" style="top: 176px; left: 128px;">
-              <img src="../img/sub/virtual-reality 1.svg" alt="">
-              <span>미래지향적<br>교육</span>
-              <p>미디어·예술 환경 변화에 창의적으로 대응하는 미래지향적 교육 실시</p>
-            </div>
-            <div class="" style="top: 176px; right: 128px;">
-              <img src="../img/sub/star 1.svg" alt="">
-              <span>특성화<br>교육</span>
-              <p>미디어·예술 콘텐츠 분야로 집중된 특성화 교육 실시</p>
-            </div>
-            <div class="" style="left: 128px; top: 600px;">
-              <img src="../img/sub/read 1.svg" alt="">
-              <span>전문화<br>교육</span>
-              <p>첨단기자재 및 실습장을 토대로 현장중심의 전문화 교육 실시</p>
-            </div>
-            <div class="" style="top: 600px; right: 128px;">
-              <img src="../img/sub/rating 1.svg" alt="">
-              <span>전문가<br>양성</span>
-              <p>산학협력체제 활성화를 통한 전문가 양성</p>
-            </div>
-            <div class="" style="top: 1008px; left:50%; transform: translateX(-50%)">
-              <img src="../img/sub/paint-palette 1.svg" alt="">
-              <span>미디어·예술<br>인재 양성</span>
-              <p>글로벌 리더십을 갖춘 미디어·예술 인재 양성</p>
-            </div>
+        <section style="height: 2378px">
+          <div class="pagebuttons">
+            <a class="selected">DIMA 심볼 및 로고</a>
+            <a href="symbol-2.html">상징물</a>
           </div>
+          
+          <div class="center x" style="width: 100%;">
+            <img src="../img/sub/graph.png" alt="" style="width: 456px; height: 443.68px; top: 208px;">
+            <img src="../img/sub/symbolmark.png" alt="" style="width: 426.42px; height: 416.56px; top: 224.44px;">
+            <h1 style="top: 652px;">심볼마크</h1>
+            <p style="width: 392px; top: 752px;">동아방송예술대학교의 역사성과 권위, 전통성을 표현하는 오쏠리티 마크로 학문을 수호하는 방패와 학교를 상징하는 DIMA를 의인화하여 중심에 배치해 세계를 향해 힘차게 도전하고 자기 분야에서 우뚝 서는 위대한 디마인을 의미하며, 이를 '디마 자이언트'라는 상징성을 담아 표현하였다.<br><br>아울러 도형의 기본인 사각형과 원의 조형적 특성과 아름다움, 섬세함을 라인으로 배치해 미래지향적이며 동시에 학교의 가치와 전통성을 담아낼 수 있게 개발 되었다.</p>
+            <button type="button" name="button" style="top: 1144px;">JPG 다운로드</button>
+            <button type="button" name="button" style="top: 1246px">AI 다운로드</button>
+          </div>
+          <div class="center x" style="width: 100%;">
+            <img src="../img/sub/graph.png" alt="" style="top: 1476px; height: 344px; width: 496px;">
+            <img src="../img/sub/logo.png" alt="" style="width: 472px; height: 286px; top: 1506px;">
+            <h1 style="top: 1820px;">대학로고</h1>
+            <p style="width: 392px; top: 1920px;">영문 약칭 dima에 학교의 중심인 학생 자신을 의미하는 im, 중요한 가치를 뜻하는 Important value를 부여하여 학생을 소중하게 생각하며 그 학생의 성장에 필요한 결정적인 가치를 배울 수 있는 차별화된 대학이라는 이미지를 담았다.</p>
+            <button type="button" name="button" style="top: 2144px">JPG 다운로드</button>
+            <button type="button" name="button" style="top: 2246px">AI 다운로드</button>
+          </div>
+          
         </section>
         
         <footer>

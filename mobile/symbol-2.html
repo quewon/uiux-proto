@@ -347,10 +347,10 @@
     
     section p {
       position: absolute;
-      font-size: var(--s15);
+      font-size: var(--s20);
       font-weight: var(--w300);
-      color: rgba(0, 0, 0, .75);
-      line-height: 20px;
+      color: black;
+      line-height: 28px;
     }
     
     .title h1 {
@@ -368,40 +368,103 @@
       font-size: var(--s20);
     }
     
-    .iconboard {
-      width: 100%;
+    .pagebuttons {
+      top: 48px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
     }
     
-    .iconboard div {
+    .pagebuttons a {
+      position: relative;
+      display: inline-block;
+      margin: 0;
+      padding: 20px;
+      width: 318px;
+      border: 1px solid black;
+      color: black;
+      box-sizing: border-box;
+      text-align: center;
+      vertical-align: middle;
+      font-size: var(--s25);
+      font-weight: var(--w500);
+    }
+    
+    .pagebuttons a.selected {
+      font-weight: var(--w900);
+      background: #FE16A1;
+      color: white;
+    }
+    
+    .center.x img, .center.x h1, .center.x p, .center.x button {
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    
+    button {
       position: absolute;
+      font-size: var(--s25);
+      font-weight: var(--w500);
+      background: #373637;
+      border: none;
+      border-radius: 100px;
+      padding: 14px;
+      width: 232px;
+      color: white;
+    }
+    
+    .symbol {
+      /* height: 826px; */
+      width: 520px;
+      left: 50%;
+      transform: translate(-50%, 20px);
       display: flex;
       flex-flow: column nowrap;
-      gap: 30px;
+    }
+    
+    .symbol img {
+      position: relative;
+      width: inherit;
+      height: 306px;
+    }
+    
+    .symbol > h1 {
+      position: relative;
+      line-height: 50px;
+      font-size: var(--s32);
+      font-weight: var(--w900);
+    }
+    
+    .symbol > div {
+      position: relative;
+      background: #2B2B2B;
+      display: flex;
+      flex-flow: column nowrap;
+      width: inherit;
+      /* height: 430px; */
+      padding: 40px;
+      box-sizing: border-box;
+      color: white;
+      gap: 20px;
       align-items: center;
-      width: 120px;
+      justify-content: center;
     }
     
-    .iconboard div img {
+    .symbol div h1 {
       position: relative;
-      width: 100px;
-      height: 100px;
-    }
-    
-    .iconboard div span {
-      position: relative;
-      font-weight: var(--w500);
       font-size: var(--s25);
-      text-align: center;
-      word-break: keep-all;
+      line-height: 30px;
+      background: #2B2B2B;
+      display: flex;
+      flex-flow: column nowrap;
     }
     
-    .iconboard div p {
+    .symbol div p {
+      color: rgba(255, 255, 255, .75);
       position: relative;
       font-weight: var(--w300);
       font-size: var(--s20);
-      text-align: center;
-      width: 208px;
-      word-break: keep-all;
+      line-height: 24px;
     }
   </style>
   <body>
@@ -421,48 +484,49 @@
           <a class="dropdown breadcrumb" style="top: 50%; left: 32px; transform: translateY(-50%);">대학소개</a>
         </section>
         
-        <section style="height: 212px">
-          <h1 style="left: 56px; top: 0;">건학이념</h1>
-          <p style="top: 102px; left: 56px; width: 574px;">동아방송예술대학교는 21세기 문화·예술·미디어 환경을 창조적으로 개척해<br>나아갈 글로벌 리더를 육성함으로써 세계인의 보편적 가치 신장에 기여 하고자 합니다.</p>
-        </section>
-        
-        <section style="height: 236px">
-          <img src="../img/sub/edu2.png" alt="" style="height: 100%">
-          <div style="top: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5);"></div>
-          <h1 style="color: white; right: 60px; top: 14px;">교육목적</h1>
-          <h2 style="color: #FFFFFFBF; top: 96px; right: 60px;">현장에서 빛나는 별</h2>
-          <p style="text-align: right; color: white; top: 146px; right: 60px; width: 408px;">현장에서 글로벌 리더십을 갖춘 전문가 양성을 통해 어디서나<br>실무에서 빛날 수 있는 인재 양성을 목적으로 하고 있습니다.</p>
-        </section>
-        
-        <section style="height: 1340px">
-          <h1 style="top: 16px; left: 56px;">교육목표</h1>
-          <div class="iconboard" style="top:0;left:0;">
-            <div class="" style="top: 176px; left: 128px;">
-              <img src="../img/sub/virtual-reality 1.svg" alt="">
-              <span>미래지향적<br>교육</span>
-              <p>미디어·예술 환경 변화에 창의적으로 대응하는 미래지향적 교육 실시</p>
-            </div>
-            <div class="" style="top: 176px; right: 128px;">
-              <img src="../img/sub/star 1.svg" alt="">
-              <span>특성화<br>교육</span>
-              <p>미디어·예술 콘텐츠 분야로 집중된 특성화 교육 실시</p>
-            </div>
-            <div class="" style="left: 128px; top: 600px;">
-              <img src="../img/sub/read 1.svg" alt="">
-              <span>전문화<br>교육</span>
-              <p>첨단기자재 및 실습장을 토대로 현장중심의 전문화 교육 실시</p>
-            </div>
-            <div class="" style="top: 600px; right: 128px;">
-              <img src="../img/sub/rating 1.svg" alt="">
-              <span>전문가<br>양성</span>
-              <p>산학협력체제 활성화를 통한 전문가 양성</p>
-            </div>
-            <div class="" style="top: 1008px; left:50%; transform: translateX(-50%)">
-              <img src="../img/sub/paint-palette 1.svg" alt="">
-              <span>미디어·예술<br>인재 양성</span>
-              <p>글로벌 리더십을 갖춘 미디어·예술 인재 양성</p>
+        <section style="height: 3264px">
+          <div class="pagebuttons">
+            <a href="symbol-1.html">DIMA 심볼 및 로고</a>
+            <a class="selected">상징물</a>
+          </div>
+          
+          <div class="symbol" style="top: 140px;">
+            <h1>교목</h1>
+            <img src="../img/sub/symbols/tree.png" alt="">
+            <div class="">
+              <h1>느티나무</h1>
+              <p>그 모습이 자못 우아하고 무게가 있기에 느티나무는 오랜동안 대담하고 지혜로운 사람의 상징으로 일컬어져 왔다. 또한 아늑하고 포근하게 드리워진 가지는 안식을 주기에 족하며, 알차고 실한 열매는 노력과 성실이 얼마나 값진 것인지를 보여주기에 알맞다.<br><br>그래서 느티나무는 동아방송예술대학교의 교육이념인 문화·예술·미디어 환경을 창조적으로 개척해 나가는자는
+뜻과 일맥상통 하여 忠. 孝. 禮의 표현하여 억센 줄기는 강한 의지를, 고루 퍼진 가지는 조화된 질서를 단정한 잎들은 예의의 상징하는 느티나무를 교목으로 삼고있다.</p>
             </div>
           </div>
+          
+          <div class="symbol" style="top: 964px;">
+            <h1>교화</h1>
+            <img src="../img/sub/symbols/flower.png" alt="">
+            <div class="">
+              <h1>철쭉</h1>
+              <p>화사한 다홍색의 철쭉은 사랑과 협동의 의미를 나타내며, 추운 겨울을 이겨내고 이른 봄 아름답게 피어나는 꽃으로 찬란함, 향기로움, 생명력을 상징합니다.<br><br>동아방송예술대학교 학생들의 예술에 대한 사랑과 협동심을 길러 현장에서 빛나는 별이 될 수 있도록 하는 차원에서 철쭉을 우리 대학의 교화로 정하게 되었습니다.</p>
+            </div>
+          </div>
+          
+          <div class="symbol" style="top: 1726px;">
+            <h1>교수</h1>
+            <img src="../img/sub/symbols/horse.png" alt="">
+            <div class="">
+              <h1>말</h1>
+              <p>말의 상징성은 하 늘의 사신으로 건국 시조의 탄생을 알리는 신모, 영물의 존재, 주인에게 충성을 다하는 신의(信義)성 유물등에서 는 피장자의 영혼을 태우고 가는 안내자, 또한 말을 받드는 민간신앙(말날. 마정)등을 볼 수 있습니다.<br><br>동아방송예술대학교 학생들이 활동적이며 도약적인 이미지로 발전하기를 기원하며 또한 우리 대학의 활동적이고 민첩함을 표현하기에 적합하다고 판단하여 말을 우리 대학의 교수로 선정했습니다.</p>
+            </div>
+          </div>
+          
+          <div class="symbol" style="top: 2500px;">
+            <h1>교조</h1>
+            <img src="../img/sub/symbols/bird.png" alt="">
+            <div class="">
+              <h1>알바트로스</h1>
+              <p>알바트로스의 날개는 길이가 3~4m여서 높고 거침없는 이상의 상징으로, 보들레르의 시에서처럼 ‘폭풍 속을 드나들고 사수(射手)를 비웃는 구름 위의 왕자’로 불립니다.<br><br>생존하고 있는 새들 중에서 가장 높이, 그리고 가장 멀리 날 수 있는 새로 이를 바탕으로 동아방송예술대학교 학생들이 보다 높은 이상을 추구하는 기상의 표현하고자 우리 대학의 교조로 선정하게 되었습니다.</p>
+            </div>
+          </div>
+          
         </section>
         
         <footer>
