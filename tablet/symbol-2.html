@@ -23,12 +23,12 @@
       width: var(--width);
       height: var(--height);
       
-      --width: 720px;
-      --height: 1600px;
+      --width: 768px;
+      --height: 1024px;
       --font-size: 20px;
       
-      --header-height: 138px;
-      --nav-header-height: 68px;
+      --header-height: 148px;
+      --nav-header-height: 73px;
       
       overflow: hidden;
       
@@ -113,16 +113,11 @@
       
       transition: all 200ms;
       
-      box-shadow: 0px 8px 60px rgba(0, 0, 0, 0.25);
-    }
-    
-    header > div {
-      width: 100%;
-      height: 100%;
+      box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.25);
     }
     
     header.slide1, nav.shown + header {
-      box-shadow: 0px 8px 60px rgba(0, 0, 0, 0);
+      box-shadow: 0px 4px 30px rgba(0, 0, 0, 0);
     }
     
     nav.shown + header {
@@ -153,7 +148,7 @@
     }
     
     footer {
-      height: 218px;
+      height: 328px;
       border-top: 1px solid black;
     }
     
@@ -258,13 +253,13 @@
     
     .menu a {
       color: white;
-      padding-top: 42px;
-      padding-left: 46px;
+      padding-top: 45px;
+      padding-left: 49px;
       font-size: var(--s25);
     }
     
     nav .menu > span {
-      height: 70px;
+      height: 75px;
       width: 100%;
     }
     
@@ -279,8 +274,8 @@
     
     .links a {
       color: black;
-      padding: 28px;
-      padding-left: 44px;
+      padding: 30px;
+      padding-left: 47px;
       font-size: var(--s18);
       background: #F5F5F5;
     }
@@ -325,13 +320,13 @@
       margin-left: 10px;
     }
     
-    /*  */
+    /* */
     
     section h1 {
       position: absolute;
-      line-height: 120px;
+      line-height: 60px;
       font-weight: var(--w900);
-      font-size: var(--s32);
+      font-size: var(--s30);
     }
     
     section h2 {
@@ -347,11 +342,11 @@
     
     section p {
       position: absolute;
-      font-size: var(--s20);
+      font-size: var(--s15);
       font-weight: var(--w300);
       color: black;
-      line-height: 28px;
-      word-break: keep-all;
+      line-height: 18px;
+      width: 480px;
       text-align: center;
     }
     
@@ -381,14 +376,15 @@
       position: relative;
       display: inline-block;
       margin: 0;
-      padding: 20px;
-      width: 318px;
+      /* padding: 20px; */
+      line-height: 30px;
+      width: 295px;
       border: 1px solid black;
       color: black;
       box-sizing: border-box;
       text-align: center;
       vertical-align: middle;
-      font-size: var(--s25);
+      font-size: var(--s15);
       font-weight: var(--w500);
     }
     
@@ -398,21 +394,81 @@
       color: white;
     }
     
-    .center.x img, .center.x h1, .center.x p, .center.x button {
+    .center.x img, .center.x h1, .center.x p {
       left: 50%;
       transform: translateX(-50%);
     }
     
     button {
-      position: absolute;
-      font-size: var(--s25);
+      position: relative;
+      display: inline;
+      margin-right: 47px;
+      font-size: var(--s20);
       font-weight: var(--w500);
       background: #373637;
       border: none;
       border-radius: 100px;
-      padding: 14px;
-      width: 232px;
+      padding: 12px;
+      width: 209px;
       color: white;
+    }
+    button:last-child {
+      margin: 0;
+    }
+    
+    .symbol {
+      /* height: 826px; */
+      width: 520px;
+      left: 50%;
+      transform: translate(-50%, 0);
+      display: flex;
+      flex-flow: column nowrap;
+    }
+    
+    .symbol img {
+      position: relative;
+      width: inherit;
+      height: 306px;
+    }
+    
+    .symbol > h1 {
+      position: relative;
+      line-height: 56px;
+      font-size: var(--s30);
+      font-weight: var(--w900);
+    }
+    
+    .symbol > div {
+      position: relative;
+      background: #2B2B2B;
+      display: flex;
+      flex-flow: column nowrap;
+      width: inherit;
+      /* height: 430px; */
+      padding: 40px;
+      box-sizing: border-box;
+      color: white;
+      gap: 20px;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .symbol div h1 {
+      position: relative;
+      font-size: var(--s30);
+      line-height: 30px;
+      background: #2B2B2B;
+      display: flex;
+      flex-flow: column nowrap;
+    }
+    
+    .symbol div p {
+      color: rgba(255, 255, 255, .75);
+      position: relative;
+      font-weight: var(--w300);
+      font-size: var(--s15);
+      line-height: 24px;
+      word-break: keep-all;
     }
   </style>
   <body>
@@ -432,38 +488,59 @@
           <a class="dropdown breadcrumb" style="top: 50%; left: 32px; transform: translateY(-50%);">대학소개</a>
         </section>
         
-        <section style="height: 2378px">
+        <section style="height: 3015px">
           <div class="pagebuttons">
-            <a class="selected">DIMA 심볼 및 로고</a>
-            <a href="symbol-2.html">상징물</a>
+            <a href="symbol-1.html">DIMA 심볼 및 로고</a>
+            <a class="selected">상징물</a>
           </div>
           
-          <div class="center x" style="width: 100%;">
-            <img src="../img/sub/graph.png" alt="" style="width: 456px; height: 443.68px; top: 208px;">
-            <img src="../img/sub/symbolmark.png" alt="" style="width: 426.42px; height: 416.56px; top: 224.44px;">
-            <h1 style="top: 652px;">심볼마크</h1>
-            <p style="width: 392px; top: 752px;">동아방송예술대학교의 역사성과 권위, 전통성을 표현하는 오쏠리티 마크로 학문을 수호하는 방패와 학교를 상징하는 DIMA를 의인화하여 중심에 배치해 세계를 향해 힘차게 도전하고 자기 분야에서 우뚝 서는 위대한 디마인을 의미하며, 이를 '디마 자이언트'라는 상징성을 담아 표현하였다.<br><br>아울러 도형의 기본인 사각형과 원의 조형적 특성과 아름다움, 섬세함을 라인으로 배치해 미래지향적이며 동시에 학교의 가치와 전통성을 담아낼 수 있게 개발 되었다.</p>
-            <button type="button" name="button" style="top: 1144px;">JPG 다운로드</button>
-            <button type="button" name="button" style="top: 1246px">AI 다운로드</button>
+          <div class="symbol" style="top: 126px;">
+            <h1>교목</h1>
+            <img src="../img/sub/symbols/tree.png" alt="">
+            <div class="">
+              <h1>느티나무</h1>
+              <p>그 모습이 자못 우아하고 무게가 있기에 느티나무는 오랜동안 대담하고 지혜로운 사람의 상징으로 일컬어져 왔다. 또한 아늑하고 포근하게 드리워진 가지는 안식을 주기에 족하며, 알차고 실한 열매는 노력과 성실이 얼마나 값진 것인지를 보여주기에 알맞다.<br><br>그래서 느티나무는 동아방송예술대학교의 교육이념인 문화·예술·미디어 환경을 창조적으로 개척해 나가는자는
+뜻과 일맥상통 하여 忠. 孝. 禮의 표현하여 억센 줄기는 강한 의지를, 고루 퍼진 가지는 조화된 질서를 단정한 잎들은 예의의 상징하는 느티나무를 교목으로 삼고있다.</p>
+            </div>
           </div>
-          <div class="center x" style="width: 100%;">
-            <img src="../img/sub/graph.png" alt="" style="top: 1476px; height: 344px; width: 496px;">
-            <img src="../img/sub/logo.png" alt="" style="width: 472px; height: 286px; top: 1506px;">
-            <h1 style="top: 1820px;">대학로고</h1>
-            <p style="width: 392px; top: 1920px;">영문 약칭 dima에 학교의 중심인 학생 자신을 의미하는 im, 중요한 가치를 뜻하는 Important value를 부여하여 학생을 소중하게 생각하며 그 학생의 성장에 필요한 결정적인 가치를 배울 수 있는 차별화된 대학이라는 이미지를 담았다.</p>
-            <button type="button" name="button" style="top: 2144px">JPG 다운로드</button>
-            <button type="button" name="button" style="top: 2246px">AI 다운로드</button>
+          
+          <div class="symbol" style="top: 905px;">
+            <h1>교화</h1>
+            <img src="../img/sub/symbols/flower.png" alt="">
+            <div class="">
+              <h1>철쭉</h1>
+              <p>화사한 다홍색의 철쭉은 사랑과 협동의 의미를 나타내며, 추운 겨울을 이겨내고 이른 봄 아름답게 피어나는 꽃으로 찬란함, 향기로움, 생명력을 상징합니다.<br><br>동아방송예술대학교 학생들의 예술에 대한 사랑과 협동심을 길러 현장에서 빛나는 별이 될 수 있도록 하는 차원에서 철쭉을 우리 대학의 교화로 정하게 되었습니다.</p>
+            </div>
+          </div>
+          
+          <div class="symbol" style="top: 1596px;">
+            <h1>교수</h1>
+            <img src="../img/sub/symbols/horse.png" alt="">
+            <div class="">
+              <h1>말</h1>
+              <p>말의 상징성은 하 늘의 사신으로 건국 시조의 탄생을 알리는 신모, 영물의 존재, 주인에게 충성을 다하는 신의(信義)성 유물등에서 는 피장자의 영혼을 태우고 가는 안내자, 또한 말을 받드는 민간신앙(말날. 마정)등을 볼 수 있습니다.<br><br>동아방송예술대학교 학생들이 활동적이며 도약적인 이미지로 발전하기를 기원하며 또한 우리 대학의 활동적이고 민첩함을 표현하기에 적합하다고 판단하여 말을 우리 대학의 교수로 선정했습니다.</p>
+            </div>
+          </div>
+          
+          <div class="symbol" style="top: 2287px;">
+            <h1>교조</h1>
+            <img src="../img/sub/symbols/bird.png" alt="">
+            <div class="">
+              <h1>알바트로스</h1>
+              <p>알바트로스의 날개는 길이가 3~4m여서 높고 거침없는 이상의 상징으로, 보들레르의 시에서처럼 ‘폭풍 속을 드나들고 사수(射手)를 비웃는 구름 위의 왕자’로 불립니다.<br><br>생존하고 있는 새들 중에서 가장 높이, 그리고 가장 멀리 날 수 있는 새로 이를 바탕으로 동아방송예술대학교 학생들이 보다 높은 이상을 추구하는 기상의 표현하고자 우리 대학의 교조로 선정하게 되었습니다.</p>
+            </div>
           </div>
           
         </section>
         
         <footer>
-          <img src="../img/footer logo.png" alt="" style="top: 22px; left: 50%; transform: translateX(-50%); height: 40px;">
-          <img src="../img/star.png" alt="" style="top: 72px; left: 50%; transform: translateX(-50%)">
+          <img src="../img/mobile logo.png" alt="" style="width: 170px; height: 90px; top: 33px; left: 50%; transform: translateX(-50%);">
+          <img src="../img/star.svg" alt="" style="top: 139px; left: 50%; transform: translateX(-50%); width: 27px; height: 23px;">
           
-          <div class="" style="top: 90px; text-align: center; font-size: var(--s10); font-weight: var(--w300); width: 300px; line-height: 14px; left: 50%; transform: translateX(-50%)">
+          <div class="" style="top: 176px; text-align: center; font-size: var(--s12); font-weight: var(--w300); width: 690px; line-height: 16px; left: 50%; transform: translateX(-50%)">
             경기도 안성시 삼죽면 동아예대길 47(진촌리 632-18) 17516<br>
-            47, DongAhYedaegil, Samjuk-myun, Ansung-si, Gyeonggi-do, Republic of Korea 17516<br>
+            47, DongAhYedaegil, Samjuk-myun, Ansung-si, Gyeonggi-do,<br>
+            Republic of Korea 17516<br>
             TEL : 031-670-6600 | 입학문의 : 031-670-6612~3<br>
             <br style="height: 4px;">
             Copyright © 2022 DONG-AH INSTITUTE OF MEDIA AND ART ALL RIGHTS RESERVED.
@@ -485,7 +562,7 @@
           <a class="small">ENG</a>
         </div>
         <div class="links" style="position: relative; height: 100%; width: 70%; background: white;">
-          <span style="width: 100%; height: 24px; background: #D9D9D9"></span>
+          <span style="width: 100%; height: 26px; background: #D9D9D9"></span>
           <a class="dropdown">인삿말</a>
           <a href="edu.html">교육이념</a>
           <a>비전</a>
@@ -494,23 +571,23 @@
           <a>이념</a>
           <a href="symbol-1.html">상징</a>
         </div>
-        <img src="../img/ossollit.svg" alt="" style="width: 552px; height: 552px; bottom: -118px; right: -148px; opacity: .1">
+        <img src="../img/ossollit.svg" alt="" style="width: 461px; height: 461px; bottom: -90px; right: -207px; opacity: .1">
       </nav>
       
       <header class="slide1">
-        <div class="notnav">
-          <img src="../img/mobile logo.png" alt="" style="left: 286px; top: 30px; width: 148px; height: 80px;" onclick="window.location.href = './main.html';">
+        <div class="notnav" style="width: 100%;">
+          <img src="../img/mobile logo.png" alt="" style="left: 303px; top: 32px; width: 158px; height: 86px;" onclick="window.location.href = './main.html';">
           
           <!-- hamburger -->
-          <svg width="34" height="32" style="display: block; position: absolute; top: 12px; right: 0; padding: 40px;" onclick="togglenav()">
+          <svg width="34" height="32" style="display: block; position: absolute; top: 20px; right: 0; padding: 42px;" onclick="togglenav()">
             <path d="M 0 2 L 34 1 M 0 16 L 34 16 M 0 30 L 34 30" stroke-width="2" stroke="black" fill="none">
           </svg>
         </div>
-        <div class="nav">
-          <img src="../img/navlogo.png" alt="" style="left: 314px; top: 12px; width: 84px; height: 44px;" onclick="window.location.href = './main.html';">
+        <div class="nav" style="width: 100%;">
+          <img src="../img/navlogo.png" alt="" style="left: 336px; top: 13px; width: 90px; height: 47px;" onclick="window.location.href = './main.html';">
           
           <!-- close -->
-          <svg width="34" height="34" style="display: block; position: absolute; top: 0; right: 6px; padding: 18px;" onclick="togglenav()">
+          <svg width="36" height="36" style="display: block; position: absolute; top: 0; right: 6px; padding: 19px;" onclick="togglenav()">
             <path d="M 3 3 L 31 31 M 31 3 L 3 31" stroke-width="2" stroke="white" fill="none">
           </svg>
         </div>
@@ -528,6 +605,7 @@
   
   const header = document.querySelector("header");
   const container = document.querySelector(".container");
+  const scrollprompt = document.getElementsByClassName("scrollprompt")[0];
   
   container.addEventListener("scroll", function() {
     if (container.scrollTop < 720) {
@@ -538,8 +616,18 @@
     
     for (let i=0; i<fadeins.length; i++) {
       const f = fadeins[i];
-      if (container.scrollTop >= f.offsetTop - 1200) {
+      if (container.scrollTop >= f.offsetTop - 800) {
         f.classList.add("start");
+      }
+    }
+    
+    if (container.scrollTop >= 1900 && container.scrollTop <= 2000) {
+      if (!scrollprompt.classList.contains("flash")) {
+        // sp.parentNode.getElementsByClassName("scrolldone")[0].classList.remove("scrolldone");
+        scrollprompt.classList.add("flash");
+        setTimeout(function() {
+          scrollprompt.classList.remove("flash");
+        }, 2400);
       }
     }
   }, { passive: true });

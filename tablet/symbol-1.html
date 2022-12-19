@@ -23,12 +23,12 @@
       width: var(--width);
       height: var(--height);
       
-      --width: 720px;
-      --height: 1600px;
+      --width: 768px;
+      --height: 1024px;
       --font-size: 20px;
       
-      --header-height: 138px;
-      --nav-header-height: 68px;
+      --header-height: 148px;
+      --nav-header-height: 73px;
       
       overflow: hidden;
       
@@ -113,16 +113,11 @@
       
       transition: all 200ms;
       
-      box-shadow: 0px 8px 60px rgba(0, 0, 0, 0.25);
-    }
-    
-    header > div {
-      width: 100%;
-      height: 100%;
+      box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.25);
     }
     
     header.slide1, nav.shown + header {
-      box-shadow: 0px 8px 60px rgba(0, 0, 0, 0);
+      box-shadow: 0px 4px 30px rgba(0, 0, 0, 0);
     }
     
     nav.shown + header {
@@ -153,7 +148,7 @@
     }
     
     footer {
-      height: 218px;
+      height: 328px;
       border-top: 1px solid black;
     }
     
@@ -258,13 +253,13 @@
     
     .menu a {
       color: white;
-      padding-top: 42px;
-      padding-left: 46px;
+      padding-top: 45px;
+      padding-left: 49px;
       font-size: var(--s25);
     }
     
     nav .menu > span {
-      height: 70px;
+      height: 75px;
       width: 100%;
     }
     
@@ -279,8 +274,8 @@
     
     .links a {
       color: black;
-      padding: 28px;
-      padding-left: 44px;
+      padding: 30px;
+      padding-left: 47px;
       font-size: var(--s18);
       background: #F5F5F5;
     }
@@ -325,13 +320,13 @@
       margin-left: 10px;
     }
     
-    /*  */
+    /* */
     
     section h1 {
       position: absolute;
-      line-height: 120px;
+      line-height: 60px;
       font-weight: var(--w900);
-      font-size: var(--s32);
+      font-size: var(--s30);
     }
     
     section h2 {
@@ -347,12 +342,13 @@
     
     section p {
       position: absolute;
-      font-size: var(--s20);
+      font-size: var(--s15);
       font-weight: var(--w300);
       color: black;
-      line-height: 28px;
-      word-break: keep-all;
+      line-height: 18px;
+      width: 480px;
       text-align: center;
+      word-break: keep-all;
     }
     
     .title h1 {
@@ -381,14 +377,15 @@
       position: relative;
       display: inline-block;
       margin: 0;
-      padding: 20px;
-      width: 318px;
+      /* padding: 20px; */
+      line-height: 30px;
+      width: 295px;
       border: 1px solid black;
       color: black;
       box-sizing: border-box;
       text-align: center;
       vertical-align: middle;
-      font-size: var(--s25);
+      font-size: var(--s15);
       font-weight: var(--w500);
     }
     
@@ -398,21 +395,26 @@
       color: white;
     }
     
-    .center.x img, .center.x h1, .center.x p, .center.x button {
+    .center.x img, .center.x h1, .center.x p {
       left: 50%;
       transform: translateX(-50%);
     }
     
     button {
-      position: absolute;
-      font-size: var(--s25);
+      position: relative;
+      display: inline;
+      margin-right: 47px;
+      font-size: var(--s20);
       font-weight: var(--w500);
       background: #373637;
       border: none;
       border-radius: 100px;
-      padding: 14px;
-      width: 232px;
+      padding: 12px;
+      width: 209px;
       color: white;
+    }
+    button:last-child {
+      margin: 0;
     }
   </style>
   <body>
@@ -432,38 +434,41 @@
           <a class="dropdown breadcrumb" style="top: 50%; left: 32px; transform: translateY(-50%);">대학소개</a>
         </section>
         
-        <section style="height: 2378px">
+        <section style="height: 1878px">
           <div class="pagebuttons">
             <a class="selected">DIMA 심볼 및 로고</a>
             <a href="symbol-2.html">상징물</a>
           </div>
           
           <div class="center x" style="width: 100%;">
-            <img src="../img/sub/graph.png" alt="" style="width: 456px; height: 443.68px; top: 208px;">
-            <img src="../img/sub/symbolmark.png" alt="" style="width: 426.42px; height: 416.56px; top: 224.44px;">
-            <h1 style="top: 652px;">심볼마크</h1>
-            <p style="width: 392px; top: 752px;">동아방송예술대학교의 역사성과 권위, 전통성을 표현하는 오쏠리티 마크로 학문을 수호하는 방패와 학교를 상징하는 DIMA를 의인화하여 중심에 배치해 세계를 향해 힘차게 도전하고 자기 분야에서 우뚝 서는 위대한 디마인을 의미하며, 이를 '디마 자이언트'라는 상징성을 담아 표현하였다.<br><br>아울러 도형의 기본인 사각형과 원의 조형적 특성과 아름다움, 섬세함을 라인으로 배치해 미래지향적이며 동시에 학교의 가치와 전통성을 담아낼 수 있게 개발 되었다.</p>
-            <button type="button" name="button" style="top: 1144px;">JPG 다운로드</button>
-            <button type="button" name="button" style="top: 1246px">AI 다운로드</button>
+            <img src="../img/sub/graph.png" alt="" style="width: 550px; height: 535.14px; top: 181px;">
+            <img src="../img/sub/symbolmark.png" alt="" style="width: 514.32px; height: 502.43px; top: 200.82px;">
+            <h1 style="top: 736px;">심볼마크</h1>
+            <p style="top: 796px;">동아방송예술대학교의 역사성과 권위, 전통성을 표현하는 오쏠리티 마크로 학문을 수호하는 방패와 학교를 상징하는 DIMA를 의인화하여 중심에 배치해 세계를 향해 힘차게 도전하고 자기 분야에서 우뚝 서는 위대한 디마인을 의미하며, 이를 '디마 자이언트'라는 상징성을 담아 표현하였다.<br><br>아울러 도형의 기본인 사각형과 원의 조형적 특성과 아름다움, 섬세함을 라인으로 배치해 미래지향적이며 동시에 학교의 가치와 전통성을 담아낼 수 있게 개발 되었다.</p>
+            <div class="center x" style="top: 973px; width: fit-content;">
+              <button type="button" name="button">JPG 다운로드</button><button type="button" name="button">AI 다운로드</button>
+            </div>
           </div>
           <div class="center x" style="width: 100%;">
-            <img src="../img/sub/graph.png" alt="" style="top: 1476px; height: 344px; width: 496px;">
-            <img src="../img/sub/logo.png" alt="" style="width: 472px; height: 286px; top: 1506px;">
-            <h1 style="top: 1820px;">대학로고</h1>
-            <p style="width: 392px; top: 1920px;">영문 약칭 dima에 학교의 중심인 학생 자신을 의미하는 im, 중요한 가치를 뜻하는 Important value를 부여하여 학생을 소중하게 생각하며 그 학생의 성장에 필요한 결정적인 가치를 배울 수 있는 차별화된 대학이라는 이미지를 담았다.</p>
-            <button type="button" name="button" style="top: 2144px">JPG 다운로드</button>
-            <button type="button" name="button" style="top: 2246px">AI 다운로드</button>
+            <img src="../img/sub/graph.png" alt="" style="top: 1172px; height: 381.45px; width: 550px;">
+            <img src="../img/sub/logo.png" alt="" style="width: 523.39px; height: 317.14px; top: 1205.27px;">
+            <h1 style="top: 1573px;">대학로고</h1>
+            <p style="top: 1633px;">영문 약칭 dima에 학교의 중심인 학생 자신을 의미하는 im, 중요한 가치를 뜻하는 Important value를 부여하여 학생을 소중하게 생각하며 그 학생의 성장에 필요한 결정적인 가치를 배울 수 있는 차별화된 대학이라는 이미지를 담았다.</p>
+            <div class="center x" style="top: 1730px; width: fit-content;">
+              <button type="button" name="button">JPG 다운로드</button><button type="button" name="button">AI 다운로드</button>
+            </div>
           </div>
           
         </section>
         
         <footer>
-          <img src="../img/footer logo.png" alt="" style="top: 22px; left: 50%; transform: translateX(-50%); height: 40px;">
-          <img src="../img/star.png" alt="" style="top: 72px; left: 50%; transform: translateX(-50%)">
+          <img src="../img/mobile logo.png" alt="" style="width: 170px; height: 90px; top: 33px; left: 50%; transform: translateX(-50%);">
+          <img src="../img/star.svg" alt="" style="top: 139px; left: 50%; transform: translateX(-50%); width: 27px; height: 23px;">
           
-          <div class="" style="top: 90px; text-align: center; font-size: var(--s10); font-weight: var(--w300); width: 300px; line-height: 14px; left: 50%; transform: translateX(-50%)">
+          <div class="" style="top: 176px; text-align: center; font-size: var(--s12); font-weight: var(--w300); width: 690px; line-height: 16px; left: 50%; transform: translateX(-50%)">
             경기도 안성시 삼죽면 동아예대길 47(진촌리 632-18) 17516<br>
-            47, DongAhYedaegil, Samjuk-myun, Ansung-si, Gyeonggi-do, Republic of Korea 17516<br>
+            47, DongAhYedaegil, Samjuk-myun, Ansung-si, Gyeonggi-do,<br>
+            Republic of Korea 17516<br>
             TEL : 031-670-6600 | 입학문의 : 031-670-6612~3<br>
             <br style="height: 4px;">
             Copyright © 2022 DONG-AH INSTITUTE OF MEDIA AND ART ALL RIGHTS RESERVED.
@@ -485,7 +490,7 @@
           <a class="small">ENG</a>
         </div>
         <div class="links" style="position: relative; height: 100%; width: 70%; background: white;">
-          <span style="width: 100%; height: 24px; background: #D9D9D9"></span>
+          <span style="width: 100%; height: 26px; background: #D9D9D9"></span>
           <a class="dropdown">인삿말</a>
           <a href="edu.html">교육이념</a>
           <a>비전</a>
@@ -494,23 +499,23 @@
           <a>이념</a>
           <a href="symbol-1.html">상징</a>
         </div>
-        <img src="../img/ossollit.svg" alt="" style="width: 552px; height: 552px; bottom: -118px; right: -148px; opacity: .1">
+        <img src="../img/ossollit.svg" alt="" style="width: 461px; height: 461px; bottom: -90px; right: -207px; opacity: .1">
       </nav>
       
       <header class="slide1">
-        <div class="notnav">
-          <img src="../img/mobile logo.png" alt="" style="left: 286px; top: 30px; width: 148px; height: 80px;" onclick="window.location.href = './main.html';">
+        <div class="notnav" style="width: 100%;">
+          <img src="../img/mobile logo.png" alt="" style="left: 303px; top: 32px; width: 158px; height: 86px;" onclick="window.location.href = './main.html';">
           
           <!-- hamburger -->
-          <svg width="34" height="32" style="display: block; position: absolute; top: 12px; right: 0; padding: 40px;" onclick="togglenav()">
+          <svg width="34" height="32" style="display: block; position: absolute; top: 20px; right: 0; padding: 42px;" onclick="togglenav()">
             <path d="M 0 2 L 34 1 M 0 16 L 34 16 M 0 30 L 34 30" stroke-width="2" stroke="black" fill="none">
           </svg>
         </div>
-        <div class="nav">
-          <img src="../img/navlogo.png" alt="" style="left: 314px; top: 12px; width: 84px; height: 44px;" onclick="window.location.href = './main.html';">
+        <div class="nav" style="width: 100%;">
+          <img src="../img/navlogo.png" alt="" style="left: 336px; top: 13px; width: 90px; height: 47px;" onclick="window.location.href = './main.html';">
           
           <!-- close -->
-          <svg width="34" height="34" style="display: block; position: absolute; top: 0; right: 6px; padding: 18px;" onclick="togglenav()">
+          <svg width="36" height="36" style="display: block; position: absolute; top: 0; right: 6px; padding: 19px;" onclick="togglenav()">
             <path d="M 3 3 L 31 31 M 31 3 L 3 31" stroke-width="2" stroke="white" fill="none">
           </svg>
         </div>
@@ -528,6 +533,7 @@
   
   const header = document.querySelector("header");
   const container = document.querySelector(".container");
+  const scrollprompt = document.getElementsByClassName("scrollprompt")[0];
   
   container.addEventListener("scroll", function() {
     if (container.scrollTop < 720) {
@@ -538,8 +544,18 @@
     
     for (let i=0; i<fadeins.length; i++) {
       const f = fadeins[i];
-      if (container.scrollTop >= f.offsetTop - 1200) {
+      if (container.scrollTop >= f.offsetTop - 800) {
         f.classList.add("start");
+      }
+    }
+    
+    if (container.scrollTop >= 1900 && container.scrollTop <= 2000) {
+      if (!scrollprompt.classList.contains("flash")) {
+        // sp.parentNode.getElementsByClassName("scrolldone")[0].classList.remove("scrolldone");
+        scrollprompt.classList.add("flash");
+        setTimeout(function() {
+          scrollprompt.classList.remove("flash");
+        }, 2400);
       }
     }
   }, { passive: true });
