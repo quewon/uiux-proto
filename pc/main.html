@@ -495,6 +495,11 @@
       flex-wrap: wrap;
       width: calc(var(--width) - 451px);
       /* background: black; */
+      display: none;
+    }
+    
+    .boxholder.selected {
+      display: flex;
     }
     
     .box {
@@ -744,9 +749,9 @@
           <h1>NEWS</h1>
           <h2>디마뉴스</h2>
           <div class="" style="bottom: 37px; right: 1512px; width: calc(var(--s20) * 4);">
-            <button type="button" name="button" class="selected">2022</button>
-            <button type="button" name="button">2021</button>
-            <button type="button" name="button">2020</button>
+            <button type="button" name="button" class="selected" id="news-1">2022</button>
+            <button type="button" name="button" id="news-2">2021</button>
+            <button type="button" name="button" id="news-3">2020</button>
             <br>
             <button type="button" name="button">MORE</button>
           </div>
@@ -920,94 +925,90 @@
           <h1 style="background: white;">교육과정</h1>
           <h2>Introduction of the Departments</h2>
           
-          <div class="" style="bottom: 37px; right: 1512px; width: calc(var(--s20) * 9);">
-            <button type="button" name="button" class="selected">방송예술융합학부</button>
-            <button type="button" name="button">콘텐츠학부</button>
-            <button type="button" name="button">예술학부</button>
-            <button type="button" name="button">실용음악학부</button>
-            <button type="button" name="button">방송연예학부</button>
-            <button type="button" name="button">학사학위과정</button>
+          <div class="" style="bottom: 37px; right: 1512px; width: calc(var(--s20) * 9);" id="dep">
+            <button type="button" name="button" class="selected" id="dep-1">방송예술융합학부</button>
+            <button type="button" name="button" id="dep-2">콘텐츠학부</button>
+            <button type="button" name="button" id="dep-3">예술학부</button>
+            <button type="button" name="button" id="dep-4">실용음악학부</button>
+            <button type="button" name="button" id="dep-5">방송연예학부</button>
+            <button type="button" name="button" id="dep-6">학사학위과정</button>
           </div>
           
-          <div class="boxholder">
-            <div class="box">
-              <img src="../img/majors/bg/fill2.png" alt="">
-              <div class="cover">
-                <img src="../img/majors/screenwriting.png" alt="">
+          <div class="">
+            <div class="boxholder selected" id="dep-page-1">
+              <div class="box">
+                <img src="../img/majors/bg/fill2.png" alt="">
+                <div class="cover">
+                  <img src="../img/majors/screenwriting.png" alt="">
+                </div>
+                <h1>방송기술계열</h1>
               </div>
-              <h1>방송기술계열</h1>
-            </div>
-            
-            <div class="box">
-              <img src="../img/majors/bg/sound.png" alt="">
-              <div class="cover">
-                <img src="../img/majors/sound.png" alt="">
+              
+              <div class="box">
+                <img src="../img/majors/bg/sound.png" alt="">
+                <div class="cover">
+                  <img src="../img/majors/sound.png" alt="">
+                </div>
+                <h1>음향제작과</h1>
               </div>
-              <h1>음향제작과</h1>
-            </div>
-            
-            <div class="box">
-              <img src="../img/majors/bg/newmedia.png" alt="">
-              <div class="cover">
-                <img src="../img/majors/newmedia.png" alt="">
+              
+              <div class="box">
+                <img src="../img/majors/bg/newmedia.png" alt="">
+                <div class="cover">
+                  <img src="../img/majors/newmedia.png" alt="">
+                </div>
+                <h1>뉴미디어콘텐츠과</h1>
               </div>
-              <h1>뉴미디어콘텐츠과</h1>
-            </div>
-            
-            <div class="box">
-            </div>
-            <div class="box">
-            </div>
-            <div class="box">
-            </div>
-            
-            <!-- <div class="box">
-              <img src="../img/majors/bg/fill1.png" alt="">
-              <div class="cover">
-                <img src="../img/majors/screenwriting.png" alt="">
+              
+              <div class="box">
               </div>
-              <h1>방송극작과</h1>
-            </div>
-            
-            <div class="box">
-              <img src="../img/majors/bg/d0d.png" alt="">
-              <div class="cover">
-                <img src="../img/majors/d0d.png" alt="">
+              <div class="box">
               </div>
-              <h1>디지털영상디자인과</h1>
-            </div>
-            
-            <div class="box">
-              <img src="../img/majors/bg/music.png" alt="">
-              <div class="cover">
-                <img src="../img/majors/music.png" alt="">
+              <div class="box">
               </div>
-              <h1>실용음악계열</h1>
             </div>
-            
-            <div class="box">
-              <img src="../img/majors/bg/sound.png" alt="">
-              <div class="cover">
-                <img src="../img/majors/sound.png" alt="">
+            <div class="boxholder" id="dep-page-2">
+              <div class="box">
+                <img src="../img/majors/bg/video.png" alt="">
+                <div class="cover">
+                  <img src="../img/majors/video.png" alt="">
+                </div>
+                <h1>영상제작과</h1>
               </div>
-              <h1>음향제작과</h1>
+              
+              <div class="box">
+                <img src="../img/majors/bg/fill1.png" alt="">
+                <div class="cover">
+                  <img src="../img/majors/newmedia.png" alt="">
+                </div>
+                <h1>방송보도제작과</h1>
+              </div>
+              
+              <div class="box">
+                <img src="../img/majors/bg/fill2.png" alt="">
+                <div class="cover">
+                  <img src="../img/majors/screenwriting.png" alt="">
+                </div>
+                <h1>방송극작과</h1>
+              </div>
+              
+              <div class="box">
+                <img src="../img/majors/bg/fill1.png" alt="">
+                <div class="cover">
+                  <img src="../img/majors/newmedia.png" alt="">
+                </div>
+                <h1>광고제작과</h1>
+              </div>
+              <div class="box">
+                <img src="../img/majors/bg/d0d.png" alt="">
+                <div class="cover">
+                  <img src="../img/majors/d0d.png" alt="">
+                </div>
+                <h1>디지털영상디자인과</h1>
+              </div>
+              <div class="box">
+              </div>
             </div>
-            
-            <div class="box">
-              <img src="../img/majors/bg/video.png" alt="">
-              <div class="cover">
-                <img src="../img/majors/video.png" alt="">
-              </div>
-              <h1>영상제작과</h1>
-            </div>
-            
-            <div class="box">
-              <img src="../img/majors/bg/fill2.png" alt="">
-              <div class="cover">
-                <img src="../img/majors/newmedia.png" alt="">
-              </div>
-              <h1>뉴미디어콘텐츠과</h1>
-            </div> -->
           </div>
         </section>
         
@@ -1015,10 +1016,10 @@
           <h1>공지사항</h1>
           <h2>NOTICE</h2>
           <div class="" style="bottom: 37px; right: 1512px; width: calc(var(--s20) * 4);">
-            <button type="button" name="button" class="selected">전체</button>
-            <button type="button" name="button">공지</button>
-            <button type="button" name="button">교무</button>
-            <button type="button" name="button">정보</button>
+            <button type="button" name="button" class="selected" id="notice-1">전체</button>
+            <button type="button" name="button" id="notice-2">공지</button>
+            <button type="button" name="button" id="notice-3">교무</button>
+            <button type="button" name="button" id="notice-4">정보</button>
             <br>
             <button type="button" name="button">MORE</button>
           </div>
@@ -1264,7 +1265,30 @@
   </body>
   
   <script type="text/javascript" src="../trmix.min.js"></script>
+  <script type="text/javascript" src="../toggle.js"></script>
   <script type="text/javascript">
+  createToggles([
+    [document.getElementById("dep-1"), document.getElementById("dep-page-1")],
+    [document.getElementById("dep-2"), document.getElementById("dep-page-2")],
+    [document.getElementById("dep-3"), null],
+    [document.getElementById("dep-4"), null],
+    [document.getElementById("dep-5"), null],
+    [document.getElementById("dep-6"), null],
+  ]);
+  
+  createToggles([
+    [document.getElementById("news-1"), null],
+    [document.getElementById("news-2"), null],
+    [document.getElementById("news-3"), null],
+  ]);
+  
+  createToggles([
+    [document.getElementById("notice-1"), null],
+    [document.getElementById("notice-2"), null],
+    [document.getElementById("notice-3"), null],
+    [document.getElementById("notice-4"), null],
+  ]);
+  
   const header = document.querySelector("header");
   const container = document.querySelector(".container");
   const scrollprompts = document.getElementsByClassName("scrollprompt");

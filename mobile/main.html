@@ -507,7 +507,6 @@
     }
     
     .boxholder {
-      display: flex;
       bottom: 0;
       
       /* padding-top: calc(var(--header-height) - 1px); */
@@ -518,6 +517,11 @@
       flex-direction: row;
       flex-wrap: wrap;
       /* background: black; */
+      display: none;
+    }
+    
+    .boxholder.selected {
+      display: flex;
     }
     
     .box {
@@ -745,6 +749,14 @@
       font-size: var(--s18);
     }
     
+    .links {
+      display: none;
+    }
+    
+    .links.selected {
+      display: flex;
+    }
+    
     .links a {
       color: black;
       padding: 28px;
@@ -814,7 +826,7 @@
           <h1>NEWS</h1>
           <h2>디마뉴스</h2>
           <div class="" style="width: 100%; text-align: center; top: 182px; left: 50%; transform: translateX(-50%);">
-            <button type="button" name="button" class="selected" style="display: inline">2022</button><button type="button" name="button" style="display: inline">2021</button><button type="button" name="button" style="display: inline">2020</button>
+            <button type="button" name="button" class="selected" style="display: inline" id="news-1">2022</button><button type="button" name="button" style="display: inline" id="news-2">2021</button><button type="button" name="button" style="display: inline" id="news-3">2020</button>
           </div>
           <button type="button" name="button" style="position: absolute; right: 40px; bottom: 48px;">MORE</button>
           <div style="bottom: 0; width: 100%; border-top: 2px solid black"></div>
@@ -947,15 +959,15 @@
           <h2>Introduction of the Departments</h2>
           
           <div class="boxbuttons" style="bottom: 1054px; height: 54px; width: 100%;">
-            <button type="button" name="button" class="selected">방송예술융합학부</button>
-            <button type="button" name="button">콘텐츠학부</button>
-            <button type="button" name="button">예술학부</button>
-            <button type="button" name="button">실용음악학부</button>
-            <button type="button" name="button">방송연예학부</button>
-            <button type="button" name="button">학사학위과정</button>
+            <button type="button" name="button" class="selected" id="dep-1">방송예술융합학부</button>
+            <button type="button" name="button" id="dep-2">콘텐츠학부</button>
+            <button type="button" name="button" id="dep-3">예술학부</button>
+            <button type="button" name="button" id="dep-4">실용음악학부</button>
+            <button type="button" name="button" id="dep-5">방송연예학부</button>
+            <button type="button" name="button" id="dep-6">학사학위과정</button>
           </div>
           
-          <div class="boxholder">
+          <div class="boxholder selected" id="dep-page-1">
             <div class="box">
               <img src="../img/majors/bg/fill2.png" alt="">
               <div class="cover">
@@ -983,6 +995,48 @@
             <div class="box">
             </div>
             <div class="box">
+            </div>
+            <div class="box">
+            </div>
+          </div>
+          <div class="boxholder" id="dep-page-2">
+            <div class="box">
+              <img src="../img/majors/bg/video.png" alt="">
+              <div class="cover">
+                <img src="../img/majors/video.png" alt="">
+              </div>
+              <h1>영상제작과</h1>
+            </div>
+            
+            <div class="box">
+              <img src="../img/majors/bg/fill1.png" alt="">
+              <div class="cover">
+                <img src="../img/majors/newmedia.png" alt="">
+              </div>
+              <h1>방송보도제작과</h1>
+            </div>
+            
+            <div class="box">
+              <img src="../img/majors/bg/fill2.png" alt="">
+              <div class="cover">
+                <img src="../img/majors/screenwriting.png" alt="">
+              </div>
+              <h1>방송극작과</h1>
+            </div>
+            
+            <div class="box">
+              <img src="../img/majors/bg/fill1.png" alt="">
+              <div class="cover">
+                <img src="../img/majors/newmedia.png" alt="">
+              </div>
+              <h1>광고제작과</h1>
+            </div>
+            <div class="box">
+              <img src="../img/majors/bg/d0d.png" alt="">
+              <div class="cover">
+                <img src="../img/majors/d0d.png" alt="">
+              </div>
+              <h1>디지털영상디자인과</h1>
             </div>
             <div class="box">
             </div>
@@ -1084,17 +1138,23 @@
       
       <nav onmouseover="header.classList.add('hovered')" onmouseout="header.classList.remove('hovered')">
         <div class="menu" style="position: relative; width: 30%; height: 100%; background: var(--dima-red)">
-          <a class="selected">대학소개</a>
-          <a>학과안내</a>
-          <a class="diffpage">입시</a>
-          <a>대학광장</a>
-          <a>대학생활</a>
-          <a>아카이브</a>
+          <a class="selected" id="nav-1">대학소개</a>
+          <a id="nav-2">학과안내</a>
+          <a class="diffpage" id="nav-3">입시</a>
+          <a id="nav-4">대학광장</a>
+          <a id="nav-5">대학생활</a>
+          <a id="nav-6">아카이브</a>
           <span class=""></span>
           <a class="small"><img src="../img/search.svg" style="width: 16px; height: 16px; vertical-align: middle"></a>
           <a class="small">ENG</a>
         </div>
-        <div class="links" style="position: relative; height: 100%; width: 70%; background: white;">
+        <div class="links" style="position: relative; height: 100%; width: 70%; background: white;" id="nav-page-6">
+          <span style="width: 100%; height: 24px; background: #D9D9D9"></span>
+          <a>대학홍보물</a>
+          <a>디마갤러리</a>
+          <a>디마전경앨범</a>
+        </div>
+        <div class="links selected" style="position: relative; height: 100%; width: 70%; background: white;" id="nav-page-1">
           <span style="width: 100%; height: 24px; background: #D9D9D9"></span>
           <a class="dropdown">인삿말</a>
           <a href="edu.html">교육이념</a>
@@ -1103,6 +1163,30 @@
           <a>연혁</a>
           <a>이념</a>
           <a href="symbol-1.html">상징</a>
+        </div>
+        <div class="links" style="position: relative; height: 100%; width: 70%; background: white;" id="nav-page-2">
+          <span style="width: 100%; height: 24px; background: #D9D9D9"></span>
+          <a class="dropdown">방송예술기술학부</a>
+          <a class="dropdown">콘텐츠학부</a>
+          <a class="dropdown">예술학부</a>
+          <a class="dropdown">실용음악학부</a>
+          <a class="dropdown">방송연예학부</a>
+        </div>
+        <div class="links" style="position: relative; height: 100%; width: 70%; background: white;" id="nav-page-3">
+          <span style="width: 100%; height: 24px; background: #D9D9D9"></span>
+        </div>
+        <div class="links" style="position: relative; height: 100%; width: 70%; background: white;" id="nav-page-4">
+          <span style="width: 100%; height: 24px; background: #D9D9D9"></span>
+          <a class="dropdown">공지 및 자료</a>
+          <a class="dropdown">소통</a>
+          <a class="dropdown">정보공개</a>
+        </div>
+        <div class="links" style="position: relative; height: 100%; width: 70%; background: white;" id="nav-page-5">
+          <span style="width: 100%; height: 24px; background: #D9D9D9"></span>
+          <a class="dropdown">학사행정</a>
+          <a class="dropdown">학생지원</a>
+          <a class="dropdown">캠퍼스</a>
+          <a>학생자치기구</a>
         </div>
         <img src="../img/ossollit.svg" alt="" style="width: 552px; height: 552px; bottom: -118px; right: -148px; opacity: .1">
       </nav>
@@ -1131,7 +1215,32 @@
   </body>
   
   <script type="text/javascript" src="../touch-scroll-emulation.js"></script>
+  <script type="text/javascript" src="../toggle.js"></script>
   <script type="text/javascript">
+  createToggles([
+    [document.getElementById("nav-1"), document.getElementById("nav-page-1")],
+    [document.getElementById("nav-2"), document.getElementById("nav-page-2")],
+    [document.getElementById("nav-3"), document.getElementById("nav-page-3")],
+    [document.getElementById("nav-4"), document.getElementById("nav-page-4")],
+    [document.getElementById("nav-5"), document.getElementById("nav-page-5")],
+    [document.getElementById("nav-6"), document.getElementById("nav-page-6")],
+  ]);
+  
+  createToggles([
+    [document.getElementById("news-1"), null],
+    [document.getElementById("news-2"), null],
+    [document.getElementById("news-3"), null],
+  ]);
+  
+  createToggles([
+    [document.getElementById("dep-1"), document.getElementById("dep-page-1")],
+    [document.getElementById("dep-2"), document.getElementById("dep-page-2")],
+    [document.getElementById("dep-3"), null],
+    [document.getElementById("dep-4"), null],
+    [document.getElementById("dep-5"), null],
+    [document.getElementById("dep-6"), null],
+  ]);
+  
   const _carousel = document.getElementsByClassName("carousel")[0];
   
   var index = 0;
